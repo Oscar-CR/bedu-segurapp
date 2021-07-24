@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="loginEdiText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/size_48</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="fontFamily">Roboto</item>
+        <item name="android:layout_marginLeft">@dimen/size_32</item>
+        <item name="android:layout_marginRight">@dimen/size_32</item>
+        <item name="android:background">@drawable/et_rounded</item>
+        <item name="android:paddingStart">@dimen/size_16</item>
+    </style>
+
+    <style name="loginTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_20</item>
+        <item name="fontFamily">Roboto</item>
+        <item name="android:layout_marginLeft">@dimen/size_32</item>
+        <item name="android:layout_marginRight">@dimen/size_32</item>
+    </style>
+
+    <style name="buttomPrimary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/size_64</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="fontFamily">Roboto</item>
+        <item name="android:layout_marginLeft">@dimen/size_32</item>
+        <item name="android:layout_marginRight">@dimen/size_32</item>
+        <item name="backgroundTint">@color/black</item>
+        <item name="android:foreground">@drawable/bt_foreground</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="buttomSecundary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/size_64</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="fontFamily">Roboto</item>
+        <item name="android:layout_marginLeft">@dimen/size_32</item>
+        <item name="android:layout_marginRight">@dimen/size_32</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:foreground">@drawable/bt_border</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="login_img">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/size_48</item>
+        <item name="android:layout_marginRight">@dimen/size_48</item>
+    </style>
+
+</resources>
