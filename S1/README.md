@@ -12,7 +12,7 @@
 - Interpretar los lineamientos que integran el proyecto.
 - Programar la idea básica de nuestra aplicación.
 
-# Desarrollo
+# Desarrollo: Proyecto SegurApp
 
 ## ¿Por qué surge SegurApp?
 
@@ -25,8 +25,6 @@ El proyecto busca dar respuesta a estos incidentes mediante un software para dis
 <img src="./img/mockups.png">
 
 ## Descripción de las pantallas
-
-### SegurApp cuenta con tres pantallas principales
 
 - La primera cuenta con un mapa, permitiendo obtener nuestra ubicación en tiempo real, para activar dicha función se tiene un botón de pánico.
 - La segunda es una pantalla de contactos, donde se podrá acceder y agregar contactos de confianza, mismos que serán usados para recibir una notificación en caso de una emergencia.
