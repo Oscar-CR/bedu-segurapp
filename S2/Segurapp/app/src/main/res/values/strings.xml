@@ -8,6 +8,7 @@
     <string name="login_btn_secundary">Crear cuenta</string>
     <string name="login_forgot_pass">¿Olvidaste la contraseña?</string>
 
+    <string name="register">Registrarse</string>
     <string name="register_user">Usuario</string>
     <string name="register_user_hint">Ingrese su correo</string>
     <string name="register_password">Correo</string>
