@@ -62,7 +62,7 @@ class GetStartedActivity : AppCompatActivity() {
         mnEditText.setOnTouchListener { v, event ->
             when (event?.action) {
                 MotionEvent.ACTION_UP -> {
-                    if (event.rawX >= (mnEditText.right - txtLocation.compoundDrawables[DRAWABLE_RIGHT].bounds.width())) {
+                    if (event.rawX >= (mnEditText.right - mnEditText.compoundDrawables[DRAWABLE_RIGHT].bounds.width())) {
                         editInformation(mnEditText)
                     }
                 }
