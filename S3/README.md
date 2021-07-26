@@ -15,6 +15,10 @@
 
 # Postwork S3
 
+
+<img src="./img/segurapp.png">
+
+
 ## Introducción
 
 Los dispositivos móviles forman parte de nuestras vidas, podemos reservar boletos de avión, pedir comida, escuchar música, ver vídeos entretenidos, tomar fotografías y muchas otras cosas, hace unas cuantas décadas realizar todo esto con un solo dispositivo era imposible. En la actualidad, los celulares cuentan con múltiples funcionalidades, no obstante, hoy utilizamos el teléfono casi para todo menos para hablar y claro, existen los chats y las redes sociales pero si estuvieras en una situación de riesgo: ¿A quién acudirías?, ¿Contestaría rápido?, ¿Qué tan fácil sería poder hacerlo? Tan solo en México, _el 77.6% de la población dijo sentirse insegura en un cajero público y 63% en el banco durante junio de 2021_, sin dudas, el índice de delincuencia aumenta conforme pasan los años y la seguridad de nuestros seres queridos debe ser una prioridad. Es por esto que decidimos crear **SegurApp**, una aplicación que te pondrá en contacto con personas de tu confianza y/o realizar llamadas de emergencia, tan solo necesitas accionar un botón de auxilio y una alerta será enviada a todos tus contactos de confianza brindándoles tu ubicación actual.
@@ -30,6 +34,10 @@ En caso que necesites contactar con un servicio de emergencia deberás presionar
 ## Proceso de Mockups
 
 A continuación se presenta la propuesta desarrollada para poder implementar el flujo de nuestra aplicación
+
+
+<img src="./img/mockups_v1.png">
+
 
 ## Bibliografía
 
