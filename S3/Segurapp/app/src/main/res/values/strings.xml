@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">SegurApp</string>
+    <string name="login_user">Correo</string>
+    <string name="login_user_hint">Ingrese su correo</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_password_hint">Ingrese su contraseña</string>
+    <string name="login_btn_primary">Ingresar</string>
+    <string name="login_btn_secundary">Crear cuenta</string>
+    <string name="login_forgot_pass">¿Olvidaste la contraseña?</string>
+
+    <string name="register">Registrarse</string>
+    <string name="register_user">Usuario</string>
+    <string name="register_user_hint">Ingrese su correo</string>
+    <string name="register_password">Correo</string>
+    <string name="register_password_hint">Ingrese su contraseña</string>
+    <string name="register_btn_primary">Registrarse</string>
+
+    <string name="home_btn_help">¡AYUDA!</string>
+
+
+    <!-- Get Started Activity !-->
+    <string name="hint_direction">Ingrese su dirección</string>
+    <string name="hint_phone_number">Ingrese su número telefónico</string>
+    <string name="hint_emergency_message">Mensaje automático de emergencia</string>
+    <string name="btn_accept">Aceptar</string>
+
+</resources>
