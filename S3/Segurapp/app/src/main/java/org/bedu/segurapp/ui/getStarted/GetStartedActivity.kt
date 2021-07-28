@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.MotionEvent
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -22,6 +23,7 @@ class GetStartedActivity : AppCompatActivity() {
     private lateinit var btnAddImage: de.hdodenhof.circleimageview.CircleImageView
     private lateinit var txtLocation: EditText
     private lateinit var txtNumber: EditText
+    private lateinit var btnSave: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,7 @@ class GetStartedActivity : AppCompatActivity() {
         initComponents()
         setOnProfileClickListener()
         setTouchDrawable(txtLocation)
+        setButtonOnClickListener()
     }
 
     private fun initComponents() {
@@ -36,6 +39,7 @@ class GetStartedActivity : AppCompatActivity() {
         btnAddImage = findViewById(R.id.add_image)
         txtLocation = findViewById(R.id.txt_location)
         txtNumber = findViewById(R.id.txt_number)
+        btnSave = findViewById(R.id.btn_save)
     }
 
     private fun setOnProfileClickListener() {
@@ -81,6 +85,13 @@ class GetStartedActivity : AppCompatActivity() {
 
     private fun openMapBox() {
         Toast.makeText(this, "Opening Mapbox", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun setButtonOnClickListener(){
+        btnSave.setOnClickListener {
+            val intent = Intent(this, SafeContactsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }
