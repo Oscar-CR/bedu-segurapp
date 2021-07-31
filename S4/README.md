@@ -14,7 +14,7 @@ Para el desarrollo de este Postwork y Proyecto, se genero un RecyclerView en la 
 
 ## Item
 Se genero un Item, mismo que va a ser el molde para los demas elementos.
-<img src="./img/item.png">
+<img src="./img/Item.png">
 
 ## Adapter
 Se creo un Adaptador (basado en el ejercicio mostrado en la Clase 4 y Clase 5).
