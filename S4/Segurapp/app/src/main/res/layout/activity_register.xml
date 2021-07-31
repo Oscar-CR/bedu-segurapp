@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegisterActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/header_text"
+        android:text="@string/register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.103" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/login_decoration" />
+
+    <EditText
+        android:id="@+id/etRegisterUser"
+        style="@style/loginEdiText"
+        android:layout_marginBottom="76dp"
+        android:ems="10"
+        android:hint="@string/register_user_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/etregisterEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988" />
+
+    <EditText
+        android:id="@+id/etregisterEmail"
+        style="@style/loginEdiText"
+        android:ems="10"
+        android:hint="@string/login_user_hint"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/etRegisterPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.818" />
+
+    <EditText
+        android:id="@+id/etRegisterPassword"
+        style="@style/loginEdiText"
+        android:ems="8"
+        android:hint="@string/login_password_hint"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.689" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/loginTextView"
+        android:layout_marginTop="192dp"
+        android:text="@string/register_user"
+        app:layout_constraintBottom_toTopOf="@+id/etRegisterUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <TextView
+        android:id="@+id/tvRMail"
+        style="@style/loginTextView"
+        android:layout_marginTop="28dp"
+        android:text="@string/login_user"
+        app:layout_constraintBottom_toTopOf="@+id/etregisterEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRegisterUser"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <TextView
+        android:id="@+id/tvRPassword"
+        style="@style/loginTextView"
+        android:layout_marginTop="28dp"
+        android:text="@string/login_password"
+        app:layout_constraintBottom_toTopOf="@+id/etRegisterPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etregisterEmail"
+        app:layout_constraintVertical_bias="0.222" />
+
+    <Button
+        android:id="@+id/btSubmit"
+        style="@style/buttomPrimary"
+        android:layout_marginTop="32dp"
+        android:text="@string/register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRegisterPassword"
+        app:layout_constraintVertical_bias="0.075" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
