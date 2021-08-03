@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/mensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aqui va el mapa"
+        android:layout_centerInParent="true"
+        />
+    
+    <Button
+        android:layout_width="@dimen/size_120"
+        android:layout_height="wrap_content"
+        android:text="Ayuda"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/mensaje"
+        android:layout_marginTop="@dimen/size_120"
+        app:layout_constraintVertical_bias="0.0"
+        android:backgroundTint="@color/segurapp_red"
+        android:stateListAnimator="@null"
+
+        />
+</RelativeLayout>
