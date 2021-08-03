@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Segurapp.iml" filepath="$PROJECT_DIR$/.idea/modules/Segurapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/S4.Segurapp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/S4.Segurapp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Segurapp.iml" filepath="$PROJECT_DIR$/.idea/Segurapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Segurapp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Segurapp.app.iml" />
     </modules>
   </component>

@@ -8,7 +8,7 @@
     android:layout_marginHorizontal="@dimen/size_32"
     android:paddingVertical="@dimen/size_4"
     android:layout_marginVertical="@dimen/size_8"
-    android:background="@drawable/et_rounded"
+    android:background="@drawable/bg_contacts"
     android:backgroundTint="@color/segurapp_black_variant">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -40,7 +40,9 @@
         app:layout_constraintHorizontal_bias="0.120"
         app:layout_constraintStart_toEndOf="@+id/imgPorfile"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.10" />
+        app:layout_constraintVertical_bias="0.10"
+        android:ellipsize="end"
+        android:lines="1"/>
 
     <TextView
         android:id="@+id/tvPhone"

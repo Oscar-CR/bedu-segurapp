@@ -34,4 +34,10 @@
     <string name="menu_sms">Mensajes</string>
     <string name="menu_home">Inicio</string>
     <string name="menu_contacts">Contactos</string>
+
+    <!-- sms !-->
+    <string name="sms_username">Nombre</string>
+    <string name="sms_message">Mensaje</string>
+    <string name="sms_hour">00:00</string>
+
 </resources>

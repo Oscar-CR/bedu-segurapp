@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import org.bedu.segurapp.R
 import org.bedu.segurapp.ui.Contacts
+import org.bedu.segurapp.ui.Messages
 
 
 class ContactsAdapter(
@@ -23,7 +24,7 @@ class ContactsAdapter(
         return ViewHolder(layoutInflater.inflate(R.layout.item_contacts, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ContactsAdapter.ViewHolder, position: Int) {
         val contact = contacts.get(position)
         holder.bind(contact, context)
 
