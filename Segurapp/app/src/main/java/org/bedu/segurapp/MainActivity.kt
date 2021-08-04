@@ -3,21 +3,18 @@ package org.bedu.segurapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import org.bedu.segurapp.helpers.userIsLogged
+import org.bedu.segurapp.ui.home.HomeActivity
+import org.bedu.segurapp.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var btCreate: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        btCreate=findViewById(R.id.btCreate)
-
-        btCreate.setOnClickListener {
-
-            intent = Intent(applicationContext, RegisterActivity::class.java)
-            startActivity(intent)
-        }
+        val intent = if (userIsLogged()) Intent(this, HomeActivity::class.java)
+        else Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        this.finish()
     }
 }
