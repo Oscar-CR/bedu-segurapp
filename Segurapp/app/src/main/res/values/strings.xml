@@ -5,7 +5,7 @@
     <string name="login_password">Contraseña</string>
     <string name="login_password_hint">Ingrese su contraseña</string>
     <string name="login_btn_primary">Ingresar</string>
-    <string name="login_btn_secundary">Crear cuenta</string>
+    <string name="login_btn_secondary">Crear cuenta</string>
     <string name="login_forgot_pass">¿Olvidaste la contraseña?</string>
 
     <string name="register">Registrarse</string>
@@ -16,4 +16,8 @@
     <string name="register_btn_primary">Registrarse</string>
 
     <string name="home_btn_help">¡AYUDA!</string>
+
+    <!-- Forgot Password Bottom Sheet !-->
+    <string name="forgot_password_send_hint">Enviar</string>
+
 </resources>
