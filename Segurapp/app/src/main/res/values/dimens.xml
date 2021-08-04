@@ -6,6 +6,8 @@
     <dimen name="text_24">24sp</dimen>
     <dimen name="text_32">32sp</dimen>
 
+
+    <dimen name="size_8">18dp</dimen>
     <dimen name="size_16">16dp</dimen>
     <dimen name="size_24">24dp</dimen>
     <dimen name="size_32">32dp</dimen>
