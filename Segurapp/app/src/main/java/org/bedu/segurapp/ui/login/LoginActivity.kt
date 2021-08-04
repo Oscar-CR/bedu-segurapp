@@ -4,12 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import org.bedu.segurapp.R
+import org.bedu.segurapp.ui.forgotPassword.BottomSheetForgotPassword
 import org.bedu.segurapp.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var btCreate: Button
+    private lateinit var tvForgotPassword: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,9 +23,16 @@ class LoginActivity : AppCompatActivity() {
             intent = Intent(applicationContext, RegisterActivity::class.java)
             startActivity(intent)
         }
+
+        tvForgotPassword.setOnClickListener {
+            BottomSheetForgotPassword().apply {
+                show(supportFragmentManager, tag)
+            }
+        }
     }
 
     private fun initComponents(){
-        btCreate=findViewById(R.id.btCreate)
+        btCreate = findViewById(R.id.btCreate)
+        tvForgotPassword = findViewById(R.id.tvForgotPassword)
     }
 }
