@@ -7,30 +7,18 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.bedu.segurapp.R
 
-class ForgotPasswordDialogFragment : BottomSheetDialogFragment() {
+class BottomSheetForgotPassword : BottomSheetDialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.bottom_sheet_forgot_password, container, false)
+        val view = inflater.inflate(R.layout.bottom_sheet_forgot_password, container, false)
+        initComponents(view)
+        return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        val options = listOf<String>(
-            "Share with Friends",
-            "Bookmark",
-            "Add to Favourites",
-            "More Information"
-        )
-
-        listViewOptions.adapter = ArrayAdapter<String>(
-            requireContext(),
-            android.R.layout.simple_list_item_1,
-            options
-        )
+    private fun initComponents(view: View){
     }
 }
