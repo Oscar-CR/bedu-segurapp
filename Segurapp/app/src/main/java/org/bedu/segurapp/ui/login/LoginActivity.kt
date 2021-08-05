@@ -7,17 +7,24 @@ import android.widget.Button
 import android.widget.TextView
 import org.bedu.segurapp.R
 import org.bedu.segurapp.ui.forgotPassword.BottomSheetForgotPassword
+import org.bedu.segurapp.ui.home.HomeActivity
 import org.bedu.segurapp.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var btCreate: Button
+    private lateinit var btSubmit: Button
     private lateinit var tvForgotPassword: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         initComponents()
+
+        btSubmit.setOnClickListener {
+            intent = Intent(applicationContext,HomeActivity::class.java)
+            startActivity(intent)
+        }
 
         btCreate.setOnClickListener {
             intent = Intent(applicationContext, RegisterActivity::class.java)
@@ -33,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initComponents(){
         btCreate = findViewById(R.id.btCreate)
+        btSubmit = findViewById(R.id.btSubmit)
         tvForgotPassword = findViewById(R.id.tvForgotPassword)
     }
 }

@@ -20,4 +20,20 @@
     <!-- Forgot Password Bottom Sheet !-->
     <string name="forgot_password_send_hint">Enviar</string>
 
+    <!-- Bottom Navigation Menu !-->
+    <string name="menu_sms">Mensajes</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_contacts">Contactos</string>
+
+    <!-- App Bar !-->
+    <string name="drawer_user">Usuario</string>
+    <string name="drawer_email">correo@mail.com</string>
+    <string name="drawer_home">Home</string>
+    <string name="drawer_extra">Extra</string>
+    <string name="drawer_info">Informacion</string>
+    <string name="drawer_about">Acerca de</string>
+    <string name="drawer_privacy">Privacidad</string>
+
+    <string name="open_drawer">Abierto</string>
+    <string name="close_drawer">Cerrado</string>
 </resources>
