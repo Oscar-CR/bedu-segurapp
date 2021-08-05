@@ -25,8 +25,7 @@ class HomeActivity : AppCompatActivity() {
 
         bottom_navigation=findViewById(R.id.bottom_navigation)
         appBar = findViewById(R.id.app_bar)
-
-
+        
         this.setSupportActionBar(appBar)
 
         setupDrawer(appBar)
@@ -39,9 +38,18 @@ class HomeActivity : AppCompatActivity() {
 
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.page_1 -> makeCurretFragment(msgFragment)
-                R.id.page_2 -> makeCurretFragment(homeFragment)
-                R.id.page_3 -> makeCurretFragment(contactsFragment)
+                R.id.page_1 ->{
+                    makeCurretFragment(msgFragment)
+                    appBar.title = "Mensajes"
+                }
+                R.id.page_2 -> {
+                    makeCurretFragment(homeFragment)
+                    appBar.title = "Principal"
+                }
+                R.id.page_3 -> {
+                    makeCurretFragment(contactsFragment)
+                    appBar.title = "Contactos"
+                }
             }
             true
         }
