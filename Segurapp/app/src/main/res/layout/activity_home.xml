@@ -9,24 +9,42 @@
     tools:openDrawer="start"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeActivity">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/topAppBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
 
             <androidx.appcompat.widget.Toolbar
                 app:navigationIcon="@drawable/ic_menu"
                 android:id="@+id/app_bar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="@string/app_name" />
+                app:title="@string/app_name"
+                />
+
         </com.google.android.material.appbar.AppBarLayout>
 
-    </LinearLayout>
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/topAppBar"
+            android:layout_above="@id/bottom_navigation"
+            />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_navigation_menu"
+            android:layout_alignParentBottom="true"
+            app:labelVisibilityMode="unlabeled"/>
+    </RelativeLayout>
 
 
     <com.google.android.material.navigation.NavigationView
@@ -36,20 +54,5 @@
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
         app:menu="@menu/drawer_menu" />
-
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
-            app:menu="@menu/bottom_navigation_menu"
-            android:layout_alignParentBottom="true"
-            app:labelVisibilityMode="unlabeled"/>
-    </RelativeLayout>
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

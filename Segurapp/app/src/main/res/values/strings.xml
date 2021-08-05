@@ -29,11 +29,20 @@
     <string name="drawer_user">Usuario</string>
     <string name="drawer_email">correo@mail.com</string>
     <string name="drawer_home">Home</string>
-    <string name="drawer_extra">Extra</string>
+    <string name="drawer_account">Mi cuenta</string>
+    <string name="drawer_account_info">Mi Informacion</string>
+    <string name="drawer_account_messages">Mensajes Automaticos</string>
+    <string name="drawer_account_location">Ubicaciones Guardadas</string>
+    <string name="drawer_extra">Politicas y Privacidad</string>
     <string name="drawer_info">Informacion</string>
     <string name="drawer_about">Acerca de</string>
     <string name="drawer_privacy">Privacidad</string>
 
     <string name="open_drawer">Abierto</string>
     <string name="close_drawer">Cerrado</string>
+    <!-- sms !-->
+    <string name="sms_username">Nombre</string>
+    <string name="sms_message">Mensaje</string>
+    <string name="sms_hour">00:00</string>
+
 </resources>

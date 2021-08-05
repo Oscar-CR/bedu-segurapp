@@ -8,4 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#CC3131</color>
+
+    <!-- Custom Colors !-->
+    <color name="segurapp_black">#FF000000</color>
+    <color name="segurapp_black_variant">#272727</color>
+    <color name="segurapp_white">#FFFFFFFF</color>
+    <color name="segurapp_white_variant">#EFEFEF</color>
+    <color name="segurapp_red">#CC3131</color>
+    <color name="segurapp_red_variant">#DA3838</color>
+    <color name="segurapp_black_light">#232323</color>
 </resources>

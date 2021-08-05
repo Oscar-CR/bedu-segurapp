@@ -4,8 +4,33 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="@string/drawer_home" />
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_contacts"
+            android:icon="@drawable/ic_contacts"
+            android:title="@string/menu_contacts" />
+        <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/ic_message"
+            android:title="@string/menu_sms" />
     </group>
+    <item android:title="@string/drawer_account">
+        <menu>
+            <item
+                android:id="@+id/nav_myInfo"
+                android:icon="@drawable/ic_account"
+                android:title="@string/drawer_account_info" />
+
+            <item
+                android:id="@+id/nav_myMessages"
+                android:icon="@drawable/ic_edit"
+                android:title="@string/drawer_account_messages" />
+            <item
+                android:id="@+id/nav_myLocations"
+                android:icon="@drawable/ic_location"
+                android:title="@string/drawer_account_location" />
+        </menu>
+    </item>
 
     <item android:title="@string/drawer_extra">
         <menu>
