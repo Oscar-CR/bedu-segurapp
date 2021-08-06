@@ -38,8 +38,8 @@
             android:id="@+id/etLoginEmail"
             style="@style/loginEdiText"
             android:hint="@string/login_user_hint"
-            android:inputType="textEmailAddress"
-            android:imeOptions="actionNext"/>
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress" />
 
         <TextView
             android:id="@+id/tvPassword"
@@ -70,6 +70,14 @@
             style="@style/loginTextView"
             android:gravity="center"
             android:text="@string/login_forgot_pass" />
+
+
+        <TextView
+            android:id="@+id/tvUknownUser"
+            style="@style/loginTextView"
+            android:text="@string/login_unknow_user"
+            android:layout_marginTop="@dimen/size_48"
+            android:gravity="center"/>
 
     </LinearLayout>
 </ScrollView>

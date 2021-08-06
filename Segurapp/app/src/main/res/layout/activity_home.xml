@@ -18,7 +18,8 @@
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true">
+            android:layout_alignParentTop="true"
+            android:background="@color/segurapp_white_variant">
 
             <androidx.appcompat.widget.Toolbar
                 app:navigationIcon="@drawable/ic_menu"

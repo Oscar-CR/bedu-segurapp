@@ -2,7 +2,7 @@
 <resources>
     <style name="loginEdiText">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/size_48</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_16</item>
         <item name="fontFamily">Roboto</item>
         <item name="android:layout_marginLeft">@dimen/size_32</item>

@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Theme.Segurapp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/segurapp_red</item>
+        <item name="colorPrimaryVariant">@color/segurapp_red_variant</item>
+        <item name="colorOnPrimary">@color/segurapp_white_variant</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorSecondary">@color/segurapp_black</item>
+        <item name="colorSecondaryVariant">@color/segurapp_black_variant</item>
+        <item name="colorOnSecondary">@color/segurapp_white_variant</item>
+        <!-- Status bar color. -->2
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

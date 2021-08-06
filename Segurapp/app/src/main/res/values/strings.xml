@@ -7,6 +7,7 @@
     <string name="login_btn_primary">Ingresar</string>
     <string name="login_btn_secondary">Crear cuenta</string>
     <string name="login_forgot_pass">¿Olvidaste la contraseña?</string>
+    <string name="login_unknow_user">Iniciar sesion mas tarde</string>
 
     <string name="register">Registrarse</string>
     <string name="register_user">Usuario</string>
@@ -40,9 +41,12 @@
 
     <string name="open_drawer">Abierto</string>
     <string name="close_drawer">Cerrado</string>
-    <!-- sms !-->
+    <!-- Messages !-->
     <string name="sms_username">Nombre</string>
     <string name="sms_message">Mensaje</string>
     <string name="sms_hour">00:00</string>
+
+
+
 
 </resources>
