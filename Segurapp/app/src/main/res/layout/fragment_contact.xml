@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/tx_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_48"
+        android:drawableStart="@drawable/ic_search"
+        android:hint="@string/drawer_seach_contact"
+        android:layout_marginHorizontal="@dimen/size_32"
+        android:layout_marginVertical="@dimen/size_24"
+        android:paddingLeft="@dimen/size_16"
+        android:background="@drawable/bg_contacts"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCalls"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_contact" />
+        tools:listitem="@layout/item_contact"
+        android:layout_below="@id/tx_search"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="@dimen/size_32"
+        android:contentDescription="@string/btn_float_add"
+        app:srcCompat="@drawable/ic_add_sum"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+       android:backgroundTint="@color/segurapp_red_variant" />
 
 
-</LinearLayout>
+</RelativeLayout>

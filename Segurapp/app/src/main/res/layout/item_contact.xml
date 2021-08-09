@@ -58,19 +58,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.711" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/im_call"
+    <ImageButton
+        android:id="@+id/btn_call"
         android:layout_width="@dimen/size_38"
         android:layout_height="@dimen/size_38"
+        android:background="@color/segurapp_black_variant"
         android:src="@drawable/ic_call2"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.905"
+        app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

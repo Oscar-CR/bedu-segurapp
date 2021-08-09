@@ -12,16 +12,18 @@
         android:layout_centerInParent="true"
         />
 
-    <Button
-        android:layout_width="@dimen/size_120"
-        android:layout_height="wrap_content"
-        android:text="@string/home_btn_help"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/mensaje"
-        android:layout_marginTop="@dimen/size_120"
-        app:layout_constraintVertical_bias="0.0"
-        android:backgroundTint="@color/segurapp_red"
-        android:stateListAnimator="@null"
 
-        />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_48"
+        android:layout_gravity="bottom|right"
+        android:contentDescription="@string/home_btn_help"
+        android:text="@string/home_btn_help"
+        app:icon="@drawable/ic_location"
+        android:backgroundTint="@color/segurapp_red_variant"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

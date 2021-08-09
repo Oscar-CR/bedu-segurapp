@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/tx_search_sms"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_48"
+        android:drawableStart="@drawable/ic_search"
+        android:hint="@string/drawer_seach_sms"
+        android:layout_marginHorizontal="@dimen/size_32"
+        android:layout_marginVertical="@dimen/size_24"
+        android:paddingLeft="@dimen/size_16"
+        android:background="@drawable/bg_contacts"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerSms"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_message" />
-</LinearLayout>
+        tools:listitem="@layout/item_message"
+        android:layout_below="@+id/tx_search_sms"/>
+</RelativeLayout>

@@ -4,11 +4,14 @@ import ContactsFragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.bedu.segurapp.R
 import org.bedu.segurapp.ui.home.adapters.MessageAdapter
 import org.bedu.segurapp.ui.home.fragments.HomeFragment
@@ -47,7 +50,12 @@ class HomeActivity : AppCompatActivity() {
             true
         }
 
+
+
+
     }
+
+
     //Agregar el menú de opciones al AppBar
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

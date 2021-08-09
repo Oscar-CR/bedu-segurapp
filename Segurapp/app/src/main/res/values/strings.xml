@@ -38,6 +38,9 @@
     <string name="drawer_info">Informacion</string>
     <string name="drawer_about">Acerca de</string>
     <string name="drawer_privacy">Privacidad</string>
+    <string name="drawer_seach_contact">Buscar contacto</string>
+    <string name="drawer_seach_sms">Buscar mensaje</string>
+
 
     <string name="open_drawer">Abierto</string>
     <string name="close_drawer">Cerrado</string>
@@ -46,6 +49,9 @@
     <string name="sms_username">Nombre</string>
     <string name="sms_message">Mensaje</string>
     <string name="sms_hour">00:00</string>
+
+    <!-- Contacts !-->
+    <string name="btn_float_add">Agregar contacto</string>
 
     <!-- Get Started Splash Fragment !-->
     <string name="welcome_message_title">¡Hola!</string>
