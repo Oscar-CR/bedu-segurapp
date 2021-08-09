@@ -7,7 +7,7 @@
     <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ui.register.RegisterActivity">
 
         <ImageView
@@ -15,7 +15,7 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             app:srcCompat="@drawable/login_decoration" />
 
 
@@ -71,9 +71,9 @@
         <Button
             android:id="@+id/btSubmit"
             style="@style/buttomPrimary"
+            android:layout_below="@id/etRegisterPassword"
             android:layout_marginTop="32dp"
-            android:text="@string/register"
-            android:layout_below="@id/etRegisterPassword"/>
+            android:text="@string/register"/>
 
 
     </RelativeLayout>
