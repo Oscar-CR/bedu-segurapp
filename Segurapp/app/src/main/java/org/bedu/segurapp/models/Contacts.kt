@@ -1,4 +1,4 @@
-package org.bedu.segurapp.ui.home.`class`
+package org.bedu.segurapp.models
 
 import android.os.Parcel
 import android.os.Parcelable

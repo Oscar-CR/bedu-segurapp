@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import org.bedu.segurapp.R
-import org.bedu.segurapp.ui.home.`class`.Contacts
+import org.bedu.segurapp.models.Contacts
 
 
 class ContactsAdapter(

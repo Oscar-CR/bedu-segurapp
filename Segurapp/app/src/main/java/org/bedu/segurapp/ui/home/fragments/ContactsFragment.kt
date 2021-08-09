@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_contact.*
 import org.bedu.segurapp.R
-import org.bedu.segurapp.ui.home.`class`.Contacts
+import org.bedu.segurapp.models.Contacts
 import org.bedu.segurapp.ui.home.adapters.ContactsAdapter
 
 class ContactsFragment : Fragment() {

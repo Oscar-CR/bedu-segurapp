@@ -26,6 +26,7 @@ class HomeActivity : AppCompatActivity() {
         bottom_navigation=findViewById(R.id.bottom_navigation)
         appBar = findViewById(R.id.app_bar)
 
+        bottom_navigation.setSelectedItemId(R.id.page_2);
 
         this.setSupportActionBar(appBar)
 

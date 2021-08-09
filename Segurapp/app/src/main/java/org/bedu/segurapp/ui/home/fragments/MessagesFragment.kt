@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_messages.*
 import org.bedu.segurapp.R
-import org.bedu.segurapp.ui.home.`class`.Messages
+import org.bedu.segurapp.models.Messages
 import org.bedu.segurapp.ui.home.adapters.MessageAdapter
 
 class MessagesFragment : Fragment() {
