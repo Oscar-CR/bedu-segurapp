@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.20652173913043478" />
         <entry key="app/src/main/res/layout/bottom_sheet_forgot_password.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_get_started_profile_configuration.xml" value="0.1328125" />
+        <entry key="app/src/main/res/layout/fragment_get_started_safe_contacts.xml" value="0.1328125" />
         <entry key="app/src/main/res/layout/fragment_get_started_screen_slide_page.xml" value="0.20018115942028986" />
         <entry key="app/src/main/res/layout/fragment_get_started_splash.xml" value="0.22" />
       </map>
