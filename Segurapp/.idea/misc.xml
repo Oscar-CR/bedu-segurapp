@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bt_border.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/drawable/bt_contacts_foreground.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/drawable/bt_foreground.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/et_rounded.xml" value="0.21851851851851853" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.21851851851851853" />
         <entry key="app/src/main/res/layout/activity_get_started.xml" value="0.18" />
@@ -13,10 +15,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1328125" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.20652173913043478" />
         <entry key="app/src/main/res/layout/bottom_sheet_forgot_password.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_get_started_done.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_get_started_profile_configuration.xml" value="0.1328125" />
-        <entry key="app/src/main/res/layout/fragment_get_started_safe_contacts.xml" value="0.1328125" />
+        <entry key="app/src/main/res/layout/fragment_get_started_safe_contacts.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_get_started_screen_slide_page.xml" value="0.20018115942028986" />
-        <entry key="app/src/main/res/layout/fragment_get_started_splash.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_get_started_splash.xml" value="0.25" />
       </map>
     </option>
   </component>
