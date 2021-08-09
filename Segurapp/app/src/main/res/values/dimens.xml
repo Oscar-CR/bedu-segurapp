@@ -17,4 +17,5 @@
     <dimen name="size_72">72dp</dimen>
     <dimen name="size_96">96dp</dimen>
     <dimen name="size_120">120dp</dimen>
+    <dimen name="size_256">256dp</dimen>
 </resources>

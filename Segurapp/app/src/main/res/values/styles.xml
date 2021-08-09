@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="loginEdiText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -84,6 +85,60 @@
         <item name="android:textSize">@dimen/text_16</item>
         <item name="fontFamily">Roboto</item>
         <item name="android:paddingStart">@dimen/size_16</item>
+    </style>
+
+
+    <!-- Get Started Splash Fragment !-->
+
+    <style name="getStartedSplashLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="getStartedSplashLottieAnimationView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/size_256</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="getStartedSplashTextViewTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/size_16</item>
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:textColor">@color/segurapp_black</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="getStartedSplashTextViewDescription">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/size_16</item>
+        <item name="android:layout_marginBottom">@dimen/size_24</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">@color/segurapp_black_variant</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="getStartedSplashButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/et_rounded</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">@string/btn_continue_title</item>
+    </style>
+
+
+    <!-- Get Started Activity !-->
+    <style name="get_started_edit_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/size_72</item>
+        <item name="android:drawableTint">@color/segurapp_black</item>
+        <item name="android:drawableEnd">@drawable/ic_edit</item>
+        <item name="android:drawablePadding">@dimen/size_16</item>
+        <item name="android:layout_marginBottom">@dimen/size_32</item>
     </style>
 
 </resources>
