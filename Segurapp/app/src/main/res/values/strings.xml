@@ -64,5 +64,7 @@
     <string name="read_contact_permission_title">Permiso para leer tus contactos</string>
     <string name="read_contact_permission_message">Necesitamos acceder a tus contactos para ayudarte a encontrar tus contactos fácilmente</string>
     <string name="ok">OK</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
