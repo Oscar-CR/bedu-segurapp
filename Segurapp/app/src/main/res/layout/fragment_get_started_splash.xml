@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/size_16"
+    tools:context=".ui.getStarted.GetStartedSplashFragment">
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_24"
+        android:max="100"
+        android:progress="25" />
+
+    <LinearLayout style="@style/getStartedSplashLinearLayout">
+
+        <TextView
+            style="@style/getStartedSplashTextViewTitle"
+            android:text="@string/welcome_message_title" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/main_animation"
+            style="@style/getStartedSplashLottieAnimationView" />
+
+        <TextView
+            style="@style/getStartedSplashTextViewDescription"
+            android:text="@string/welcome_message_description" />
+
+        <Button
+            android:id="@+id/btn_continue_title"
+            style="@style/getStartedSplashButton" />
+
+    </LinearLayout>
+
+
+</FrameLayout>
