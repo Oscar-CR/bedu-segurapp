@@ -7,6 +7,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import org.bedu.segurapp.R
 import org.bedu.segurapp.adapters.ViewPagerAdapter
+import org.bedu.segurapp.helpers.movePrevious
 
 class GetStartedActivity : AppCompatActivity() {
     private lateinit var mPager: ViewPager2
@@ -16,5 +17,10 @@ class GetStartedActivity : AppCompatActivity() {
         setContentView(R.layout.activity_get_started)
         mPager = findViewById(R.id.pager)
         mPager.adapter = adapter
+    }
+
+    override fun onBackPressed() {
+        if(mPager.currentItem != 0) movePrevious(mPager)
+        else finish()
     }
 }

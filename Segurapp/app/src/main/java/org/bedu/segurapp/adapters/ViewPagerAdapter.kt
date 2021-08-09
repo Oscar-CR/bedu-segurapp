@@ -11,18 +11,13 @@ import org.bedu.segurapp.ui.getStarted.GetStartedSplashFragment
 class ViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 4
-
     override fun createFragment(position: Int): Fragment {
-        return when (position) {
-            0 -> GetStartedSplashFragment()
-            1 -> GetStartedProfileConfigurationFragment()
-            2 -> GetStartedSafeContactsFragment()
-            3 -> GetStartedDoneFragment()
-            else -> {
-                GetStartedSplashFragment()
-            }
+        return when (position + 1) {
+            1 -> GetStartedSplashFragment()
+            2 -> GetStartedProfileConfigurationFragment()
+            3 -> GetStartedSafeContactsFragment()
+            4 -> GetStartedDoneFragment()
+            else -> GetStartedSplashFragment()
         }
     }
-
-
 }

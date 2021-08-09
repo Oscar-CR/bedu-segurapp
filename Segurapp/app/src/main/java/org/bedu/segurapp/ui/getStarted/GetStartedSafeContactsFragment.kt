@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.viewpager2.widget.ViewPager2
 import org.bedu.segurapp.R
 import org.bedu.segurapp.helpers.moveNext
 
@@ -21,7 +22,7 @@ class GetStartedSafeContactsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_get_started_safe_contacts, container, false)
         initComponents(view)
-        btnContinueClickListener()
+        btnNextClickListener()
         return view
     }
 
@@ -29,8 +30,11 @@ class GetStartedSafeContactsFragment : Fragment() {
         btnNext = view.findViewById(R.id.btn_next)
     }
 
-    private fun btnContinueClickListener(){
-        moveNext(requireActivity() as GetStartedActivity)
+    private fun btnNextClickListener(){
+        btnNext.setOnClickListener {
+            val mPager = (activity as GetStartedActivity).findViewById<ViewPager2>(R.id.pager)
+            if (mPager != null) moveNext(mPager)
+        }
     }
 
 }

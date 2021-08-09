@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.viewpager2.widget.ViewPager2
 import com.airbnb.lottie.LottieAnimationView
 import org.bedu.segurapp.R
 import org.bedu.segurapp.helpers.moveNext
@@ -41,7 +42,8 @@ class GetStartedSplashFragment : Fragment() {
 
     private fun btnContinueTitleClickListener() {
         btnContinueTitle.setOnClickListener {
-            moveNext(requireActivity() as GetStartedActivity)
+            val mPager = (activity as GetStartedActivity).findViewById<ViewPager2>(R.id.pager)
+            if (mPager != null) moveNext(mPager)
         }
     }
 }

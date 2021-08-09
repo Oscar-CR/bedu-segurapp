@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.14791666666666667" />
         <entry key="app/src/main/res/drawable/bt_border.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/bt_contacts_foreground.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/bt_foreground.xml" value="0.14895833333333333" />
