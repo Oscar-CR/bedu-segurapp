@@ -3,12 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.getStarted.GetStartedDoneFragment">
+    tools:context=".ui.getStarted.GetStartedDoneFragment"
+    android:padding="@dimen/size_16">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="@dimen/size_24"
+        android:max="100"
+        android:progress="100" />
+
+    <LinearLayout style="@style/getStartedSplashLinearLayout">
+
+        <TextView
+            style="@style/getStartedSplashTextViewTitle"
+            android:text="@string/congratulations_message_title" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/main_animation"
+            style="@style/getStartedSplashLottieAnimationView" />
+
+        <TextView
+            style="@style/getStartedSplashTextViewDescription"
+            android:text="@string/congratulations_message_description" />
+
+        <Button
+            android:id="@+id/btn_accept"
+            style="@style/getStartedSplashButton"
+            android:text="@string/btn_accept_title"/>
+
+    </LinearLayout>
 
 </FrameLayout>
+
+
