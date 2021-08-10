@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,9 +14,6 @@
         android:max="100"
         android:progress="75" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/ll_info"
@@ -45,12 +43,12 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/txt_message_emergency"
+                    android:id="@+id/txt_contact_name"
                     style="@style/get_started_edit_text"
                     android:layout_marginBottom="@dimen/size_48"
                     android:drawableStart="@drawable/ic_message"
                     android:hint="@string/hint_contact_name"
-                    android:imeOptions="actionDone"
+                    android:nextFocusDown="@+id/txt_number"
                     android:inputType="text" />
 
                 <EditText
@@ -59,25 +57,19 @@
                     android:digits="1234567890"
                     android:drawableStart="@drawable/ic_call2"
                     android:hint="@string/hint_contact_phone_number"
-                    android:imeOptions="actionNext"
+                    android:imeOptions="actionDone"
                     android:inputType="phone"
+                    android:singleLine="true"
                     android:maxLength="10" />
-
-                <Button
-                    android:id="@+id/btn_save_contact"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/et_rounded"
-                    android:text="@string/btn_save_contact_hint" />
 
             </LinearLayout>
 
-            <LinearLayout
+            <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chips_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/size_24"
-                android:orientation="horizontal" />
+                style="@style/getStartedChipContainer"
+                app:chipSpacing="@dimen/size_8"
+                app:singleLine="false"
+                app:singleSelection="true"/>
 
             <Button
                 android:id="@+id/btn_next"
@@ -87,7 +79,5 @@
                 android:text="@string/btn_finish_hint" />
 
         </LinearLayout>
-
-    </ScrollView>
 
 </FrameLayout>
