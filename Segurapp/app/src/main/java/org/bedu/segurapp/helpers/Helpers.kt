@@ -54,8 +54,6 @@ private fun validateDataType(fields: Array<EditText>): List<EmptyFieldResponse> 
                             item)
                     )
                     return@forEach
-                } else {
-                    print("")
                 }
             }
 
