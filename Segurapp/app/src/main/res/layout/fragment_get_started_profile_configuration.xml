@@ -55,6 +55,14 @@
                 android:layout_marginTop="@dimen/size_48"
                 android:orientation="vertical">
 
+                <EditText
+                    android:id="@+id/txt_message_emergency"
+                    style="@style/get_started_edit_text"
+                    android:layout_marginBottom="@dimen/size_48"
+                    android:drawableStart="@drawable/ic_message"
+                    android:hint="@string/hint_emergency_message"
+                    android:nextFocusDown="@+id/txt_number"
+                    android:inputType="text" />
 
                 <EditText
                     android:id="@+id/txt_number"
@@ -62,18 +70,9 @@
                     android:digits="1234567890"
                     android:drawableStart="@drawable/ic_call2"
                     android:hint="@string/hint_phone_number"
-                    android:imeOptions="actionNext"
+                    android:imeOptions="actionDone"
                     android:inputType="phone"
                     android:maxLength="10" />
-
-                <EditText
-                    android:id="@+id/txt_message_emergency"
-                    style="@style/get_started_edit_text"
-                    android:layout_marginBottom="@dimen/size_48"
-                    android:drawableStart="@drawable/ic_message"
-                    android:hint="@string/hint_emergency_message"
-                    android:imeOptions="actionDone"
-                    android:inputType="text" />
 
             </LinearLayout>
 
