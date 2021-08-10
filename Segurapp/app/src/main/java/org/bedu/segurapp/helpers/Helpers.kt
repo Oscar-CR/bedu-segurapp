@@ -11,6 +11,12 @@ fun userIsLogged(): Boolean = false
 fun confirmPasswordMatcher(password: String, confirmPassword: String): Boolean =
     password == confirmPassword
 
+fun clearForm(fields: Array<EditText>){
+    fields.forEach {
+        it.text.clear()
+    }
+}
+
 fun makeValidations(fields: Array<EditText>, resources: Context): Boolean {
 
     val emptyFieldsValidatorResult = validateEmptyFields(fields)
