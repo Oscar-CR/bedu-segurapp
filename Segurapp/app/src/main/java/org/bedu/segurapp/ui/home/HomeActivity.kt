@@ -4,6 +4,7 @@ import ContactsFragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -12,6 +13,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_get_started.*
+import kotlinx.android.synthetic.main.activity_home.*
 import org.bedu.segurapp.R
 import org.bedu.segurapp.ui.home.adapters.MessageAdapter
 import org.bedu.segurapp.ui.home.fragments.HomeFragment
@@ -21,13 +25,16 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var bottom_navigation: BottomNavigationView
     private lateinit var appBar: Toolbar
+    private lateinit var nav_view: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+
         bottom_navigation=findViewById(R.id.bottom_navigation)
         appBar = findViewById(R.id.app_bar)
+        nav_view = findViewById(R.id.nav_view)
 
         bottom_navigation.setSelectedItemId(R.id.page_2);
 
@@ -50,11 +57,7 @@ class HomeActivity : AppCompatActivity() {
             true
         }
 
-
-
-
     }
-
 
     //Agregar el menú de opciones al AppBar
 
@@ -75,4 +78,6 @@ class HomeActivity : AppCompatActivity() {
             replace(R.id.fragment_container, fragment)
             commit()
         }
+
+
 }

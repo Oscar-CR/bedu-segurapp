@@ -45,9 +45,12 @@ class MessagesFragment : Fragment() {
     //Generando datos
     private fun getMessages(): MutableList<Messages>{
         var message:MutableList<Messages> = ArrayList()
-        message.add(Messages(R.drawable.unknown,"Oscar","Este es un mensaje de prueba", "12:12"))
-        message.add(Messages(R.drawable.unknown,"Diego","Este es un mensaje de prueba, pero mas largo 12346534", "12:12"))
-
+        message.add(Messages(R.drawable.unknown,"Oscar","Este es un mensaje de prueba", "3:53"))
+        message.add(Messages(R.drawable.unknown,"Diego","Este es otro mensaje de prueba, pero mas largo 12346534", "1:02"))
+        message.add(Messages(R.drawable.unknown,"Andres","Este un mensaje de prueba", "12:12"))
+        message.add(Messages(R.drawable.unknown,"Ricardo","Hola", "16:32"))
+        message.add(Messages(R.drawable.unknown,"David","Adios", "22:44"))
+        message.add(Messages(R.drawable.unknown,"Roberto","Buenas", "23:00"))
         return message
     }
 }
