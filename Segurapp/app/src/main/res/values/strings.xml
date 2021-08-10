@@ -1,4 +1,12 @@
 <resources>
+
+    <!-- Validation Hints !-->
+    <string name="required_field_hint">¡Este campo es requerido!</string>
+    <string name="required_telephone_hint">El número telefónico debe contar con 10 dígitos</string>
+    <string name="required_email_hint">Email inválido, intente con otro</string>
+    <string name="required_strong_password_hint">La contraseña debe contener al menos 8 caracteres, 1 mayúscula, 1 número y 1 caractér especial</string>
+    <string name="required_same_password_hint">Ambas contraseñas deben coincidir</string>
+
     <string name="app_name">SegurApp</string>
     <string name="login_user">Correo</string>
     <string name="login_user_hint">Ingrese su correo</string>
