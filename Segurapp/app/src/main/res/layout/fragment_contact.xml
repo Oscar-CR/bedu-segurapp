@@ -25,7 +25,7 @@
         android:layout_below="@id/tx_search"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_action_button"
+        android:id="@+id/btn_contacts_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/ic_add_sum"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
-       android:backgroundTint="@color/segurapp_red_variant" />
+        android:backgroundTint="@color/segurapp_red_variant" />
 
 
 </RelativeLayout>

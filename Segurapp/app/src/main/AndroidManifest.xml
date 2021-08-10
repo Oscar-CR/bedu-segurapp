@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Segurapp">
+        <activity android:name=".ui.home.AddContactActivity"></activity>
         <activity
             android:name=".ui.getStarted.GetStartedActivity"
             android:exported="true" />

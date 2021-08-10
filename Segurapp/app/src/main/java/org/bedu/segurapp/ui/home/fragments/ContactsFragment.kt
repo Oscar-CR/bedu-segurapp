@@ -1,25 +1,31 @@
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_contact.*
 import org.bedu.segurapp.R
 import org.bedu.segurapp.models.Contacts
+import org.bedu.segurapp.ui.home.AddContactActivity
 import org.bedu.segurapp.ui.home.adapters.ContactsAdapter
 
 class ContactsFragment : Fragment() {
     private lateinit var mAdapter : ContactsAdapter
     private var listener : (Contacts) ->Unit = {}
+    private lateinit var btn_contacts_add: FloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_contact, container, false)
+        val view= inflater.inflate(R.layout.fragment_contact, container, false)
+        initComponents(view)
+        onClickBtnContacts()
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -42,7 +48,7 @@ class ContactsFragment : Fragment() {
     }
 
     //Generando datos
-    private fun getProducts(): MutableList<Contacts>{
+    public fun getProducts(): MutableList<Contacts>{
         var contact:MutableList<Contacts> = ArrayList()
 
         contact.add(Contacts(R.drawable.unknown,"Andres","5512345678"))
@@ -60,4 +66,19 @@ class ContactsFragment : Fragment() {
         return contact
     }
 
+    private fun initComponents(view: View){
+        btn_contacts_add = view.findViewById(R.id.btn_contacts_add)
+    }
+
+    private fun onClickBtnContacts(){
+        btn_contacts_add.setOnClickListener {
+            val intent=Intent(context, AddContactActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+
+
+
 }
+
