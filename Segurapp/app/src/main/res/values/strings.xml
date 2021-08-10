@@ -60,6 +60,12 @@
 
     <!-- Contacts !-->
     <string name="btn_float_add">Agregar contacto</string>
+    <string name="contact_name">Nombre</string>
+    <string name="contact_name_hint">Ingrese el nombre </string>
+    <string name="contact_phone">Numero de telefono</string>
+    <string name="contact_phone_hint">Ingrese el numero de telefono </string>
+    <string name="contact_save">Guardar</string>
+    <string name="contact_cancel">Cancel</string>
 
     <!-- Get Started Splash Fragment !-->
     <string name="welcome_message_title">¡Hola!</string>

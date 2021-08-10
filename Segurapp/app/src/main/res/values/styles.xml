@@ -164,4 +164,11 @@
         <item name="android:layout_marginBottom">@dimen/size_32</item>
     </style>
 
+    <style name="loginUserAnimation">
+        <item name="android:layout_width">@dimen/size_256</item>
+        <item name="android:layout_height">@dimen/size_256</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/size_32</item>
+    </style>
+
 </resources>
