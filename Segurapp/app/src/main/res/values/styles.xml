@@ -134,7 +134,7 @@
 
     <style name="getStartedSafeContactsLinearLayout">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_marginTop">@dimen/size_48</item>
         <item name="android:orientation">vertical</item>
     </style>
@@ -152,8 +152,14 @@
         <item name="android:foreground">@drawable/bt_contacts_foreground</item>
         <item name="android:drawableEnd">@drawable/ic_account</item>
         <item name="android:text">@string/search_safe_contact</item>
-
     </style>
+
+    <style name="getStartedChipContainer">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginBottom">@dimen/size_32</item>
+    </style>
+
     <!-- Get Started Activity !-->
     <style name="get_started_edit_text">
         <item name="android:layout_width">match_parent</item>
