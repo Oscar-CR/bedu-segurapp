@@ -1,6 +1,11 @@
 package org.bedu.segurapp.ui.getStarted
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.ContactsContract
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,17 +19,20 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.snackbar.Snackbar
 import org.bedu.segurapp.R
-import org.bedu.segurapp.helpers.clearForm
-import org.bedu.segurapp.helpers.makeValidations
-import org.bedu.segurapp.helpers.moveNext
 import org.bedu.segurapp.models.Contacts
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
-import org.bedu.segurapp.helpers.hideKeyboard
+import androidx.activity.result.contract.ActivityResultContracts
+import com.araujo.jordan.excuseme.ExcuseMe
+import org.bedu.segurapp.helpers.*
+import org.bedu.segurapp.utils.getNameByUri
+import org.bedu.segurapp.utils.getPhoneByUri
+
 
 class GetStartedSafeContactsFragment : Fragment() {
 
     private lateinit var chipsContainer: ChipGroup
+    private lateinit var btnSafeContacts: Button
     private lateinit var btnNext: Button
     private lateinit var txtContactName: EditText
     private lateinit var txtNumber: EditText
@@ -37,6 +45,7 @@ class GetStartedSafeContactsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_get_started_safe_contacts, container, false)
         initComponents(view)
+        btnSafeContactsClickListener()
         txtNumberActionListener()
         btnNextClickListener()
         return view
@@ -44,9 +53,33 @@ class GetStartedSafeContactsFragment : Fragment() {
 
     private fun initComponents(view: View) {
         chipsContainer = view.findViewById(R.id.chips_container)
+        btnSafeContacts = view.findViewById(R.id.btn_safe_contacts)
         btnNext = view.findViewById(R.id.btn_next)
         txtContactName = view.findViewById(R.id.txt_contact_name)
         txtNumber = view.findViewById(R.id.txt_number)
+    }
+
+    private fun btnSafeContactsClickListener() {
+        btnSafeContacts.setOnClickListener {
+            ExcuseMe.couldYouGive(this).permissionFor(
+                Manifest.permission.READ_CONTACTS,
+            ) {
+                if (it.granted.contains(Manifest.permission.READ_CONTACTS)) {
+                    openContactsList()
+                } else {
+
+                    val snackBar = Snackbar
+                        .make(requireView(),
+                            getString(R.string.denied_read_contacts_permission_message_hint),
+                            Snackbar.LENGTH_INDEFINITE)
+                        .setAction(getString(R.string.permission_configuration_hint)) {
+                            openAppPermissionsScreen(requireActivity())
+                        }
+
+                    snackBar.show()
+                }
+            }
+        }
     }
 
     private fun txtNumberActionListener() {
@@ -66,12 +99,13 @@ class GetStartedSafeContactsFragment : Fragment() {
 
     private fun btnNextClickListener() {
         btnNext.setOnClickListener {
-
             if (safeContactsList.isNotEmpty()) {
                 val mPager = (activity as GetStartedActivity).findViewById<ViewPager2>(R.id.pager)
                 if (mPager != null) moveNext(mPager)
             } else {
-                Snackbar.make(requireView(), resources.getString(R.string.required_safe_contacts_hint), Snackbar.LENGTH_LONG)
+                Snackbar.make(requireView(),
+                    resources.getString(R.string.required_safe_contacts_hint),
+                    Snackbar.LENGTH_LONG)
                     .show()
             }
         }
@@ -102,5 +136,35 @@ class GetStartedSafeContactsFragment : Fragment() {
         }
 
         return chip
+    }
+
+
+    private fun openContactsList() {
+        val intent = Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
+        return resultLauncher.launch(intent)
+    }
+
+
+    private val resultLauncher =
+        this.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val intentResult: Intent? = result.data
+                intentResult?.data?.let {
+                    renderContact(it)
+                }
+            }
+        }
+
+
+    private fun renderContact(uri: Uri) {
+        val name = getNameByUri(uri, requireActivity().contentResolver)
+        val phone = getPhoneByUri(uri, requireActivity().contentResolver)
+        if (phone != null && name != null) addSafeContact(Contacts(R.drawable.unknown,
+            name,
+            formatTelephone(phone)))
+        else Snackbar.make(requireView(), getString(R.string.add_safe_contacts_manually_hint, name),
+            Snackbar.LENGTH_INDEFINITE)
+            .setAction(getString(R.string.permission_configuration_hint)) {}
+            .show()
     }
 }
