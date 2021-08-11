@@ -6,9 +6,18 @@
     <string name="required_email_hint">Email inválido, intente con otro</string>
     <string name="required_strong_password_hint">La contraseña debe contener al menos 8 caracteres, 1 mayúscula, 1 número y 1 caractér especial</string>
     <string name="required_same_password_hint">Ambas contraseñas deben coincidir</string>
-    <string name="required_safe_contacts_hint">Necesitas al menos un contacto</string>
+    <string name="required_safe_contacts_hint">Necesitas tener al menos un contacto de confianza</string>
+
+    <!-- Permission Hints !-->
+    <string name="denied_permissions_message_hint">Para mejorar tu experiencia necesitaremos todos los permisos en un futuro</string>
+    <string name="denied_camera_permission_message_hint">Para continuar, necesitamos usar tu cámara</string>
+    <string name="denied_read_contacts_permission_message_hint">Para continuar, necesitamos acceder a tus contactos</string>
+    <string name="permission_configuration_hint">Entendido</string>
+    <string name="granted_permissions_message_hint">¡Empecémos!</string>
+    <string name="add_safe_contacts_manually_hint">Por favor, usa el formulario para registrar a %s</string>
 
     <string name="app_name">SegurApp</string>
+    <string name="package_name">org.bedu.segurapp</string>
     <string name="login_user">Correo</string>
     <string name="login_user_hint">Ingrese su correo</string>
     <string name="login_password">Contraseña</string>
@@ -89,10 +98,11 @@
     <string name="read_contact_permission_title">Permiso para leer tus contactos</string>
     <string name="read_contact_permission_message">Necesitamos acceder a tus contactos para ayudarte a encontrar tus contactos fácilmente</string>
     <string name="btn_finish_hint">Finalizar</string>
+    <string name="ok">OK</string>
 
     <!-- Get Started Splash Fragment !-->
     <string name="congratulations_message_title">¡Felicidades!</string>
     <string name="congratulations_message_description">Has creado tu cuenta exitosamente. Ahora estás a salvo</string>
-    <string name="btn_accept_title">Aceptar</string>
+    <string name="accept_hint">Aceptar</string>
 
 </resources>

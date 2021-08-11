@@ -30,7 +30,7 @@
         <Button
             android:id="@+id/btn_accept"
             style="@style/getStartedSplashButton"
-            android:text="@string/btn_accept_title"/>
+            android:text="@string/accept_hint"/>
 
     </LinearLayout>
 
