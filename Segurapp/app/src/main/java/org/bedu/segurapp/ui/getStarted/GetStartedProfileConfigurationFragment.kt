@@ -1,5 +1,6 @@
 package org.bedu.segurapp.ui.getStarted
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -15,12 +16,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.viewpager2.widget.ViewPager2
 import com.araujo.jordan.excuseme.ExcuseMe
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import de.hdodenhof.circleimageview.CircleImageView
 import org.bedu.segurapp.R
-import org.bedu.segurapp.helpers.makeValidations
+import org.bedu.segurapp.helpers.makeFormValidations
 import org.bedu.segurapp.helpers.moveNext
 import org.bedu.segurapp.helpers.openAppPermissionsScreen
-
+import org.bedu.segurapp.helpers.setSharedPreferences
+import org.bedu.segurapp.models.User
 
 class GetStartedProfileConfigurationFragment : Fragment() {
     private lateinit var btnNext: Button
@@ -39,6 +42,31 @@ class GetStartedProfileConfigurationFragment : Fragment() {
         civAddImageClickListener()
         btnNextClickListener()
         return view
+    }
+
+    override fun onPause() {
+        spreadUserObject()
+        super.onPause()
+    }
+
+    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) setImageBitmap(result.data)
+        }
+
+    @SuppressLint("CommitPrefEdits")
+    private fun spreadUserObject() {
+        val preferences = setSharedPreferences(requireActivity())
+        val preferencesEditor = preferences.edit()
+        val userString = preferences.getString(resources.getString(R.string.shared_preferences_current_user), null)
+        val userObject = if (userString != null && userString != "") Gson().fromJson(userString, User::class.java) else null
+
+        if (userObject != null) {
+            userObject.alertMessage = txtMessageEmergency.text.toString()
+            userObject.telephoneNumber = txtNumber.text.toString()
+
+            preferencesEditor.putString(getString(R.string.shared_preferences_current_user), Gson().toJson(userObject))
+            preferencesEditor.apply()
+        }
     }
 
     private fun initComponents(view: View) {
@@ -61,9 +89,11 @@ class GetStartedProfileConfigurationFragment : Fragment() {
                 } else {
 
                     val snackBar = Snackbar
-                        .make(requireView(),  getString(R.string.denied_camera_permission_message_hint), Snackbar.LENGTH_INDEFINITE)
+                        .make(requireView(),
+                            getString(R.string.denied_camera_permission_message_hint),
+                            Snackbar.LENGTH_INDEFINITE)
                         .setAction(getString(R.string.permission_configuration_hint)) {
-                           openAppPermissionsScreen(requireActivity())
+                            openAppPermissionsScreen(requireActivity())
                         }
 
                     snackBar.show()
@@ -77,26 +107,19 @@ class GetStartedProfileConfigurationFragment : Fragment() {
         resultLauncher.launch(intent)
     }
 
-    private val resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) setImageBitmap(result.data)
-        }
-
     private fun setImageBitmap(result: Intent?) {
         val extras: Bundle? = result?.extras
         val mImageBitmap = extras?.get("data") as Bitmap?
         civProfileImage.setImageBitmap(mImageBitmap)
     }
 
-
     private fun btnNextClickListener() {
         btnNext.setOnClickListener {
-            if (makeValidations(arrayOf(txtNumber, txtMessageEmergency), requireContext())) {
+            if (makeFormValidations(arrayOf(txtNumber, txtMessageEmergency), requireContext())) {
                 val mPager = (activity as GetStartedActivity).findViewById<ViewPager2>(R.id.pager)
                 if (mPager != null) moveNext(mPager)
             }
         }
     }
-
 }
 
