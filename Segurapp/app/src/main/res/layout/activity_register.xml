@@ -35,9 +35,9 @@
         <EditText
             android:id="@+id/etRegisterUser"
             style="@style/loginEdiText"
+            android:layout_below="@+id/tvUser"
             android:hint="@string/register_user_hint"
-            android:inputType="textPersonName"
-            android:layout_below="@+id/tvUser"/>
+            android:inputType="textPersonName" />
 
 
         <TextView
@@ -48,7 +48,7 @@
 
 
         <EditText
-            android:id="@+id/etregisterEmail"
+            android:id="@+id/etRegisterEmail"
             style="@style/loginEdiText"
             android:hint="@string/login_user_hint"
             android:inputType="textEmailAddress"
@@ -58,18 +58,18 @@
             android:id="@+id/tvRPassword"
             style="@style/loginTextView"
             android:text="@string/login_password"
-            android:layout_below="@id/etregisterEmail"/>
+            android:layout_below="@id/etRegisterEmail"/>
 
 
         <EditText
             android:id="@+id/etRegisterPassword"
             style="@style/loginEdiText"
+            android:layout_below="@id/tvRPassword"
             android:hint="@string/login_password_hint"
-            android:inputType="textPassword"
-            android:layout_below="@id/tvRPassword"/>
+            android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/btSubmit"
+            android:id="@+id/btnSubmit"
             style="@style/buttomPrimary"
             android:layout_below="@id/etRegisterPassword"
             android:layout_marginTop="32dp"
