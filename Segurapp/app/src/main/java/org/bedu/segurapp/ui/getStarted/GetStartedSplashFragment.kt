@@ -14,6 +14,7 @@ import org.bedu.segurapp.helpers.moveNext
 
 class GetStartedSplashFragment : Fragment() {
 
+    private lateinit var mPager: ViewPager2
     private lateinit var mainAnimation: LottieAnimationView
     private lateinit var btnContinueTitle: Button
 
@@ -30,6 +31,7 @@ class GetStartedSplashFragment : Fragment() {
     }
 
     private fun initComponents(view: View) {
+        mPager = (activity as GetStartedActivity).findViewById(R.id.pager)
         mainAnimation = view.findViewById(R.id.main_animation)
         btnContinueTitle = view.findViewById(R.id.btn_continue_title)
     }
@@ -42,8 +44,7 @@ class GetStartedSplashFragment : Fragment() {
 
     private fun btnContinueTitleClickListener() {
         btnContinueTitle.setOnClickListener {
-            val mPager = (activity as GetStartedActivity).findViewById<ViewPager2>(R.id.pager)
-            if (mPager != null) moveNext(mPager)
+            moveNext(mPager)
         }
     }
 }
