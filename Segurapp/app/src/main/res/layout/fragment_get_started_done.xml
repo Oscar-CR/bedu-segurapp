@@ -30,7 +30,8 @@
         <Button
             android:id="@+id/btn_accept"
             style="@style/getStartedSplashButton"
-            android:text="@string/accept_hint"/>
+            android:text="@string/accept_hint"
+            android:enabled="false"/>
 
     </LinearLayout>
 
