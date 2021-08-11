@@ -96,3 +96,16 @@ private fun passwordValidator(mEditText: EditText): Boolean {
         "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%!\\-_?&])(?=\\S+\$).{8,}".toRegex()
     return mEditText.text.toString().matches(passwordRegex)
 }
+
+fun formatTelephone(telephone: String):String{
+    val mTrimmedPhone = telephone.replace("\\s".toRegex(), "")
+    return if(mTrimmedPhone.startsWith("+521") || mTrimmedPhone.startsWith("+52") ){
+        val mFormattedNumber = when(mTrimmedPhone.length){
+            13 -> mTrimmedPhone.substring(3)
+            14 -> mTrimmedPhone.substring(4)
+            else -> throw IllegalArgumentException("Another Length")
+        }
+
+        mFormattedNumber
+    } else mTrimmedPhone
+}
