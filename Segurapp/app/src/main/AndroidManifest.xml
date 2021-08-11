@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.bedu.segurapp">
 
+    <!-- Add your permission here-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:fullBackupOnly="true"
@@ -10,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Segurapp">
-        <activity android:name=".ui.home.AddContactActivity"></activity>
+        <activity android:name=".ui.home.AddContactActivity"/>
         <activity
             android:name=".ui.getStarted.GetStartedActivity"
             android:exported="true" />
