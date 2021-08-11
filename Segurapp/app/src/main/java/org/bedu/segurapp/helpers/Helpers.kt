@@ -1,49 +1,15 @@
 package org.bedu.segurapp.helpers
 
+import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import android.text.InputType.*
 import android.widget.EditText
 import org.bedu.segurapp.R
 import org.bedu.segurapp.models.EmptyFieldResponse
 
-fun userIsLogged(): Boolean = false
-
-fun confirmPasswordMatcher(password: String, confirmPassword: String): Boolean =
-    password == confirmPassword
-
-fun clearForm(fields: Array<EditText>){
-    fields.forEach {
-        it.text.clear()
-    }
-}
-
-fun makeValidations(fields: Array<EditText>, resources: Context): Boolean {
-
-    val emptyFieldsValidatorResult = validateEmptyFields(fields)
-
-    if (emptyFieldsValidatorResult.isEmpty()) {
-
-        val dataTypeValidatorResult = validateDataType(fields)
-
-        if (dataTypeValidatorResult.isNotEmpty()) {
-            dataTypeValidatorResult.forEach {
-                it.editText.error = resources.getString(it.messageId)
-            }
-            return false
-        }
-    } else {
-        emptyFieldsValidatorResult.forEach {
-            it.error = resources.getString(R.string.required_field_hint)
-        }
-        return false
-    }
-
-    return true
-}
-
 private fun validateEmptyFields(fields: Array<EditText>): List<EditText> =
     fields.filter { it.text.toString().trim() == "" }
-
 
 private fun validateDataType(fields: Array<EditText>): List<EmptyFieldResponse> {
 
@@ -109,3 +75,41 @@ fun formatTelephone(telephone: String):String{
         mFormattedNumber
     } else mTrimmedPhone
 }
+
+fun setSharedPreferences(activity: Activity): SharedPreferences {
+    return activity.getSharedPreferences(activity.getString(R.string.shared_preferences), Context.MODE_PRIVATE)
+}
+
+fun userIsLogged(): Boolean = false
+
+fun clearForm(fields: Array<EditText>){
+    fields.forEach {
+        it.text.clear()
+    }
+}
+
+fun makeFormValidations(fields: Array<EditText>, resources: Context): Boolean {
+
+    val emptyFieldsValidatorResult = validateEmptyFields(fields)
+
+    if (emptyFieldsValidatorResult.isEmpty()) {
+
+        val dataTypeValidatorResult = validateDataType(fields)
+
+        if (dataTypeValidatorResult.isNotEmpty()) {
+            dataTypeValidatorResult.forEach {
+                it.editText.error = resources.getString(it.messageId)
+            }
+            return false
+        }
+    } else {
+        emptyFieldsValidatorResult.forEach {
+            it.error = resources.getString(R.string.required_field_hint)
+        }
+        return false
+    }
+
+    return true
+}
+
+fun confirmPasswordMatcher(password: String, confirmPassword: String): Boolean = password == confirmPassword
