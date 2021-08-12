@@ -6,16 +6,13 @@
 - **Eduardo García** 
 - **Jordán Levi** 
 
-## El proyecto se dividirá por 8 carpetas (S1 - S8)
+## Forma de Trabajo
 
-Dentro de ellas se adjuntarán los trabajos realizados en los retos finales y postworks de acuerdo a las sesiones correspondientes. Al finalizar, se generara una carpeta con la implementación de cada uno de estos módulos **segurapp**.
+El proyecto sera manejado dentro de la carpeta  **Segurapp**, a lo largo de cada sesión se implementará en el README.md las actividades realizadas.
 
-## Documentación 
-- [Google Docs](https://docs.google.com/document/d/1Dh4REvjYTIduFuP_iocZtt64U3SCtYdfj9eqPi59PZ0/edit#) 
 
 ## Comunicación
 - [Grupo de WhatsApp](https://chat.whatsapp.com/KqiYj3A7bbjL80JGnsgCgr) 
-
 
 # Sesión 1: Introducción a Android 🚀
 
@@ -199,11 +196,7 @@ Se orientó el proyecto a fragments desde sesiones anteriors, debido a que ofrec
     <td>
         <tr>
         <img width="25%" src="./img/S5_message_phone.jpg">
-        </tr>
-        <tr>
         <img width="25%" src="./img/S5_map_phone.jpg">
-        </tr>
-        <tr>
         <img width="25%" src="./img/S5_contact_phone.jpg">
         </tr>
     </td>
@@ -259,9 +252,7 @@ Se implementaron 2 ActionMode Flotantes, el primero mandará una alerta a los us
     <td>
         <tr>
         <img width="25%" src="./img/S7_float_emergency.png">
-        </tr>
-        <tr>
-        <img width="25%" src="./img/S7_float_add.png">
+                <img width="25%" src="./img/S7_float_add.png">
         </tr>
     </td>
 </table>
