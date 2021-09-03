@@ -13,6 +13,7 @@
         android:src="@drawable/default_user" />
 
     <TextView
+        android:id="@+id/tvUserName"
         android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,6 +21,7 @@
         android:textSize="24sp" />
 
     <TextView
+        android:id="@+id/tvUserPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/drawer_email"

@@ -3,19 +3,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_get_started.view.*
 import kotlinx.android.synthetic.main.fragment_contact.*
+import kotlinx.android.synthetic.main.fragment_contact.view.*
 import org.bedu.segurapp.R
 import org.bedu.segurapp.models.Contacts
 import org.bedu.segurapp.ui.home.AddContactActivity
-import org.bedu.segurapp.ui.home.adapters.ContactsAdapter
+import org.bedu.segurapp.adapters.ContactsAdapter
 
-class ContactsFragment : Fragment() {
-    private lateinit var mAdapter : ContactsAdapter
+class ContactsFragment : Fragment()/*, SearchView.OnQueryTextListener*/ {
     private var listener : (Contacts) ->Unit = {}
     private lateinit var btn_contacts_add: FloatingActionButton
+    //private lateinit var svSearchContact: SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +29,8 @@ class ContactsFragment : Fragment() {
         val view= inflater.inflate(R.layout.fragment_contact, container, false)
         initComponents(view)
         onClickBtnContacts()
+        //initListener()
+
         return view
     }
 
@@ -37,18 +43,18 @@ class ContactsFragment : Fragment() {
         listener = l
     }
 
+
     //configuramos lo necesario para desplegar el RecyclerView
     private fun setUpRecyclerView(){
         recyclerCalls.setHasFixedSize(true)
-        recyclerCalls.layoutManager = LinearLayoutManager(activity)
-        //seteando el Adapter
-        mAdapter = ContactsAdapter( requireActivity(), getProducts(), listener)
+        recyclerCalls.layoutManager = LinearLayoutManager(context)
+        val adapter = ContactsAdapter(getProducts())
         //asignando el Adapter al RecyclerView
-        recyclerCalls.adapter = mAdapter
+        recyclerCalls.adapter = adapter
     }
 
     //Generando datos
-    public fun getProducts(): MutableList<Contacts>{
+    fun getProducts(): MutableList<Contacts>{
         var contact:MutableList<Contacts> = ArrayList()
 
         contact.add(Contacts(R.drawable.unknown,"Andres","5512345678"))
@@ -62,12 +68,14 @@ class ContactsFragment : Fragment() {
         contact.add(Contacts(R.drawable.unknown,"Brenda","5577777777"))
         contact.add(Contacts(R.drawable.unknown,"Edith","5588888888"))
 
-
         return contact
+
+
     }
 
     private fun initComponents(view: View){
         btn_contacts_add = view.findViewById(R.id.btn_contacts_add)
+       // svSearchContact = view.findViewById(R.id.svSearchContact)
     }
 
     private fun onClickBtnContacts(){
@@ -77,8 +85,23 @@ class ContactsFragment : Fragment() {
         }
     }
 
+    /*
+    private fun initListener(){
+        svSearchContact.setOnQueryTextListener(this)
+    }
 
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        return false
+    }
+
+     */
 
 
 }
+
+
 

@@ -4,6 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.14791666666666667" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_detail_contact.xml" value="0.24427083333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_detail_message.xml" value="0.19322916666666667" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_home.xml" value="0.19074074074074074" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_contact.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_detail_contact.xml" value="0.16204690831556504" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_detail_message.xml" value="0.19322916666666667" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_home.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_messages.xml" value="0.1046875" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/item_contact.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/menu/top_app_bar.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/xml/searchable.xml" value="0.15989583333333332" />
         <entry key="app/src/main/res/drawable/bt_border.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/bt_contacts_foreground.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/bt_foreground.xml" value="0.14895833333333333" />

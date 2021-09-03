@@ -44,7 +44,8 @@
         <TextView
             android:id="@+id/tvPassword"
             style="@style/loginTextView"
-            android:text="@string/login_password" />
+            android:text="@string/login_password"
+            android:layout_marginVertical="@dimen/size_16"/>
 
         <EditText
             android:id="@+id/etLoginPassword"

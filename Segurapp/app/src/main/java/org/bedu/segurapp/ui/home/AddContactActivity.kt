@@ -48,7 +48,7 @@ class AddContactActivity : AppCompatActivity() {
     private fun addUser(){
 
         var nombre: String = etUserAdd.text.toString()
-        var phone = etPhoneAdd.text.toString()
+        var phone: String = etPhoneAdd.text.toString()
 
         var add = ContactsFragment().getProducts()
         add.add(Contacts(R.drawable.unknown,nombre,phone))

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_messages.*
 import org.bedu.segurapp.R
 import org.bedu.segurapp.models.Messages
-import org.bedu.segurapp.ui.home.adapters.MessageAdapter
+import org.bedu.segurapp.adapters.MessageAdapter
 
 class MessagesFragment : Fragment() {
     private lateinit var smsAdapter : MessageAdapter
@@ -35,11 +35,10 @@ class MessagesFragment : Fragment() {
     //configuramos lo necesario para desplegar el RecyclerView
     private fun setUpRecyclerView(){
         recyclerSms.setHasFixedSize(true)
-        recyclerSms.layoutManager = LinearLayoutManager(activity)
-        //seteando el Adapter
-        smsAdapter = MessageAdapter( requireActivity(), getMessages(), smsListener)
+        recyclerSms.layoutManager = LinearLayoutManager(context)
+        val adapter = MessageAdapter(getMessages())
         //asignando el Adapter al RecyclerView
-        recyclerSms.adapter = smsAdapter
+        recyclerSms.adapter = adapter
     }
 
     //Generando datos

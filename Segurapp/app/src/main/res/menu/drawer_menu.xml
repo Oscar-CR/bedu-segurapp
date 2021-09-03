@@ -20,15 +20,6 @@
                 android:id="@+id/nav_myInfo"
                 android:icon="@drawable/ic_account"
                 android:title="@string/drawer_account_info" />
-
-            <item
-                android:id="@+id/nav_myMessages"
-                android:icon="@drawable/ic_edit"
-                android:title="@string/drawer_account_messages" />
-            <item
-                android:id="@+id/nav_myLocations"
-                android:icon="@drawable/ic_location"
-                android:title="@string/drawer_account_location" />
         </menu>
     </item>
 
@@ -43,6 +34,10 @@
                 android:id="@+id/nav_privacy"
                 android:icon="@drawable/ic_privacy"
                 android:title="@string/drawer_privacy" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/drawer_logout" />
         </menu>
     </item>
 </menu>
