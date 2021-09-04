@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/segurapp_red</item>
         <item name="colorPrimaryVariant">@color/segurapp_red_variant</item>
-        <item name="colorOnPrimary">@color/segurapp_white_variant</item>
+        <item name="colorOnPrimary">@color/segurapp_black_variant</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/segurapp_black</item>
         <item name="colorSecondaryVariant">@color/segurapp_black_variant</item>
@@ -12,5 +12,9 @@
         <!-- Status bar color. -->2
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="splash_theme" parent="Theme.Segurapp">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 </resources>

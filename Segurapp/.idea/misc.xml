@@ -4,15 +4,27 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.14791666666666667" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/drawable/splash_screen.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_add_contact.xml" value="0.18177083333333333" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_detail_contact.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_detail_message.xml" value="0.19322916666666667" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_get_started.xml" value="0.18177083333333333" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_home.xml" value="0.19074074074074074" />
-        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_contact.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/bottom_sheet_forgot_password.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/drawer_header.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_contact.xml" value="0.33" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_detail_contact.xml" value="0.16204690831556504" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_detail_message.xml" value="0.19322916666666667" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_get_started_done.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_get_started_profile_configuration.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_get_started_safe_contacts.xml" value="0.25" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_get_started_splash.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_home.xml" value="0.14270833333333333" />
-        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_messages.xml" value="0.1046875" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_messages.xml" value="0.25" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/item_contact.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/layout/item_message.xml" value="0.18177083333333333" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/menu/top_app_bar.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/xml/searchable.xml" value="0.15989583333333332" />

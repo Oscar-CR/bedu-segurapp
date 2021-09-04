@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
         nav_view = findViewById(R.id.nav_view)
 
 
-        bottom_navigation.setSelectedItemId(R.id.page_2);
+        bottom_navigation.selectedItemId = R.id.page_2;
 
         this.setSupportActionBar(appBar)
 
@@ -86,25 +86,28 @@ class HomeActivity : AppCompatActivity() {
             // Handle menu item selected
             when(menuItem.itemId){
                 R.id.nav_messages -> {
-                    bottom_navigation.setSelectedItemId(R.id.page_1);
+                    bottom_navigation.selectedItemId = R.id.page_1;
                     drawer_layout.closeDrawer(GravityCompat.START)
                     // loadFragment(MessagesFragment())
                 }
                 R.id.nav_home -> {
-                    bottom_navigation.setSelectedItemId(R.id.page_2);
+                    bottom_navigation.selectedItemId = R.id.page_2;
                     drawer_layout.closeDrawer(GravityCompat.START)
                     // loadFragment(HomeFragment())
                 }
                 R.id.nav_contacts -> {
-                    bottom_navigation.setSelectedItemId(R.id.page_3);
+                    bottom_navigation.selectedItemId = R.id.page_3;
                     drawer_layout.closeDrawer(GravityCompat.START)
                     // loadFragment(ContactsFragment())
                 }
                 R.id.nav_myInfo -> {
-                    Toast.makeText(this,"Infor", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Informacion", Toast.LENGTH_SHORT).show()
                 }
                 R.id.nav_about -> {
                     Toast.makeText(this,"Acerca de", Toast.LENGTH_SHORT).show()
+                }
+                R.id.nav_privacy ->{
+                    Toast.makeText(this,"Privacidad", Toast.LENGTH_SHORT).show()
                 }
                 R.id.nav_logout -> {
                     drawer_layout.closeDrawer(GravityCompat.START)
@@ -117,7 +120,8 @@ class HomeActivity : AppCompatActivity() {
         }
 
     }
-    // Cambia entre fragments
+
+    // Infla el fragmento en la Actvidad Home (frame_container)
     fun loadFragment(fragment: Fragment?) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment!!)

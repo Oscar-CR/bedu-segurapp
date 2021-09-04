@@ -5,15 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/svSearchMessages"
+    <EditText
+        android:id="@+id/etSearchMessage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:iconifiedByDefault="false"
+        android:layout_height="@dimen/size_48"
+        android:paddingStart="@dimen/size_16"
         android:layout_marginVertical="@dimen/size_16"
         android:layout_marginHorizontal="@dimen/size_24"
-        app:queryHint="@string/drawer_seach_sms"
+        android:hint="@string/drawer_seach_sms"
         app:layout_constraintTop_toTopOf="parent"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/size_16"
         android:background="@drawable/bg_contacts"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -22,5 +24,5 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_message"
-        android:layout_below="@+id/svSearchMessages"/>
+        android:layout_below="@+id/etSearchMessage"/>
 </RelativeLayout>

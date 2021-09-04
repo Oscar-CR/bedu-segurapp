@@ -10,6 +10,7 @@ import org.bedu.segurapp.ui.login.LoginActivity
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.splash_theme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val intent = if (userIsLogged()) Intent(this, HomeActivity::class.java)

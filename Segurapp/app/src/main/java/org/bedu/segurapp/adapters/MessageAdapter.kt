@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_message.view.*
 import org.bedu.segurapp.R
+import org.bedu.segurapp.models.Contacts
 import org.bedu.segurapp.models.Messages
 import org.bedu.segurapp.ui.home.DetailContactActivity
 import org.bedu.segurapp.ui.home.DetailMessageActivity
@@ -18,7 +19,7 @@ const val MESSAGE_NAME = "MESSAGE_NAME"
 const val MESSAGE_TEXT = "MESSAGE_PHONE"
 
 class MessageAdapter(
-    private val sms: MutableList<Messages>
+    private var sms: MutableList<Messages>
 ) :
     RecyclerView.Adapter<MessageAdapter.ViewHolder>() {
 
@@ -55,11 +56,12 @@ class MessageAdapter(
                 }
                 view.context.startActivity(intent)
             }
-
-
-
         }
+    }
 
+    fun filterListM(filteredListM: MutableList<Messages>) {
+        sms = filteredListM
+        notifyDataSetChanged()
     }
 
 }
