@@ -3,8 +3,9 @@
 ## Integrantes
 - **Antonio Labra Guerrero**
 - **Oscar Chávez Rosales** 
-- **Eduardo García** 
-- **Jordán Levi** 
+- **Astrid Guerrero Niño** 
+- **Regina Bernal Galicia** 
+
 
 ## Forma de Trabajo
 
