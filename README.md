@@ -1,6 +1,9 @@
 # SegurApp
+<p align = "center" style="background-color:#FFFFFF;">
+<img width="20%" src="./img/segurapp.png">
+</p>
 
-## Integrantes
+## ⭐ Integrantes ⭐
 - **Antonio Labra Guerrero**
 - **Oscar Chávez Rosales** 
 - **Astrid Guerrero Niño** 
@@ -9,14 +12,21 @@
 
 ## Forma de Trabajo
 
-El proyecto sera manejado dentro de la carpeta  **Segurapp**, a lo largo del curso, segpun lo visto en cada sesión.
-Se implementará en el archivo README.md una breve descripcioón de las actividades realizadas.
+El proyecto será manejado dentro de la carpeta  **Segurapp**, a lo largo del curso, segpun lo visto en cada sesión.
+Se implementará en el archivo README.md una breve descripción de las actividades realizadas.
 
 
 ## Comunicación
 - [Grupo de WhatsApp](https://chat.whatsapp.com/KqiYj3A7bbjL80JGnsgCgr) 
 
-# Desarrollo: Proyecto SegurApp 
+## Documentación
+- [Proyecto Final de Kotlin Avanzado](https://docs.google.com/document/d/1SGPDS2SpD3aaOYSw_Aa9AMWqyJBg5N_6/edit?usp=sharing&ouid=108582901697781311746&rtpof=true&sd=true)
+
+## Diseños
+
+- [Wireframes y Mockups](https://www.figma.com/file/xiA0LvmRgZl1jkEX6cJdto/Segurapp)
+
+# Desarrollo: Proyecto SegurApp (Fase 2)
 
 ## ¿Por qué surge SegurApp?
 
