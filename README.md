@@ -17,7 +17,7 @@ De igual forma se implementará en el archivo README.md una breve descripción d
 
 
 ## Comunicación
-- [Grupo de Telegram](https://t.me/joinchat/8C_ZvFO_fQo3ZjY5)
+- [Grupo de Telegram](https://t.me/joinchat/ofA0XlzS44tjMzYx)
 - [Grupo en Slack](https://beduworkspace.slack.com/archives/C02BTP8SL1M) 
 
 ## Documentación
