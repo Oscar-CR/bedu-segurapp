@@ -27,7 +27,9 @@ Por medio de una aplicación móvil, el proyecto busca auxiliar a las personas q
 
 
 ## Mockups SegurApp
+<p align = "center">
 <img width="50%" src="./img/S1_mockups.png">
+</p>
 
 ## Descripción de las pantallas 
 
@@ -70,29 +72,39 @@ Por medio de una aplicación móvil, el proyecto busca auxiliar a las personas q
 ## Login
 El primero es la pantalla login, en el se especifican campos como el correo y la contraseña, asi como un botón de ingresar y registrarse, estos envian a una Activity específica.
 
+<p align = "center">
 <img width="50%" src="./img/S2_login.png">
+</p>
 
 ## Register
 El segundo es la pantalla de registro, en el se especifican los datos necesarios del usuario (como el nombre de usuario, correo y contraseña).
 
+<p align = "center">
 <img width="50%" src="./img/S2_register.png">
+</p>
 
 # Implementaciones Posteriores
 
 ## Forgot Password
 Se implementaron los formularios restantes de la aplicación, en el caso de la opción de "olvidar contraseña" , se creo mediante un DialogFragment. 
 
+<p align = "center">
 <img width="50%" src="./img/S2_forgot_password.png">
+</p>
 
 ## Porfile Configuration
 Se creo otro formulario que es utilizado al momento de registrarse, este es una guia para introducir los datos necesarios, como un mensaje y el número de teléfono.
 
+<p align = "center">
 <img width="50%" src="./img/S2_porfile_configuration.png">
+</p>
 
 ## Safe Contacts
 Además, se creo una pantalla para agregar contatos, esta permite añadirlos directamente de nuestra lista personal de contactos, asi como una opción para agregarlos manualmente (para ello, es importante activar los permisos para leer contactos)
 
+<p align = "center">
 <img width="50%" src="./img/S2_safe_contacts.png">
+</p>
 
 
 # Sesión 3: Activities y Layouts 🚀
@@ -128,8 +140,9 @@ En caso que necesites contactar con un servicio de emergencia deberás presionar
 
 A continuación se presenta la propuesta desarrollada para poder implementar el flujo de nuestra aplicación
 
-
+<p align = "center">
 <img width="50%" src="./img/S1_mockups.png">
+</p>
 
 
 ## Bibliografía
@@ -143,7 +156,9 @@ A continuación se presenta la propuesta desarrollada para poder implementar el 
 
 Mediante el uso de Intents, se realizó la comunicación entre Activitys y Fragments, de esta forma pusimos en práctica la idea anteriormente mencionada.
 
+<p align = "center">
 <img width="50%" src="./img/S3_intents.png">
+</p>
 
 
 # Sesión 4: Listas 🚀
@@ -163,22 +178,30 @@ Para el desarrollo de este Postwork y Proyecto, se genero un RecyclerView en la 
 ## Item Contact
 Se genero un Item para los contactos, mismo que va a ser el molde de la RecyclerView.
 
+<p align = "center">
 <img width="50%" src="./img/S4_item_contact.png">
+</p>
 
 ## Item Messages
 De la misma manera, se generó un Item para los mensajes, en el se indica una foto de perfil, un nombre, mensajes y hora del último mensaje.  
 
+<p align = "center">
 <img width="50%" src="./img/S4_item_message.png">
+</p>
 
 ## Fragment Contact
 Podemos ver que al poner el RecyclerView con origen al Item contact, nos muestra un preview, de como se va a mostrar dicho Fragment al inflarlo con una lista de contactos.
 
+<p align = "center">
 <img width="50%" src="./img/S4_fragment_contact.png">
+</p>
 
 ## Fragment Message
 Al igual que el ejemplo anterior (Fragment Contact) se realizó un proceso simiar, pero utilizando el Item Message.
 
+<p align = "center">
 <img width="50%" src="./img/S4_fragment_message.png">
+</p>
 
 # Sesión 5: Fragments 🚀
 
@@ -222,7 +245,9 @@ Se orientó el proyecto a fragments desde sesiones anteriors, debido a que ofrec
 
 Se definió una lista de colores, en la  siguiente imagen podemos observar el tema por defecto de la app y debajo de ellos se encuentra los colores de la app.
 
+<p align = "center">
 <img width="50%" src="./img/S6_colors.png">
+</p>
 
 - Blanco: Se definio este color debido a que es una app pensada en ser usada en exteriores, por lo que necesita contrastes sin perder la legibilidad.
 
@@ -234,7 +259,9 @@ Se definió una lista de colores, en la  siguiente imagen podemos observar el te
 
 Los colores antes mecionados fueron colocados por default en la sección de temas, esta define los colores principales del proyecto.
 
+<p align = "center">
 <img width="50%" src="./img/S6_themes.png">
+</p>
 
 # Sesión 7: Menús 🚀
 
