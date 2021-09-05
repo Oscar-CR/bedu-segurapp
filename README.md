@@ -17,7 +17,8 @@ Se implementará en el archivo README.md una breve descripción de las actividad
 
 
 ## Comunicación
-- [Grupo de WhatsApp](https://chat.whatsapp.com/KqiYj3A7bbjL80JGnsgCgr) 
+- [Grupo de Telegram]()
+- [Grupo de Slack](https://beduworkspace.slack.com/archives/C02BTP8SL1M) 
 
 ## Documentación
 - [Proyecto Final de Kotlin Avanzado](https://docs.google.com/document/d/1SGPDS2SpD3aaOYSw_Aa9AMWqyJBg5N_6/edit?usp=sharing&ouid=108582901697781311746&rtpof=true&sd=true)
@@ -49,6 +50,7 @@ Por medio de una aplicación móvil, el proyecto busca auxiliar a las personas q
 - La quinta pantalla muestra un menú, donde se puede acceder a múltiples opciones, como la información general del usuario, mensajes macros (usados al momento de enviar una señal de auxilio) y otras funciones.
 - Las ultimas pantallas hacen referencia al registro de la app, mediante un login, además de esta pantalla se pretende crear una de registro. El ultimo mockup muestra un servicio de video llamada, mismo que es accesible mediante la pantalla de chat.
 
+<!--
 # Sesión 1: Introducción a Android 🚀
 
 ## Postwork 📋
@@ -308,6 +310,6 @@ Se implementaron 2 ActionMode Flotantes, el primero mandará una alerta a los us
 Configurar lo básico en gradle.
 Hacer pruebas con nuestra aplicación de debug.
 Lanzar una versión de Release de nuestra aplicación.
-
+-->
 
 
