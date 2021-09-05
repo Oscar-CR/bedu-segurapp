@@ -12,7 +12,7 @@
 
 ## Forma de Trabajo
 
-El proyecto será manejado dentro de la carpeta  **Segurapp**, a lo largo del curso, segpun lo visto en cada sesión.
+El proyecto será manejado dentro de la carpeta  **Segurapp**, a lo largo del curso, según lo visto en cada sesión.
 Se implementará en el archivo README.md una breve descripción de las actividades realizadas.
 
 
@@ -45,7 +45,7 @@ Algunos de estos delitos son desapariciones, secuestros, robos, asaltos, etc. De
 
 Por medio de una aplicación móvil, el proyecto busca auxiliar a las personas que deseen instalarla cuando sean víctimas de alguno de estos incidentes, permitiéndoles solicitar ayuda a sus contactos más cercanos para socorrerlos.
 
-
+<!--
 ## Mockups SegurApp
 <p align = "center">
 <img width="50%" src="./img/S1_mockups.png">
@@ -59,6 +59,7 @@ Por medio de una aplicación móvil, el proyecto busca auxiliar a las personas q
 - La tercera pantalla es un chat, permitiendo comunicar con algunos de los contactos de forma directa, dentro de ella se implementarán diversas funciones y servicios de acceso rápido, dichas funciones se pueden observar en la pantalla cuatro.
 - La quinta pantalla muestra un menú, donde se puede acceder a múltiples opciones, como la información general del usuario, mensajes macros (usados al momento de enviar una señal de auxilio) y otras funciones.
 - Las ultimas pantallas hacen referencia al registro de la app, mediante un login, además de esta pantalla se pretende crear una de registro. El ultimo mockup muestra un servicio de video llamada, mismo que es accesible mediante la pantalla de chat.
+-->
 
 <!--
 # Sesión 1: Introducción a Android 🚀
