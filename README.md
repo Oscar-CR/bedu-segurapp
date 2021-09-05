@@ -12,8 +12,8 @@
 
 ## Forma de Trabajo
 
-El proyecto será manejado dentro de la carpeta  **Segurapp**, a lo largo del curso, según lo visto en cada sesión.
-Se implementará en el archivo README.md una breve descripción de las actividades realizadas.
+El proyecto será manejado dentro de la carpeta  **Segurapp**, a lo largo del curso y según lo visto en cada sesión.
+De igual forma se implementará en el archivo README.md una breve descripción de las actividades realizadas.
 
 
 ## Comunicación
