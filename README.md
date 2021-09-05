@@ -17,8 +17,8 @@ De igual forma se implementará en el archivo README.md una breve descripción d
 
 
 ## Comunicación
-- Grupo de Telegram
-- Grupo de Slack 
+- [Grupo de Telegram]. (https://t.me/joinchat/8C_ZvFO_fQo3ZjY5)
+- [Grupo en Slack]. (https://beduworkspace.slack.com/archives/C02BTP8SL1M) 
 
 ## Documentación
 - [Proyecto Final de Kotlin Avanzado](https://docs.google.com/document/d/1SGPDS2SpD3aaOYSw_Aa9AMWqyJBg5N_6/edit?usp=sharing&ouid=108582901697781311746&rtpof=true&sd=true)
