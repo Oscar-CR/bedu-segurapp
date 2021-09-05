@@ -27,7 +27,16 @@ Se implementará en el archivo README.md una breve descripción de las actividad
 
 - [Wireframes y Mockups](https://www.figma.com/file/xiA0LvmRgZl1jkEX6cJdto/Segurapp)
 
-# Desarrollo: Proyecto SegurApp (Fase 2)
+# Desarrollo: Proyecto SegurApp (Fase 3)
+
+## Objetivo principal
+
+Desarrollar una aplicación móvil enfocada a la seguridad personal, la cual proporciona servicios de rastreo, mensajería instantánea y notificaciones a contactos seleccionados para auxiliar la vida del usuario ante una situación de emergencia que se le presente.
+
+## Descripción general del proyecto
+
+SegurApp es una aplicación de seguridad personal,  la cual incorpora servicios de rastreo, mensajería y acceso rápido a contactos para hacer llamadas y/o mensajes de forma eficiente a contactos de confianza.
+
 
 ## ¿Por qué surge SegurApp?
 
@@ -41,6 +50,7 @@ Por medio de una aplicación móvil, el proyecto busca auxiliar a las personas q
 <p align = "center">
 <img width="50%" src="./img/S1_mockups.png">
 </p>
+
 
 ## Descripción de las pantallas 
 
