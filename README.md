@@ -21,7 +21,7 @@ De igual forma se implementará en el archivo README.md una breve descripción d
 - [Grupo en Slack](https://beduworkspace.slack.com/archives/C02BTP8SL1M) 
 
 ## Documentación
-- [Proyecto Final de Kotlin Avanzado](https://docs.google.com/document/d/1SGPDS2SpD3aaOYSw_Aa9AMWqyJBg5N_6/edit?usp=sharing&ouid=108582901697781311746&rtpof=true&sd=true)
+- [Proyecto Final de Kotlin Avanzado](https://docs.google.com/document/d/1SGPDS2SpD3aaOYSw_Aa9AMWqyJBg5N_6/edit?usp=sharing&ouid=107584529257334960745&rtpof=true&sd=true)
 
 ## Diseños
 
