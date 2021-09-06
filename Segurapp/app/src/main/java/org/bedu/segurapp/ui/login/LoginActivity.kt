@@ -9,6 +9,7 @@ import org.bedu.segurapp.models.UserLogin.Companion.pref
 import org.bedu.segurapp.ui.forgotPassword.BottomSheetForgotPassword
 import org.bedu.segurapp.ui.home.HomeActivity
 import org.bedu.segurapp.ui.register.RegisterActivity
+import org.bedu.segurapp.ui.socialSecurity.SocialSecurityActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -34,6 +35,10 @@ class LoginActivity : AppCompatActivity() {
             BottomSheetForgotPassword().apply {
                 show(supportFragmentManager, tag)
             }
+        }
+
+        binding.tvUknownUser.setOnClickListener{
+            startActivity(Intent(this, SocialSecurityActivity::class.java))
         }
     }
 
