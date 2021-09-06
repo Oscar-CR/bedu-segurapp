@@ -28,7 +28,7 @@ class MessagesFragment : Fragment() {
         val view= inflater.inflate(R.layout.fragment_messages, container, false)
 
         initComponents(view)
-        initListener(view)
+        initListener()
         return view
     }
 
@@ -66,7 +66,7 @@ class MessagesFragment : Fragment() {
         etSearchMessage = view.findViewById(R.id.etSearchMessage)
     }
 
-    private fun initListener(view: View){
+    private fun initListener() {
 
         etSearchMessage.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {

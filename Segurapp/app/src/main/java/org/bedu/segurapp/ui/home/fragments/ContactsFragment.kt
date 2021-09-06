@@ -44,7 +44,6 @@ class ContactsFragment : Fragment(){
         setUpRecyclerView()
     }
 
-
     //configuramos lo necesario para desplegar el RecyclerView
     private fun setUpRecyclerView(){
         recyclerCalls.setHasFixedSize(true)
@@ -59,7 +58,6 @@ class ContactsFragment : Fragment(){
         //asignando el Adapter al RecyclerView
         recyclerCalls.adapter = adapter
     }
-
 
     //Generando datos
     private fun getContacts(): MutableList<Contacts> {
@@ -92,9 +90,6 @@ class ContactsFragment : Fragment(){
         }
     }
 
-
-
-
     private fun initListener(){
 
         etSearchContact.addTextChangedListener(object : TextWatcher {
@@ -124,7 +119,6 @@ class ContactsFragment : Fragment(){
 
         adapter.filterList(filteredList)
     }
-
 
     private fun makeACall(phoneCall: String){
         val permissionCheck = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
