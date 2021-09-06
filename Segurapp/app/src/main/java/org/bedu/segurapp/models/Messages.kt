@@ -11,7 +11,7 @@ data class Messages (
     var time: String
 ): Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readInt()!!,
+        parcel.readInt(),
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
