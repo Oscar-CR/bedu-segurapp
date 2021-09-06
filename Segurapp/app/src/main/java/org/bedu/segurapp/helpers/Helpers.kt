@@ -80,8 +80,6 @@ fun setSharedPreferences(activity: Activity): SharedPreferences {
     return activity.getSharedPreferences(activity.getString(R.string.shared_preferences), Context.MODE_PRIVATE)
 }
 
-fun userIsLogged(): Boolean = false
-
 fun clearForm(fields: Array<EditText>){
     fields.forEach {
         it.text.clear()
