@@ -27,7 +27,6 @@ import org.bedu.segurapp.models.User
 
 class GetStartedProfileConfigurationFragment : Fragment() {
     private lateinit var btnNext: Button
-    private lateinit var txtNumber: EditText
     private lateinit var txtMessageEmergency: EditText
     private lateinit var civProfileImage: CircleImageView
     private lateinit var civAddImage: CircleImageView
@@ -62,7 +61,6 @@ class GetStartedProfileConfigurationFragment : Fragment() {
 
         if (userObject != null) {
             userObject.alertMessage = txtMessageEmergency.text.toString()
-            userObject.telephoneNumber = txtNumber.text.toString()
 
             preferencesEditor.putString(getString(R.string.shared_preferences_current_user), Gson().toJson(userObject))
             preferencesEditor.apply()
@@ -71,7 +69,6 @@ class GetStartedProfileConfigurationFragment : Fragment() {
 
     private fun initComponents(view: View) {
         btnNext = view.findViewById(R.id.btn_next)
-        txtNumber = view.findViewById(R.id.txt_number)
         txtMessageEmergency = view.findViewById(R.id.txt_message_emergency)
         civProfileImage = view.findViewById(R.id.profile_image)
         civAddImage = view.findViewById(R.id.add_image)
@@ -115,7 +112,7 @@ class GetStartedProfileConfigurationFragment : Fragment() {
 
     private fun btnNextClickListener() {
         btnNext.setOnClickListener {
-            if (makeFormValidations(arrayOf(txtNumber, txtMessageEmergency), requireContext())) {
+            if (makeFormValidations(arrayOf(txtMessageEmergency), requireContext())) {
                 val mPager = (activity as GetStartedActivity).findViewById<ViewPager2>(R.id.pager)
                 if (mPager != null) moveNext(mPager)
             }

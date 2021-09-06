@@ -20,6 +20,7 @@ import org.bedu.segurapp.helpers.movePrevious
 import org.bedu.segurapp.helpers.setSharedPreferences
 import org.bedu.segurapp.models.Contacts
 import org.bedu.segurapp.models.User
+import org.bedu.segurapp.models.UserLogin
 import org.bedu.segurapp.ui.home.HomeActivity
 
 class GetStartedDoneFragment : Fragment() {
@@ -59,7 +60,10 @@ class GetStartedDoneFragment : Fragment() {
                 null)
         val userObject = if (userString != null && userString != "") Gson().fromJson(userString,
             User::class.java) else null
-        return userObject != null && userObject.alertMessage != "" && userObject.telephoneNumber != "" && userObject.telephoneNumber.length == 10
+
+        userObject?.email?.let { UserLogin.pref.saveName(it) }
+
+        return userObject != null && userObject.alertMessage != ""
     }
 
     @SuppressLint("CommitPrefEdits")
