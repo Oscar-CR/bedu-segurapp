@@ -19,12 +19,16 @@
     <string name="denied_permissions_message_hint">Para mejorar tu experiencia necesitaremos todos los permisos en un futuro</string>
     <string name="denied_camera_permission_message_hint">Para continuar, necesitamos usar tu cámara</string>
     <string name="denied_read_contacts_permission_message_hint">Para continuar, necesitamos acceder a tus contactos</string>
+    <string name="denied_location_message_hint">Para continuar, necesitamos localizar tu ubicación</string>
     <string name="permission_configuration_hint">Entendido</string>
     <string name="granted_permissions_message_hint">¡Empecémos!</string>
     <string name="add_safe_contacts_manually_hint">Por favor, usa el formulario para registrar a %s</string>
-
     <string name="app_name">SegurApp</string>
     <string name="package_name">org.bedu.segurapp</string>
+
+    <!-- Login Activity !-->
+    <string name="email_address">Correo electrónico</string>
+    <string name="email_address_hint">Ingrese su correo electrónico</string>
     <string name="login_user">Teléfono</string>
     <string name="login_user_hint">Ingrese su número de teléfono</string>
     <string name="login_password">Contraseña</string>
@@ -33,15 +37,20 @@
     <string name="login_btn_secondary">Crear cuenta</string>
     <string name="login_forgot_pass">¿Olvidaste la contraseña?</string>
     <string name="login_unknow_user">Iniciar sesion mas tarde</string>
+    <string name="wrong_credentials_login">Usuario o contraseña incorrectos, vuelve a intentar</string>
 
+    <!-- Register Activity !-->
     <string name="register">Registrarse</string>
     <string name="register_user">Usuario</string>
     <string name="register_user_hint">Ingrese un nombre de usuario</string>
     <string name="register_password">Correo</string>
     <string name="register_password_hint">Ingrese su contraseña</string>
     <string name="register_btn_primary">Registrarse</string>
+    <string name="home_btn_help">¡Ayuda!</string>
+    <string name="home_btn_stop">¡Detener!</string>
 
-    <string name="home_btn_help">¡AYUDA!</string>
+    <!-- DetailContact Activity !-->
+    <string name="hello_message">Hola %s</string>
 
     <!-- Forgot Password Bottom Sheet !-->
     <string name="forgot_password_send_hint">Enviar</string>
@@ -113,7 +122,7 @@
     <string name="congratulations_message_title">¡Felicidades!</string>
     <string name="congratulations_message_description">Has creado tu cuenta exitosamente. Ahora estás a salvo</string>
     <string name="accept_hint">Aceptar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 
 </resources>
