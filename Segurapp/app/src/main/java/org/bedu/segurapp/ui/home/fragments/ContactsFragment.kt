@@ -1,4 +1,7 @@
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -14,11 +17,11 @@ import org.bedu.segurapp.models.Contacts
 import org.bedu.segurapp.ui.home.AddContactActivity
 import org.bedu.segurapp.adapters.ContactsAdapter
 import android.text.Editable
-
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 class ContactsFragment : Fragment(){
-    private var listener : (Contacts) ->Unit = {}
-    private lateinit var btn_contacts_add: FloatingActionButton
+    private lateinit var btnContactsAdd: FloatingActionButton
     private lateinit var etSearchContact: EditText
     private lateinit var adapter: ContactsAdapter
     private lateinit var contactsList: MutableList<Contacts>
@@ -31,7 +34,7 @@ class ContactsFragment : Fragment(){
         val view= inflater.inflate(R.layout.fragment_contact, container, false)
         initComponents(view)
         onClickBtnContacts()
-        initListener(view)
+        initListener()
 
         return view
     }
@@ -41,22 +44,25 @@ class ContactsFragment : Fragment(){
         setUpRecyclerView()
     }
 
-    fun setListener(l: (Contacts) ->Unit){
-        listener = l
-    }
 
     //configuramos lo necesario para desplegar el RecyclerView
     private fun setUpRecyclerView(){
         recyclerCalls.setHasFixedSize(true)
         recyclerCalls.layoutManager = LinearLayoutManager(context)
-        adapter = ContactsAdapter(getProducts())
+
+
+        adapter = ContactsAdapter (
+            { makeACall(it.phone)},
+            getContacts(),
+        )
+
         //asignando el Adapter al RecyclerView
         recyclerCalls.adapter = adapter
     }
 
 
     //Generando datos
-    fun getProducts(): MutableList<Contacts> {
+    private fun getContacts(): MutableList<Contacts> {
          contactsList  = ArrayList()
 
          contactsList.add(Contacts(R.drawable.unknown,"Andres","5512345678"))
@@ -75,19 +81,21 @@ class ContactsFragment : Fragment(){
     }
 
     private fun initComponents(view: View){
-        btn_contacts_add = view.findViewById(R.id.btn_contacts_add)
+        btnContactsAdd = view.findViewById(R.id.btn_contacts_add)
         etSearchContact = view.findViewById(R.id.etSearchContact)
     }
 
     private fun onClickBtnContacts(){
-        btn_contacts_add.setOnClickListener {
+        btnContactsAdd.setOnClickListener {
             val intent=Intent(context, AddContactActivity::class.java)
             startActivity(intent)
         }
     }
 
 
-    private fun initListener(view: View){
+
+
+    private fun initListener(){
 
         etSearchContact.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -113,9 +121,24 @@ class ContactsFragment : Fragment(){
 
             }
         }
-        adapter.filterList(filteredList);
+
+        adapter.filterList(filteredList)
     }
 
+
+    private fun makeACall(phoneCall: String){
+        val permissionCheck = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
+
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                requireActivity(), arrayOf(Manifest.permission.CALL_PHONE),
+                123
+            )
+        } else {
+            startActivity(Intent(Intent.ACTION_DIAL)
+                .setData(Uri.parse("tel:${phoneCall.trim()}")))
+        }
+    }
 
 
 }

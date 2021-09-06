@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_contact.view.*
 import org.bedu.segurapp.R
@@ -16,6 +15,7 @@ const val USER_NAME = "USER_NAME"
 const val USER_PHONE = "USER_PHONE"
 
 class ContactsAdapter(
+    private val mListener: (Contacts) -> Unit,
     private var contacts: MutableList<Contacts>
 ) :
     RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
@@ -27,8 +27,30 @@ class ContactsAdapter(
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       holder.bind(contacts[position])
 
+        val item = contacts[position]
+
+        with(holder) {
+            view.tvNombre.text = item.name
+            view.tvPhone.text = item.phone
+            view.imgPorfile.setImageResource(item.photo)
+            view.btn_call.setOnClickListener {
+                item.let { it1 -> mListener.invoke(it1) }
+            }
+
+            view.setOnClickListener {
+
+                val bundle = Bundle()
+
+                bundle.putString(USER_NAME, item.name)
+                bundle.putString(USER_PHONE, item.phone)
+
+                val intent = Intent(view.context, DetailContactActivity::class.java).apply {
+                    putExtras(bundle)
+                }
+                view.context.startActivity(intent)
+            }
+        }
     }
 
 
@@ -37,39 +59,14 @@ class ContactsAdapter(
     }
 
 
-    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-
-        fun bind(contact: Contacts) {
-            view.tvNombre.text = contact.name
-            view.tvPhone.text = contact.phone
-            view.imgPorfile.setImageResource(contact.photo)
-
-            view.btn_call.setOnClickListener{
-                Toast.makeText(view.context, "Llamando a ${contact.name}",Toast.LENGTH_LONG).show()
-            }
-
-            view.setOnClickListener {
-
-                var bundle = Bundle()
-
-                bundle.putString(USER_NAME, contact.name)
-                bundle.putString(USER_PHONE,contact.phone)
-
-                 val intent=Intent(view.context, DetailContactActivity::class.java).apply {
-                  putExtras(bundle)
-              }
-                view.context.startActivity(intent)
-            }
-
-        }
-
-    }
+    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {}
 
 
     fun filterList(filteredList: MutableList<Contacts>) {
         contacts = filteredList
         notifyDataSetChanged()
     }
+
 
 }
 

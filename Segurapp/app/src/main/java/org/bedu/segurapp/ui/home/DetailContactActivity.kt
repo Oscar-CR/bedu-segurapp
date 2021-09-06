@@ -2,31 +2,26 @@ package org.bedu.segurapp.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import org.bedu.segurapp.R
 import org.bedu.segurapp.adapters.USER_NAME
 import org.bedu.segurapp.adapters.USER_PHONE
+import org.bedu.segurapp.databinding.ActivityDetailContactBinding
 
 class DetailContactActivity : AppCompatActivity() {
 
-    private  lateinit var tvDetailContactSaludo: TextView
-    private lateinit var tvDetailContactPhone : TextView
-
+    private val binding by lazy { ActivityDetailContactBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_contact)
-
-        tvDetailContactSaludo = findViewById(R.id.tvDetailContactSaludo)
-        tvDetailContactPhone = findViewById(R.id.tvDetailContactPhone)
+        setContentView(binding.root)
 
         val bundle = intent.extras
-
         val name = bundle?.getString(USER_NAME)
-
         val phone = bundle?.getString(USER_PHONE)
 
-        tvDetailContactSaludo.text = "Hola $name"
-        tvDetailContactPhone.text = phone
+        with(binding){
+            tvDetailContactSaludo.text = getString(R.string.hello_message,name)
+            tvDetailContactPhone.text = phone
+        }
     }
 }
