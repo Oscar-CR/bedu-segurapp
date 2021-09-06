@@ -2,10 +2,16 @@ package org.bedu.segurapp.models
 
 import android.content.Context
 
+
+
 class Preferences(val context : Context) {
-    val SHARED_NAME = "MyName"
-    val SHARED_USER_NAME ="Username"
-    val storage = context.getSharedPreferences(SHARED_NAME,0)
+
+    private val storage by lazy{ context.getSharedPreferences(SHARED_NAME,0)}
+
+    companion object{
+        private const val SHARED_NAME = "MyName"
+        const val SHARED_USER_NAME ="Username"
+    }
 
     fun saveName(name:String){
         storage.edit().putString(SHARED_USER_NAME, name).apply()
