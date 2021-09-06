@@ -12,35 +12,27 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 import org.bedu.segurapp.R
+import org.bedu.segurapp.databinding.ActivityHomeBinding
 import org.bedu.segurapp.models.UserLogin.Companion.pref
 import org.bedu.segurapp.ui.home.fragments.HomeFragment
 import org.bedu.segurapp.ui.home.fragments.MessagesFragment
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var bottom_navigation: BottomNavigationView
-    private lateinit var appBar: Toolbar
-    private lateinit var nav_view: NavigationView
+    private val binding by lazy {ActivityHomeBinding.inflate(layoutInflater)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-
-
-        bottom_navigation=findViewById(R.id.bottom_navigation)
-        appBar = findViewById(R.id.app_bar)
-        nav_view = findViewById(R.id.nav_view)
-
-
+        setContentView(binding.root)
         bottom_navigation.selectedItemId = R.id.page_2;
 
-        this.setSupportActionBar(appBar)
+        with(binding){
+            setSupportActionBar(appBar)
+            setupDrawer(appBar)
+        }
 
-        setupDrawer(appBar)
         drawerNav()
 
         val homeFragment= HomeFragment()
@@ -139,13 +131,13 @@ class HomeActivity : AppCompatActivity() {
             // si el boton es cancelable, es decir, no se puede salir de este dialogo
             .setCancelable(false)
             // opcion Aceptar
-            .setPositiveButton("Aceptar", DialogInterface.OnClickListener {
-                    dialog, id -> logout()   //finish()
-            })
-                // Opcion cancelar
-            .setNegativeButton("Cancelar", DialogInterface.OnClickListener {
-                    dialog, id -> dialog.cancel()
-            })
+            .setPositiveButton("Aceptar") { _ , _ ->
+                logout()   //finish()
+            }
+            // Opcion cancelar
+            .setNegativeButton("Cancelar") { dialog, _ ->
+                dialog.cancel()
+            }
 
         // Crea la caja de dialogo
         val alert = dialogBuilder.create()

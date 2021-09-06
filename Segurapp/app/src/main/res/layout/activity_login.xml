@@ -32,12 +32,12 @@
             android:id="@+id/tvMail"
             style="@style/loginTextView"
             android:layout_marginVertical="@dimen/size_16"
-            android:text="@string/login_user" />
+            android:text="@string/email_address" />
 
         <EditText
             android:id="@+id/etLoginEmail"
             style="@style/loginEdiText"
-            android:hint="@string/login_user_hint"
+            android:hint="@string/email_address_hint"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress" />
 
