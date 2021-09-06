@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
         with(binding){
             setSupportActionBar(appBar)
-           // setupDrawer(appBar)
+            setupDrawer(appBar)
         }
 
         drawerNav()
@@ -61,10 +61,16 @@ class HomeActivity : AppCompatActivity() {
 
     //asignamos las acciones para cada opción del AppBar
 
-    /*private fun setupDrawer(toolbar: Toolbar){
+    private fun setupDrawer(toolbar: Toolbar) {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val drawerToggle = ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open_drawer,R.string.close_drawer)
-    }*/
+        val drawerToggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            toolbar,
+            R.string.open_drawer,
+            R.string.close_drawer
+        )
+    }
 
     private fun makeCurretFragment(fragment: Fragment)=
         supportFragmentManager.beginTransaction().apply {
