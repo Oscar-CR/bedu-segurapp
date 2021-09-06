@@ -5,13 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_message.view.*
 import org.bedu.segurapp.R
-import org.bedu.segurapp.models.Contacts
 import org.bedu.segurapp.models.Messages
-import org.bedu.segurapp.ui.home.DetailContactActivity
 import org.bedu.segurapp.ui.home.DetailMessageActivity
 
 
