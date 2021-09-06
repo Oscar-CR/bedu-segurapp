@@ -26,6 +26,8 @@
     <string name="app_name">SegurApp</string>
     <string name="package_name">org.bedu.segurapp</string>
 
+    <!-- Social Security Activity !-->
+    <string name="search_service">Buscar servicio</string>
     <!-- Login Activity !-->
     <string name="email_address">Correo electrónico</string>
     <string name="email_address_hint">Ingrese su correo electrónico</string>
@@ -122,7 +124,6 @@
     <string name="congratulations_message_title">¡Felicidades!</string>
     <string name="congratulations_message_description">Has creado tu cuenta exitosamente. Ahora estás a salvo</string>
     <string name="accept_hint">Aceptar</string>
-
 
 
 </resources>
