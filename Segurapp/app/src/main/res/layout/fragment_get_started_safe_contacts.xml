@@ -76,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_rounded"
+                android:textColor="@color/segurapp_white_variant"
                 android:text="@string/btn_finish_hint" />
 
         </LinearLayout>

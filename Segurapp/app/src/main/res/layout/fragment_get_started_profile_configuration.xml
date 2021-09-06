@@ -64,16 +64,6 @@
                     android:nextFocusDown="@+id/txt_number"
                     android:inputType="text" />
 
-                <EditText
-                    android:id="@+id/txt_number"
-                    style="@style/get_started_edit_text"
-                    android:digits="1234567890"
-                    android:drawableStart="@drawable/ic_call2"
-                    android:hint="@string/hint_phone_number"
-                    android:imeOptions="actionDone"
-                    android:inputType="phone"
-                    android:maxLength="10" />
-
             </LinearLayout>
 
             <Button
@@ -81,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_rounded"
+                android:textColor="@color/segurapp_white_variant"
                 android:text="@string/btn_next" />
 
         </LinearLayout>
