@@ -77,8 +77,6 @@
             android:id="@+id/tvUknownUser"
             style="@style/loginTextView"
             android:text="@string/login_unknow_user"
-            android:layout_marginTop="@dimen/size_48"
             android:gravity="center"/>
-
     </LinearLayout>
 </ScrollView>
