@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -14,23 +15,23 @@
             android:id="@+id/imageView3"
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             app:srcCompat="@drawable/login_decoration" />
 
 
         <TextView
             android:id="@+id/tvRegisterLogo"
             style="@style/header_text"
+            android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/size_64"
-            android:text="@string/register"
-            android:layout_alignParentTop="true" />
+            android:text="@string/register" />
 
         <TextView
             android:id="@+id/tvUser"
             style="@style/loginTextView"
-            android:text="@string/register_user"
-            android:layout_below="@id/tvRegisterLogo"/>
+            android:layout_below="@id/tvRegisterLogo"
+            android:text="@string/register_user" />
 
         <EditText
             android:id="@+id/etRegisterUser"
@@ -41,24 +42,45 @@
 
 
         <TextView
-            android:id="@+id/tvRMail"
+            android:id="@+id/tvRPhone"
             style="@style/loginTextView"
-            android:text="@string/login_user"
-            android:layout_below="@id/etRegisterUser"/>
+            android:layout_below="@id/etRegisterUser"
+            android:text="@string/login_user" />
 
+
+        <EditText
+            android:id="@+id/etRegisterTelephone"
+            style="@style/loginEdiText"
+            android:layout_below="@id/tvRPhone"
+            android:digits="1234567890"
+            android:hint="@string/login_user_hint"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLength="10"
+            tools:ignore="TextFields" />
+
+
+        <TextView
+            android:id="@+id/tvEmail"
+            style="@style/loginTextView"
+            android:layout_below="@id/etRegisterTelephone"
+            android:text="@string/email_address" />
 
         <EditText
             android:id="@+id/etRegisterEmail"
             style="@style/loginEdiText"
-            android:hint="@string/login_user_hint"
+            android:layout_below="@id/tvEmail"
+            android:hint="@string/email_address_hint"
             android:inputType="textEmailAddress"
-            android:layout_below="@id/tvRMail"/>
+
+            tools:ignore="TextFields" />
+
 
         <TextView
             android:id="@+id/tvRPassword"
             style="@style/loginTextView"
-            android:text="@string/login_password"
-            android:layout_below="@id/etRegisterEmail"/>
+            android:layout_below="@id/etRegisterEmail"
+            android:text="@string/login_password" />
 
 
         <EditText
@@ -73,7 +95,7 @@
             style="@style/buttomPrimary"
             android:layout_below="@id/etRegisterPassword"
             android:layout_marginTop="32dp"
-            android:text="@string/register"/>
+            android:text="@string/register" />
 
 
     </RelativeLayout>

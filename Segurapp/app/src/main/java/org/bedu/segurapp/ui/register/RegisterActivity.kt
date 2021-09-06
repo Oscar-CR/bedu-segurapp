@@ -5,10 +5,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import com.google.gson.Gson
 import org.bedu.segurapp.R
+import org.bedu.segurapp.databinding.ActivityRegisterBinding
 import org.bedu.segurapp.helpers.makeFormValidations
 import org.bedu.segurapp.helpers.setSharedPreferences
 import org.bedu.segurapp.models.User
@@ -16,34 +15,24 @@ import org.bedu.segurapp.ui.getStarted.GetStartedActivity
 
 class RegisterActivity : AppCompatActivity() {
 
+    private val binding by lazy { ActivityRegisterBinding.inflate(layoutInflater) }
     private lateinit var preferences: SharedPreferences
-    private lateinit var btnSubmit: Button
-    private lateinit var etRegisterUser: EditText
-    private lateinit var etRegisterEmail: EditText
-    private lateinit var etRegisterPassword: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
-        initComponents()
+        setContentView(binding.root)
         registerProcess()
     }
 
-    private fun initComponents() {
-        btnSubmit = findViewById(R.id.btnSubmit)
-        etRegisterUser = findViewById(R.id.etRegisterUser)
-        etRegisterEmail = findViewById(R.id.etRegisterEmail)
-        etRegisterPassword = findViewById(R.id.etRegisterPassword)
-    }
-
     private fun registerProcess() {
-        btnSubmit.setOnClickListener {
-            if (makeFormValidations(arrayOf(etRegisterUser, etRegisterEmail, etRegisterPassword),
+       binding.btnSubmit.setOnClickListener {
+            if (makeFormValidations(arrayOf(binding.etRegisterUser, binding.etRegisterTelephone, binding.etRegisterEmail, binding.etRegisterPassword),
                     applicationContext)
             ) {
-                val currentUser = User(etRegisterUser.text.toString(),
-                    etRegisterEmail.text.toString(),
-                    etRegisterPassword.text.toString())
+                val currentUser = User(binding.etRegisterUser.text.toString(),
+                    binding.etRegisterTelephone.text.toString(),
+                    binding.etRegisterEmail.text.toString(),
+                    binding.etRegisterPassword.text.toString())
                 if (saveUserInSharedPreferences(currentUser)) {
                     val intent = Intent(this, GetStartedActivity::class.java)
                     startActivity(intent)
