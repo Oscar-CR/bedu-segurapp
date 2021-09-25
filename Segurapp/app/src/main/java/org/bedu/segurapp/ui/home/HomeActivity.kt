@@ -1,17 +1,25 @@
 package org.bedu.segurapp.ui.home
 
 import ContactsFragment
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.DialogInterface
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.mapbox.mapboxsdk.Mapbox
 import kotlinx.android.synthetic.main.activity_home.*
 import org.bedu.segurapp.R
 import org.bedu.segurapp.databinding.ActivityHomeBinding
@@ -23,10 +31,18 @@ class HomeActivity : AppCompatActivity() {
 
     private val binding by lazy {ActivityHomeBinding.inflate(layoutInflater)}
 
+    companion object {
+        const val CHANNEL_HELP = "CHANNEL_HELP"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
+        Mapbox.getInstance(this, getString(R.string.mapbox_access_token))
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         bottom_navigation.selectedItemId = R.id.page_2;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            setNotificationHelp()
+        }
 
         with(binding){
             setSupportActionBar(appBar)
@@ -159,4 +175,24 @@ class HomeActivity : AppCompatActivity() {
         pref.wipe()
         onBackPressed()
     }
+
+    //Canal para enviar notificaciones
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setNotificationHelp() {
+        val name = getString(R.string.channel_help)
+        val descriptionText = getString(R.string.courses_description)
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel(CHANNEL_HELP, name, importance).apply {
+            description = descriptionText
+        }
+
+        val notificationManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        notificationManager.createNotificationChannel(channel)
+    }
+
+
+
+
 }

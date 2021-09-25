@@ -1,48 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/mensaje"
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintHorizontal_bias="0.0"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Aqui va el mapa" />
-
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/btn_help"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_gravity="bottom|right"
-        android:layout_marginStart="@dimen/size_48"
-        android:layout_marginTop="@dimen/size_48"
-        android:layout_marginEnd="@dimen/size_48"
-        android:layout_marginBottom="@dimen/size_48"
-        android:backgroundTint="@color/segurapp_red_variant"
-        android:contentDescription="@string/home_btn_help"
+        android:layout_marginBottom="80dp"
+        android:drawableLeft="@drawable/ic_location"
+        android:background="@drawable/et_rounded"
         android:text="@string/home_btn_help"
-        app:icon="@drawable/ic_location" />
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white" />
 
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/btn_stop"
+    <Button
+        android:id="@+id/buttonStop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_gravity="bottom|right"
-        android:layout_marginStart="@dimen/size_48"
-        android:layout_marginTop="@dimen/size_48"
-        android:layout_marginEnd="@dimen/size_48"
-        android:layout_marginBottom="@dimen/size_48"
-        android:backgroundTint="@color/segurapp_red_variant"
-        android:contentDescription="@string/home_btn_help"
+        android:background="@drawable/et_rounded"
+        android:layout_marginBottom="80dp"
+        android:drawableLeft="@drawable/ic_location"
         android:text="@string/home_btn_stop"
-        android:visibility="gone"
-        app:icon="@drawable/ic_location" />
-</RelativeLayout>
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
