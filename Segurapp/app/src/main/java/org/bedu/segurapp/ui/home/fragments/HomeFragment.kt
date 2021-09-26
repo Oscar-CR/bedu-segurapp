@@ -1,7 +1,6 @@
 package org.bedu.segurapp.ui.home.fragments
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Looper
@@ -12,9 +11,9 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationCompat.getColor
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mapbox.android.core.location.*
 import com.mapbox.android.core.permissions.PermissionsListener
 import com.mapbox.android.core.permissions.PermissionsManager
@@ -30,7 +29,6 @@ import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback
 import com.mapbox.mapboxsdk.maps.Style
 import org.bedu.segurapp.R
-import org.bedu.segurapp.ui.home.AddContactActivity
 import org.bedu.segurapp.ui.home.HomeActivity
 
 
@@ -48,6 +46,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
     private lateinit var callback: LocationChangeListeningCallback
     private lateinit var button: Button
     private lateinit var buttonStop: Button
+    private lateinit var floatingActionButton: FloatingActionButton
 
     private var estatus=false
 
@@ -71,6 +70,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
         mapView = view.findViewById(R.id.mapView)
         button = view.findViewById(R.id.button)
         buttonStop = view.findViewById(R.id.buttonStop)
+        floatingActionButton = view.findViewById(R.id.buttomSearchLocation)
     }
 
     private fun buttonsListeners(){
@@ -85,6 +85,11 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
             buttonStop.visibility = View.VISIBLE
             estatus=true
             alertNotification()
+        }
+
+        floatingActionButton.setOnClickListener {
+            estatus=false
+            Toast.makeText(context,"Obteniendo su ubicacón actual", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -278,7 +283,5 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
             }
         }
     }
-
-
 
 }
