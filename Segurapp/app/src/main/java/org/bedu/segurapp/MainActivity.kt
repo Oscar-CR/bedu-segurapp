@@ -15,4 +15,5 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         this.finish()
     }
+
 }
