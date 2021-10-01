@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        style="@style/title_text"
+        android:text="@string/location_title"
+        android:textStyle="bold"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/location_animation"
+        android:layout_gravity="center"
+        style="@style/getStartedSplashLottieAnimationView" />
+    <TextView
+        style="@style/body_text"
+        android:text="@string/location_description"
+        android:justificationMode="inter_word"/>
+
+    <Button
+        android:id="@+id/btn_dialog_location"
+        style="@style/getStartedSplashButton"
+        android:layout_marginHorizontal="@dimen/text_24"/>
+
+
+</LinearLayout>

@@ -125,5 +125,14 @@
     <string name="congratulations_message_description">Has creado tu cuenta exitosamente. Ahora estás a salvo</string>
     <string name="accept_hint">Aceptar</string>
 
+    <!-- Location Dialog -->
+    <string name="location_title">Active tu ubicación</string>
+    <string name="location_description">Es necesario activar su ubicación GPS para que los servicios de localización funcionen correctamente.</string>
+
+    <!-- Mapbox key !-->
+    <string name="mapbox_access_token">pk.eyJ1IjoiZHluYW1vZGRvcyIsImEiOiJja3RjNHRvZGwyMjFzMm9wbGJ1Y3Joa3huIn0.6eAhIfQStufCZ1Exe-LgqQ</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
