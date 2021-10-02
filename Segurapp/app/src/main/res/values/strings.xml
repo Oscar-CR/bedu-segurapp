@@ -127,7 +127,7 @@
 
 
     <!-- Location Dialog -->
-    <string name="location_title">Active tu ubicación</string>
+    <string name="location_title">Mantener su ubicación activa</string>
     <string name="location_description">Es necesario activar su ubicación GPS para que los servicios de localización funcionen correctamente.</string>
 
     <!-- Channel Help -->

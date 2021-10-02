@@ -4,12 +4,12 @@ import android.animation.ValueAnimator
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.airbnb.lottie.LottieAnimationView
 import org.bedu.segurapp.R
@@ -46,6 +46,7 @@ class LocationDialogFragment : DialogFragment() {
 
     private fun buttomAccept(){
         btn_dialog_location.setOnClickListener {
+            Toast.makeText(context,"Obteniendo ubicación",Toast.LENGTH_LONG).show()
             dismiss()
         }
     }
@@ -53,8 +54,8 @@ class LocationDialogFragment : DialogFragment() {
 
     private fun cornerRadius(){
         if (dialog != null && dialog?.window != null) {
-            dialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-            dialog!!.window?.requestFeature(Window.FEATURE_NO_TITLE);
+            dialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog!!.window?.requestFeature(Window.FEATURE_NO_TITLE)
         }
     }
 

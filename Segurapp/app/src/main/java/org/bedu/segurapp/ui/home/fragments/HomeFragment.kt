@@ -48,7 +48,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
     private lateinit var button: Button
     private lateinit var buttonStop: Button
     private lateinit var floatingActionButton: FloatingActionButton
-    lateinit var location: DialogFragment
+    private lateinit var location: DialogFragment
 
     private var estatus=false
 
@@ -92,7 +92,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
         floatingActionButton.setOnClickListener {
             estatus=false
             locationDialogFragmentShow()
-
         }
     }
 
@@ -129,6 +128,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
             }
             initLocationEngine()
         } else {
+            initLocationEngine()
             permissionsManager = PermissionsManager(this)
             permissionsManager.requestLocationPermissions(activity )
         }
@@ -157,7 +157,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         permissionsManager.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
@@ -267,7 +266,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
     }
 
-    fun alertNotification() {
+    private fun alertNotification() {
 
         val notification = context?.let {
             NotificationCompat.Builder(it, HomeActivity.CHANNEL_HELP)
