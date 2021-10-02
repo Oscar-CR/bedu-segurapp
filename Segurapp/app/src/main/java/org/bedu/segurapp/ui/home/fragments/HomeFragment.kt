@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mapbox.android.core.location.*
@@ -47,6 +48,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
     private lateinit var button: Button
     private lateinit var buttonStop: Button
     private lateinit var floatingActionButton: FloatingActionButton
+    lateinit var location: DialogFragment
 
     private var estatus=false
 
@@ -89,7 +91,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
         floatingActionButton.setOnClickListener {
             estatus=false
-            Toast.makeText(context,"Obteniendo su ubicacón actual", Toast.LENGTH_LONG).show()
+            locationDialogFragmentShow()
+
         }
     }
 
@@ -282,6 +285,12 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
                 }
             }
         }
+    }
+
+    private fun locationDialogFragmentShow() {
+        location= LocationDialogFragment()
+        location.show(childFragmentManager,"s")
+
     }
 
 }

@@ -1,11 +1,14 @@
 package org.bedu.segurapp.ui.home.fragments
 
 import android.animation.ValueAnimator
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import com.airbnb.lottie.LottieAnimationView
@@ -26,6 +29,7 @@ class LocationDialogFragment : DialogFragment() {
         initComponents(view)
         setAnimation()
         buttomAccept()
+        cornerRadius()
         return  view
     }
 
@@ -46,6 +50,13 @@ class LocationDialogFragment : DialogFragment() {
         }
     }
 
+
+    private fun cornerRadius(){
+        if (dialog != null && dialog?.window != null) {
+            dialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            dialog!!.window?.requestFeature(Window.FEATURE_NO_TITLE);
+        }
+    }
 
 
 }

@@ -36,7 +36,8 @@
             android:name=".ui.getStarted.GetStartedActivity"
             android:exported="true" />
         <activity android:name=".ui.login.LoginActivity" />
-        <activity android:name=".ui.home.HomeActivity"></activity>
+        <activity android:name=".ui.home.HomeActivity"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.register.RegisterActivity" />
         <activity
             android:name=".MainActivity"

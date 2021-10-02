@@ -125,11 +125,11 @@
     <string name="congratulations_message_description">Has creado tu cuenta exitosamente. Ahora estás a salvo</string>
     <string name="accept_hint">Aceptar</string>
 
-<<<<<<< HEAD
+
     <!-- Location Dialog -->
     <string name="location_title">Active tu ubicación</string>
     <string name="location_description">Es necesario activar su ubicación GPS para que los servicios de localización funcionen correctamente.</string>
-=======
+
     <!-- Channel Help -->
     <string name="channel_help">ayuda</string>
     <string name="courses_description">Notificación de ayuda</string>
@@ -137,15 +137,11 @@
     <!-- Notification -->
     <string name="notification_title">SegurApp Alert</string>
     <string name="notification_text">Ubicación enviada a todos los contactos</string>
->>>>>>> origin/IntegracionMapbox
+
 
     <!-- Mapbox key !-->
     <string name="mapbox_access_token">pk.eyJ1IjoiZHluYW1vZGRvcyIsImEiOiJja3RjNHRvZGwyMjFzMm9wbGJ1Y3Joa3huIn0.6eAhIfQStufCZ1Exe-LgqQ</string>
 
-<<<<<<< HEAD
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-=======
->>>>>>> origin/IntegracionMapbox
 
 </resources>
