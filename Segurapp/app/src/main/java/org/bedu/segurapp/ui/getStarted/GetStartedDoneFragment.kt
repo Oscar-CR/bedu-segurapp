@@ -20,7 +20,7 @@ import org.bedu.segurapp.helpers.movePrevious
 import org.bedu.segurapp.helpers.setSharedPreferences
 import org.bedu.segurapp.models.Contacts
 import org.bedu.segurapp.models.User
-import org.bedu.segurapp.models.UserLogin
+import org.bedu.segurapp.UserLogin
 import org.bedu.segurapp.ui.home.HomeActivity
 
 class GetStartedDoneFragment : Fragment() {

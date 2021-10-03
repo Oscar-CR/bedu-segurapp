@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/size_64"
-    android:layout_marginHorizontal="@dimen/size_32"
-    android:paddingVertical="@dimen/size_4"
-    android:layout_marginVertical="@dimen/size_8"
-    android:background="@drawable/bg_contacts"
-    android:backgroundTint="@color/segurapp_black_variant">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgPorfile"
-        android:layout_width="@dimen/size_38"
-        android:layout_height="@dimen/size_38"
-        android:src="@drawable/unknown"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
+    <data>
+        <variable
+            name="contact"
+            type="org.bedu.segurapp.models.local.Contact" />
+
+        <variable
+            name="viewModel"
+            type="org.bedu.segurapp.models.ContactViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_64"
+        android:layout_marginHorizontal="@dimen/size_32"
+        android:paddingVertical="@dimen/size_4"
+        android:layout_marginVertical="@dimen/size_8"
+        android:background="@drawable/bg_contacts"
+        android:backgroundTint="@color/segurapp_black_variant">
 
 
-    <TextView
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgPorfile"
+            android:layout_width="@dimen/size_48"
+            android:layout_height="@dimen/size_48"
+            android:src="@drawable/default_user"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.053"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre"
+        android:text="@{contact.name}"
         android:textAlignment="textStart"
         android:textColor="@color/segurapp_white"
         android:textSize="16sp"
@@ -48,7 +57,7 @@
         android:id="@+id/tvPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Telefono"
+        android:text="@{contact.phone}"
         android:textAlignment="textStart"
         android:textColor="@color/segurapp_white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,5 +79,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="@dimen/size_38"
+            android:layout_height="@dimen/size_38"
+            android:background="@color/segurapp_black_variant"
+            android:src="@drawable/ic_delete"
+            android:onClick="@{() -> viewModel.removeContact(contact)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.799"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.615" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

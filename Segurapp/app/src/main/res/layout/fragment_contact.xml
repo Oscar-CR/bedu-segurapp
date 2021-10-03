@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="contactViewModel"
+            type="org.bedu.segurapp.models.ContactViewModel"
+            />
+    </data>
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,10 +26,12 @@
         android:background="@drawable/bg_contacts"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerCalls"
+        android:id="@+id/list"
+        android:name="org.bedu.segurapp.ui.home.fragments.ContactFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".ui.home.fragments.ContactsFragment"
         tools:listitem="@layout/item_contact"
         android:layout_below="@id/etSearchContact"/>
 
@@ -39,3 +48,5 @@
         android:backgroundTint="@color/segurapp_red_variant" />
     
 </RelativeLayout>
+
+</layout>

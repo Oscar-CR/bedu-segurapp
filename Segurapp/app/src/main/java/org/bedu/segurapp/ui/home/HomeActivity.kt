@@ -1,6 +1,5 @@
 package org.bedu.segurapp.ui.home
 
-import ContactsFragment
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -23,7 +22,8 @@ import kotlinx.android.synthetic.main.activity_home.*
 import org.bedu.segurapp.R
 import org.bedu.segurapp.databinding.ActivityHomeBinding
 import org.bedu.segurapp.models.AirplaneReceiver
-import org.bedu.segurapp.models.UserLogin.Companion.pref
+import org.bedu.segurapp.UserLogin.Companion.pref
+import org.bedu.segurapp.ui.home.fragments.ContactsFragment
 import org.bedu.segurapp.ui.home.fragments.HomeFragment
 import org.bedu.segurapp.ui.home.fragments.MessagesFragment
 
@@ -119,7 +119,7 @@ class HomeActivity : AppCompatActivity() {
                 R.id.nav_contacts -> {
                     bottom_navigation.selectedItemId = R.id.page_3
                     drawer_layout.closeDrawer(GravityCompat.START)
-                    // loadFragment(ContactsFragment())
+                    // loadFragment(org.bedu.segurapp.ui.home.fragments.ContactsFragment())
                 }
                 R.id.nav_myInfo -> {
                     Toast.makeText(this,"Informacion", Toast.LENGTH_SHORT).show()

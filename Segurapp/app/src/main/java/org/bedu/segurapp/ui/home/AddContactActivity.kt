@@ -2,9 +2,9 @@ package org.bedu.segurapp.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import org.bedu.segurapp.R
 import org.bedu.segurapp.databinding.ActivityAddContactBinding
-import org.bedu.segurapp.helpers.makeFormValidations
+import org.bedu.segurapp.ui.home.fragments.AddContactFragment
 
 class AddContactActivity : AppCompatActivity() {
 
@@ -13,23 +13,16 @@ class AddContactActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        setAnimation()
 
-        binding.btnSaveContact.setOnClickListener{
-            saveContact()
-        }
+
+        val fragment = AddContactFragment()
+        val fragmentManager = supportFragmentManager
+
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.add_container, fragment)
+        fragmentTransaction.commit()
+
     }
 
-    private fun setAnimation() {
-        with(binding){
-            loginAnimation.setAnimation("user.json")
-            loginAnimation.playAnimation()
-        }
-    }
 
-    private fun saveContact(){
-        if(makeFormValidations(arrayOf(binding.etUserAdd, binding.etPhoneAdd), this)){
-            Toast.makeText(this,"Contacto agregado existosamente",Toast.LENGTH_LONG).show()
-        }
-    }
 }

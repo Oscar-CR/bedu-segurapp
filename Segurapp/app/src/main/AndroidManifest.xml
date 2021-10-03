@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".models.UserLogin"
+        android:name=".UserLogin"
         android:allowBackup="true"
         android:fullBackupOnly="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,14 +34,16 @@
         <activity android:name=".ui.home.AddContactActivity" />
         <activity
             android:name=".ui.getStarted.GetStartedActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.home.HomeActivity"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.register.RegisterActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/splash_theme">
+            android:theme="@style/splash_theme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,6 +54,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

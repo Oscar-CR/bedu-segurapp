@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import org.bedu.segurapp.databinding.ActivityLoginBinding
 import org.bedu.segurapp.helpers.makeFormValidations
-import org.bedu.segurapp.models.UserLogin.Companion.pref
+import org.bedu.segurapp.UserLogin.Companion.pref
 import org.bedu.segurapp.ui.forgotPassword.BottomSheetForgotPassword
 import org.bedu.segurapp.ui.home.HomeActivity
 import org.bedu.segurapp.ui.register.RegisterActivity
