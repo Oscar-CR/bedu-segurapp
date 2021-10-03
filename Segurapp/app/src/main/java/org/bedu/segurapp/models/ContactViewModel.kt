@@ -40,7 +40,7 @@ class ContactViewModel(private val contactRepository: ContactRepository): ViewMo
             Contact(name = "Oscar",phone = "123456789"),
             Contact(name = "Diego",phone = "987654321")
         )
-        contactRepository.populateContact(contacts)
+        contactRepository.populateContacts(contacts)
 
     }
 

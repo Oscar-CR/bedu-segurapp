@@ -6,13 +6,13 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.bedu.segurapp.models.local.Contact
 import org.bedu.segurapp.models.local.ContactRepository
+import org.bedu.segurapp.models.local.data.IContactRepository
 
-class AddContactViewModel(private val contactRepository: ContactRepository): ViewModel() {
-
+//class AddContactViewModel(private val contactRepository: IContactRepository): ViewModel() { //for testing Purposes
+class AddContactViewModel(private val contactRepository: ContactRepository): ViewModel(){
 
     private var _contactDone = MutableLiveData<Boolean>(false)
     val contactDone = _contactDone
-
 
     var name: String? = null
     var phone: String? = null
@@ -39,6 +39,23 @@ class AddContactViewModel(private val contactRepository: ContactRepository): Vie
             _contactDone.value = true
         }
     }
+
+
+    fun removeContact(contact: Contact) = viewModelScope.launch{
+        contactRepository.removeContact(contact)
+    }
+
+
+    /*
+        //for testing purposes
+
+        val contactsList = contactRepository.getContact()
+
+        fun addContact(contact: Contact) = viewModelScope.launch{
+            contactRepository.addContact(contact)
+        }
+
+    */
 
 }
 
