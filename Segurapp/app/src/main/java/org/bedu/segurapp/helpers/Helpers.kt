@@ -53,14 +53,14 @@ private fun validateEmptyFields(fields: Array<EditText>): List<EditText> =
     fields.filter { it.text.toString().trim() == "" }
 
 
-private fun phoneNumberValidator(mEditText: EditText): Boolean =
+fun phoneNumberValidator(mEditText: EditText): Boolean =
     mEditText.text.toString().length == 10
 
 
-private fun emailValidator(mEditText: EditText): Boolean =
+fun emailValidator(mEditText: EditText): Boolean =
     android.util.Patterns.EMAIL_ADDRESS.matcher(mEditText.text.toString()).matches()
 
-private fun passwordValidator(mEditText: EditText): Boolean {
+fun passwordValidator(mEditText: EditText): Boolean {
      val passwordRegex: Regex =
          "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%!\\-_?&])(?=\\S+\$).{8,}".toRegex()
      return mEditText.text.toString().matches(passwordRegex)
