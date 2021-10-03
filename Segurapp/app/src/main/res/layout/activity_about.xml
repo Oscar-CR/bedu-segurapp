@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.AboutActivity">
+
+    <TextView
+        android:id="@+id/about_title"
+        android:text="@string/about_developers"
+        style="@style/title_text"
+        android:layout_margin="@dimen/size_16"/>
+
+    <FrameLayout
+        android:id="@+id/fragmentList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/about_title" />
+
+</RelativeLayout>

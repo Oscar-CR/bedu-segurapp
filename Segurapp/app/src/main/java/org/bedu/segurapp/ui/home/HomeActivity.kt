@@ -26,6 +26,7 @@ import org.bedu.segurapp.UserLogin.Companion.pref
 import org.bedu.segurapp.ui.home.fragments.ContactsFragment
 import org.bedu.segurapp.ui.home.fragments.HomeFragment
 import org.bedu.segurapp.ui.home.fragments.MessagesFragment
+import org.bedu.segurapp.ui.register.RegisterActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -125,7 +126,8 @@ class HomeActivity : AppCompatActivity() {
                     Toast.makeText(this,"Informacion", Toast.LENGTH_SHORT).show()
                 }
                 R.id.nav_about -> {
-                    Toast.makeText(this,"Acerca de", Toast.LENGTH_SHORT).show()
+                    intent = Intent(applicationContext, AboutActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.nav_privacy ->{
                     Toast.makeText(this,"Privacidad", Toast.LENGTH_SHORT).show()

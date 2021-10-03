@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.bedu.segurapp">
     <!-- Add your permission here -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -20,10 +20,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Segurapp">
         <activity
+            android:name=".ui.home.AboutActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.socialSecurity.SocialSecurityActivity"
-            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
             android:exported="true"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.home.DetailMessageActivity"
@@ -35,15 +38,16 @@
         <activity
             android:name=".ui.getStarted.GetStartedActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity android:name=".ui.login.LoginActivity" />
-        <activity android:name=".ui.home.HomeActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".ui.register.RegisterActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/splash_theme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/splash_theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,7 +58,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>

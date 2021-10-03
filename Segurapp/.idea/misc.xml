@@ -40,6 +40,12 @@
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/menu/top_app_bar.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/krzof/Documents/Test/bedu-segurapp/Segurapp/app/src/main/res/xml/searchable.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/krzof/Music/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_about.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/krzof/Music/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_home.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/krzof/Music/bedu-segurapp/Segurapp/app/src/main/res/layout/activity_main.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/krzof/Music/bedu-segurapp/Segurapp/app/src/main/res/layout/fragment_about.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/krzof/Music/bedu-segurapp/Segurapp/app/src/main/res/layout/item_contact.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/krzof/Music/bedu-segurapp/Segurapp/app/src/main/res/layout/item_person.xml" value="0.27291666666666664" />
         <entry key="app/src/main/res/drawable/bt_border.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/bt_contacts_foreground.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/bt_foreground.xml" value="0.14895833333333333" />

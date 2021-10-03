@@ -138,6 +138,8 @@
     <string name="notification_title">SegurApp Alert</string>
     <string name="notification_text">Ubicación enviada a todos los contactos</string>
 
+    <string name="about_developers">Desarrolladores</string>
+
 
     <!-- Mapbox key !-->
     <string name="mapbox_access_token">pk.eyJ1IjoiZHluYW1vZGRvcyIsImEiOiJja3RjNHRvZGwyMjFzMm9wbGJ1Y3Joa3huIn0.6eAhIfQStufCZ1Exe-LgqQ</string>
