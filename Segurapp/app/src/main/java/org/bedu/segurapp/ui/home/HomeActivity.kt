@@ -123,7 +123,9 @@ class HomeActivity : AppCompatActivity() {
                     // loadFragment(org.bedu.segurapp.ui.home.fragments.ContactsFragment())
                 }
                 R.id.nav_myInfo -> {
-                    Toast.makeText(this,"Informacion", Toast.LENGTH_SHORT).show()
+                    val bundle = Bundle()
+                    val intent = Intent(this, MyInfoActivity::class.java).apply { putExtras(bundle) }
+                    startActivity(intent)
                 }
                 R.id.nav_about -> {
                     intent = Intent(applicationContext, AboutActivity::class.java)

@@ -45,6 +45,9 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ui.register.RegisterActivity" />
         <activity
+            android:name=".ui.home.MyInfoActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/splash_theme">
