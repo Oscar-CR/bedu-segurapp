@@ -1,6 +1,5 @@
 package org.bedu.segurapp.interfaces
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import org.bedu.segurapp.models.local.data.Person
 

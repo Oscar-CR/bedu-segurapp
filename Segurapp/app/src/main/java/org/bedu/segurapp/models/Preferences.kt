@@ -11,6 +11,7 @@ class Preferences(val context : Context) {
     companion object{
         private const val SHARED_NAME = "MyName"
         const val SHARED_USER_NAME ="Username"
+        const val SHARED_LOCAL="DATA"
     }
 
     fun saveName(name:String){
@@ -25,5 +26,15 @@ class Preferences(val context : Context) {
     fun wipe(){
         storage.edit().clear().apply()
     }
+
+    fun saveData(value: Boolean){
+        storage.edit().putBoolean(SHARED_LOCAL, value).apply()
+    }
+
+    fun getData():Boolean{
+        return storage.getBoolean(SHARED_LOCAL,false)!!
+    }
+
+
 
 }

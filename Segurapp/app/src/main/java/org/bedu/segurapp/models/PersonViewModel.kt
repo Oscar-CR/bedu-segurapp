@@ -1,10 +1,10 @@
 package org.bedu.segurapp.models
 
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.bedu.segurapp.R
+import org.bedu.segurapp.UserLogin.Companion.pref
 import org.bedu.segurapp.models.local.PersonRepository
 import org.bedu.segurapp.models.local.data.Person
 
@@ -12,7 +12,10 @@ class PersonViewModel(private val personRepository: PersonRepository): ViewModel
     private var _persons: List<Person> = listOf()
 
     init{
-        prepopulate()
+        if(pref.getName().isNotEmpty() && !pref.getData()){
+            prepopulate()
+            pref.saveData(true)
+        }
     }
 
     fun getPersons(): List<Person>{
@@ -31,4 +34,7 @@ class PersonViewModel(private val personRepository: PersonRepository): ViewModel
             personRepository.populatePersons(persons)
         }
     }
+
+
 }
+
