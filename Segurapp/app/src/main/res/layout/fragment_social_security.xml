@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/segurapp_white_variant"
+    tools:context=".ui.home.fragments.SocialSecurityFragment">
+
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_48"
+        android:layout_marginHorizontal="@dimen/size_24"
+        android:layout_marginVertical="@dimen/size_16"
+        android:background="@drawable/bg_contacts"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/size_16"
+        android:hint="@string/search_service"
+        android:paddingStart="@dimen/size_16"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCalls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_16"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_emergency_service" />
+
+</LinearLayout>

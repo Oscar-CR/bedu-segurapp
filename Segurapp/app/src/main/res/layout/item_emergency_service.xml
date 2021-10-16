@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/size_16">
+            android:padding="@dimen/size_8">
 
             <TextView
                 android:id="@+id/tv_title"
@@ -57,21 +57,24 @@
                 android:id="@+id/tv_tags"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                 android:layout_marginVertical="@dimen/size_8"
                 android:layout_weight="1"
                 android:maxLines="4"
+                android:textSize="@dimen/text_12"
+                android:textStyle="bold"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorPrimary"
                 tools:ignore="NestedWeights"
-                tools:text="#Delitos Electorales #Denuncia Electoral"
-/>
+                tools:text="#Delitos Electorales #Denuncia Electoral" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_call"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/size_64"
                 android:layout_weight="1"
-                android:background="@color/segurapp_red"
+                app:cornerRadius="@dimen/size_8"
                 android:text="llamar"
+                android:layout_marginRight="@dimen/size_8"
                 android:textColor="@color/segurapp_white_variant" />
         </LinearLayout>
 

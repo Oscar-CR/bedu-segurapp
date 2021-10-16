@@ -11,8 +11,8 @@
             android:title="@string/menu_contacts" />
         <item
             android:id="@+id/nav_messages"
-            android:icon="@drawable/ic_message"
-            android:title="@string/menu_sms" />
+            android:icon="@drawable/ic_emergency"
+            android:title="@string/menu_services" />
     </group>
     <item android:title="@string/drawer_account">
         <menu>

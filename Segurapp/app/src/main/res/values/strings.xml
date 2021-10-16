@@ -61,6 +61,7 @@
     <string name="menu_sms">Mensajes</string>
     <string name="menu_home">Inicio</string>
     <string name="menu_contacts">Contactos</string>
+    <string name="menu_services">Servicios Públicos</string>
 
     <!-- App Bar !-->
     <string name="drawer_user">Usuario</string>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="org.bedu.segurapp.ui.home.fragments.HomeFragment"
+        android:label="Inicio" />
+
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="org.bedu.segurapp.ui.home.fragments.ContactsFragment"
+        android:label="Contactos" />
+
+    <fragment
+        android:id="@+id/socialSecurityFragment"
+        android:name="org.bedu.segurapp.ui.home.fragments.SocialSecurityFragment"
+        android:label="Servicios Públicos"
+        tools:layout="@layout/fragment_social_security" />
+
+</navigation>

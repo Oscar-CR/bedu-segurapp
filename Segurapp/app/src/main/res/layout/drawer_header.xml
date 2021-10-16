@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:src="@drawable/default_user" />
+        android:src="@drawable/dog_profile" />
 
     <TextView
         android:id="@+id/tvUserName"

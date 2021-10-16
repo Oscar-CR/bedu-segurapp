@@ -16,38 +16,49 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.mapbox.mapboxsdk.Mapbox
 import kotlinx.android.synthetic.main.activity_home.*
 import org.bedu.segurapp.R
 import org.bedu.segurapp.databinding.ActivityHomeBinding
 import org.bedu.segurapp.models.AirplaneReceiver
 import org.bedu.segurapp.UserLogin.Companion.pref
-import org.bedu.segurapp.ui.home.fragments.ContactsFragment
-import org.bedu.segurapp.ui.home.fragments.HomeFragment
-import org.bedu.segurapp.ui.home.fragments.MessagesFragment
-import org.bedu.segurapp.ui.register.RegisterActivity
+import androidx.navigation.ui.setupWithNavController
 
 class HomeActivity : AppCompatActivity() {
 
     private val binding by lazy {ActivityHomeBinding.inflate(layoutInflater)}
     private val airplaneReceiver = AirplaneReceiver()
+    private lateinit var analytics: FirebaseAnalytics
 
     companion object {
         const val CHANNEL_HELP = "CHANNEL_HELP"
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token))
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        bottom_navigation.selectedItemId = R.id.page_2
 
+        sdkValidator()
+        airplaneMode()
+        buttomNavigationMenu()
+        drawerNav()
 
+    }
+
+    private fun sdkValidator(){
+        analytics = Firebase.analytics
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setNotificationHelp()
         }
+    }
 
-        // Modo avión
+    // Modo avión
+    private fun airplaneMode(){
         IntentFilter().apply {
             addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         }.also { filter -> registerReceiver(airplaneReceiver,filter) }
@@ -56,35 +67,23 @@ class HomeActivity : AppCompatActivity() {
             setSupportActionBar(appBar)
             setupDrawer(appBar)
         }
+    }
 
-        drawerNav()
-
-        val homeFragment= HomeFragment()
-        val contactsFragment= ContactsFragment()
-        val msgFragment = MessagesFragment()
-
-        makeCurretFragment(homeFragment)
-
-        bottom_navigation.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.page_1 -> makeCurretFragment(msgFragment)
-                R.id.page_2 -> makeCurretFragment(homeFragment)
-                R.id.page_3 -> makeCurretFragment(contactsFragment)
-            }
-            true
-        }
-
+    //Navegación simplificada del menu inferior con Navigation Component
+    private fun buttomNavigationMenu(){
+        val buttonNavigationView = binding.bottomNavigation
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)as NavHostFragment
+        val navController = navHostFragment.navController
+        buttonNavigationView.setupWithNavController(navController)
     }
 
     //Agregar el menú de opciones al AppBar
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_app_bar, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     //asignamos las acciones para cada opción del AppBar
-
     private fun setupDrawer(toolbar: Toolbar) {
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
         val drawerToggle = ActionBarDrawerToggle(
@@ -96,11 +95,6 @@ class HomeActivity : AppCompatActivity() {
         )
     }
 
-    private fun makeCurretFragment(fragment: Fragment)=
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment_container, fragment)
-            commit()
-        }
 
     //Barra lateral de navegacion
     private fun drawerNav(){
@@ -108,17 +102,17 @@ class HomeActivity : AppCompatActivity() {
             // Handle menu item selected
             when(menuItem.itemId){
                 R.id.nav_messages -> {
-                    bottom_navigation.selectedItemId = R.id.page_1
+                    bottom_navigation.selectedItemId = R.id.socialSecurityFragment
                     drawer_layout.closeDrawer(GravityCompat.START)
                     // loadFragment(MessagesFragment())
                 }
                 R.id.nav_home -> {
-                    bottom_navigation.selectedItemId = R.id.page_2
+                    bottom_navigation.selectedItemId = R.id.socialSecurityFragment
                     drawer_layout.closeDrawer(GravityCompat.START)
                     // loadFragment(HomeFragment())
                 }
                 R.id.nav_contacts -> {
-                    bottom_navigation.selectedItemId = R.id.page_3
+                    bottom_navigation.selectedItemId = R.id.socialSecurityFragment
                     drawer_layout.closeDrawer(GravityCompat.START)
                     // loadFragment(org.bedu.segurapp.ui.home.fragments.ContactsFragment())
                 }
@@ -132,7 +126,7 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.nav_privacy ->{
-                    Toast.makeText(this,"Privacidad", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,R.string.drawer_privacy, Toast.LENGTH_SHORT).show()
                 }
                 R.id.nav_logout -> {
                     drawer_layout.closeDrawer(GravityCompat.START)
@@ -140,22 +134,11 @@ class HomeActivity : AppCompatActivity() {
                 }
 
             }
-
             true
         }
-
-    }
-
-    // Infla el fragmento en la Actvidad Home (frame_container)
-    fun loadFragment(fragment: Fragment?) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment!!)
-        transaction.commit()
-        drawer_layout.closeDrawer(GravityCompat.START)
     }
 
     private fun alertExit(){
-
         // Crea el alert dialog
         val dialogBuilder = AlertDialog.Builder(this)
 
@@ -196,10 +179,8 @@ class HomeActivity : AppCompatActivity() {
         val channel = NotificationChannel(CHANNEL_HELP, name, importance).apply {
             description = descriptionText
         }
-
         val notificationManager: NotificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
         notificationManager.createNotificationChannel(channel)
     }
 
