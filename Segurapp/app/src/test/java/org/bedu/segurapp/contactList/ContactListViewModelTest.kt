@@ -1,16 +1,11 @@
 package org.bedu.segurapp.contactList
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
-import com.google.common.truth.Truth.assertThat
 import org.bedu.segurapp.CoroutineTestRule
-import org.bedu.segurapp.data.FakeContactRepository
 import org.bedu.segurapp.models.AddContactViewModel
 import org.bedu.segurapp.models.local.Contact
-import org.bedu.segurapp.models.local.data.IContactRepository
-import org.junit.Before
+import org.bedu.segurapp.interfaces.IContactRepository
 import org.junit.Rule
-import org.junit.Test
 
 // Uncomment @Before and @Test blocks to make tests
 

@@ -1,4 +1,4 @@
-package org.bedu.segurapp.models.local.data
+package org.bedu.segurapp.interfaces
 
 import androidx.lifecycle.LiveData
 import org.bedu.segurapp.models.local.Contact

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import org.bedu.segurapp.interfaces.ContactDao
-import org.bedu.segurapp.models.local.data.IContactRepository
+import org.bedu.segurapp.interfaces.IContactRepository
 
 
 class ContactRepository(

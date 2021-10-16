@@ -1,27 +1,20 @@
-package org.bedu.segurapp.models.local.data
+package org.bedu.segurapp.models
+
+import android.annotation.SuppressLint
+import android.os.Parcel
+import android.os.Parcelable
 
 
-import android.provider.ContactsContract
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Index
-import androidx.room.PrimaryKey
+@SuppressLint("ParcelCreator")
+class Person(
+    var name: String,
+    var city: String,
+    var career: String,
+    var linkedinLink: String,
+    var githubLink: String,
+    var idPhoto: Int
 
-
-@Entity
-data class Person constructor(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    @ColumnInfo (name="name") val name: String?,
-    @ColumnInfo val city: String?,
-    @ColumnInfo val career: String?,
-    @ColumnInfo val linkedinLink: String?,
-    @ColumnInfo val githubLink: String?,
-    @ColumnInfo val photo: Int?
-
-)
-
-
-    /* : Parcelable{
+): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
@@ -30,6 +23,7 @@ data class Person constructor(
         parcel.readString()!!,
         parcel.readInt()
     ){
+
 
     }
 
@@ -57,5 +51,3 @@ data class Person constructor(
     }
 
 }
-
-     */

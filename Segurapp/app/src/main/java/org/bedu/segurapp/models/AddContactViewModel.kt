@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.bedu.segurapp.models.local.Contact
 import org.bedu.segurapp.models.local.ContactRepository
-import org.bedu.segurapp.models.local.data.IContactRepository
 
 //class AddContactViewModel(private val contactRepository: IContactRepository): ViewModel() { //for testing Purposes
 class AddContactViewModel(private val contactRepository: ContactRepository): ViewModel(){

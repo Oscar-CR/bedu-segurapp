@@ -1,83 +1,64 @@
 package org.bedu.segurapp.ui.home.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_about.*
 import org.bedu.segurapp.R
-import org.bedu.segurapp.UserLogin
 import org.bedu.segurapp.adapters.PersonAdapter
-import org.bedu.segurapp.interfaces.ItemPersonListener
-import org.bedu.segurapp.models.PersonViewModel
-import org.bedu.segurapp.models.local.data.Person
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
+import org.bedu.segurapp.models.Person
 
 
-class AboutFragment : Fragment() , ItemPersonListener {
+class AboutFragment : Fragment() {
 
-
-    private lateinit var recyclerPerson: RecyclerView
-    private lateinit var adapter: PersonAdapter
-
-    private lateinit var viewModel: PersonViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    fun getListener(): ItemPersonListener {
-        return this
-    }
+    private lateinit var vAdapter : PersonAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_about, container, false)
+        return inflater.inflate(R.layout.fragment_about, container, false)
 
-
-        viewModel = PersonViewModel(
-            (requireContext().applicationContext as UserLogin).personRepository
-        )
-
-        recyclerPerson = view.findViewById(R.id.recyclerContacts)
-
-        setupVehicleList()
-
-
-        return view
     }
 
+    private fun getPeople(): MutableList<Person>{
+        val persons:MutableList<Person> = ArrayList()
 
-    private fun setupVehicleList() {
-        if (viewModel != null) {
-            val executor: ExecutorService = Executors.newSingleThreadExecutor()
+        persons.add(Person("Antonio Labra Guerrero", "León, GTO", "Ing. Software y Sistemas Computacionales", "https://www.linkedin.com/in/antonio-labra-0ab639119/", "https://github.com/its7ony", R.drawable.antonio))
+        persons.add(Person("Astrid Guerrero Niño", "CDMX, Mexico", "Ing. Computación","https://www.linkedin.com/in/astrid-g-bb14171bb/", "https://github.com/asguen3", R.drawable.astrid))
+        persons.add(Person("Oscar Chávez Rosales", "CDMX", "Ing. Tecnologías de la Información y Comunicaciones", "https://www.linkedin.com/in/oscar-ch%C3%A1vez-rosales-b131b31b1/", "https://github.com/Oscar-CR", R.drawable.oscar))
+        persons.add(Person("Regina Bernal Galicia", "CDMX, Mexico", "Lic. Diseño y Comunicación Visual", "https://www.linkedin.com/in/regina-bernal-182187222", "https://github.com/Reginaowo", R.drawable.regina))
 
-            executor.execute(Runnable {
+        return persons
+    }
 
-                val personArray = viewModel.getPersons()
-
-                Handler(Looper.getMainLooper()).post(Runnable {
-                    adapter = PersonAdapter(personArray?.toMutableList(), getListener())
-                    recyclerPerson.adapter = adapter
-                })
-            })
+    private fun setUpRecyclerView(){
+        recyclerPersons.setHasFixedSize(true)
+        recyclerPersons.layoutManager = LinearLayoutManager(activity)
+        vAdapter = PersonAdapter(requireActivity(), getPeople()) { person, key ->
+            when (key) {
+                "Linkedin" -> sendToWeb(person.linkedinLink)
+                "GitHub" -> sendToWeb(person.githubLink)
+            }
         }
+            recyclerPersons.adapter = vAdapter
     }
 
-    override fun onEdit(person: Person) {
-
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setUpRecyclerView()
     }
 
-    override fun onDelete(person: Person) {
 
+    private fun sendToWeb(linkChoose: String) {
+        val uri = Uri.parse(linkChoose)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
     }
 
 }
-
