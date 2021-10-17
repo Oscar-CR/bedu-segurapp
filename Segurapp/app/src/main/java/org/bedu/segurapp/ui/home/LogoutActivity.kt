@@ -12,6 +12,7 @@ import com.airbnb.lottie.LottieAnimationView
 import kotlinx.android.synthetic.main.item_contact.*
 import org.bedu.segurapp.R
 import org.bedu.segurapp.UserLogin
+import org.bedu.segurapp.UserLogin.Companion.pref
 
 class LogoutActivity : AppCompatActivity() {
 
@@ -47,9 +48,7 @@ class LogoutActivity : AppCompatActivity() {
         }
 
         btnHome.setOnClickListener {
-            val i = Intent(this, HomeActivity::class.java)
-            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(i)
+            finish()
         }
     }
 
@@ -80,7 +79,7 @@ class LogoutActivity : AppCompatActivity() {
 
     //Cerrar sesion en shared preferences
     private fun logout() {
-        UserLogin.pref.wipe()
+        pref.wipe()
         onBackPressed()
     }
 

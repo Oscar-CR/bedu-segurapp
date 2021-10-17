@@ -17,10 +17,7 @@ class UserLogin : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         pref = Preferences(applicationContext)
-
-
     }
 
 

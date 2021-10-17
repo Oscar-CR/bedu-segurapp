@@ -12,6 +12,7 @@ class Preferences(val context : Context) {
         private const val SHARED_NAME = "MyName"
         const val SHARED_USER_NAME ="Username"
         const val SHARED_LOCAL="DATA"
+        const val SESION_WATCHER= "SESION ACTIVA"
     }
 
     fun saveName(name:String){

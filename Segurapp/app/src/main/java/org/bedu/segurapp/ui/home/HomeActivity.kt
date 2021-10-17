@@ -10,12 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -25,11 +22,9 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import com.mapbox.mapboxsdk.Mapbox
-import kotlinx.android.synthetic.main.activity_home.*
 import org.bedu.segurapp.R
 import org.bedu.segurapp.databinding.ActivityHomeBinding
 import org.bedu.segurapp.models.AirplaneReceiver
-import org.bedu.segurapp.UserLogin.Companion.pref
 
 class HomeActivity : AppCompatActivity() {
 
@@ -48,11 +43,11 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+
         appBarConfiguration = AppBarConfiguration(
             setOf(R.id.homeFragment,R.id.socialSecurityFragment,R.id.contactsFragment, R.id.myInfoActivity, R.id.aboutActivity,R.id.privacyActivity, R.id.logoutActivity),
             binding.drawerLayout
         )
-
 
         sdkValidator()
         airplaneMode()
