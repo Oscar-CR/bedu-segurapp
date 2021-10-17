@@ -1,9 +1,11 @@
 package org.bedu.segurapp.ui.home.fragments
 
 import android.Manifest
+import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +17,10 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.mapbox.android.core.location.*
 import com.mapbox.android.core.permissions.PermissionsListener
 import com.mapbox.android.core.permissions.PermissionsManager
@@ -30,7 +35,13 @@ import com.mapbox.mapboxsdk.maps.MapView
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback
 import com.mapbox.mapboxsdk.maps.Style
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.bedu.segurapp.R
+import org.bedu.segurapp.models.NotificationData
+import org.bedu.segurapp.models.PushNotification
+import org.bedu.segurapp.networking.RetrofitInstance
 import org.bedu.segurapp.ui.home.HomeActivity
 
 
@@ -50,6 +61,12 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
     private lateinit var buttonStop: Button
     private lateinit var floatingActionButton: FloatingActionButton
     private lateinit var location: DialogFragment
+    private val db = Firebase.firestore
+    private val mAuth = Firebase.auth
+    private lateinit var mHelpTitle: String
+    private lateinit var mHelpDescription: String
+    private lateinit var mChannelId: String
+    private var userId: String? = null
 
     private var estatus=false
 
@@ -61,6 +78,17 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         initConponents(view)
+
+        userId = mAuth.currentUser?.uid
+
+        findInfoFromDB(userId.toString()){ user ->
+            if(user.first != ""){
+                mHelpTitle = getString(R.string.notification_help_title, user.first)
+                mHelpDescription = user.second
+                mChannelId = user.third
+            }
+        }
+
         buttonStop.visibility = View.GONE
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
@@ -87,7 +115,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
             button.visibility = View.GONE
             buttonStop.visibility = View.VISIBLE
             estatus=true
-            alertNotification()
+            requestHelp()
         }
 
         floatingActionButton.setOnClickListener {
@@ -104,6 +132,31 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
         }
 
+    }
+
+    private fun findInfoFromDB(userId: String, callback: (Triple<String, String, String>) -> Unit){
+        db.collection("users")
+            .whereEqualTo("id", userId)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+                    val name = querySnapshot.documents[0].get("name").toString()
+                    val message = querySnapshot.documents[0].get("message").toString()
+                    val channelId = querySnapshot.documents[0].get("channel.id").toString()
+                    callback(Triple(name, message, "/topics/$channelId"))
+                }
+            }
+
+            .addOnFailureListener { exception ->
+                Toast.makeText(
+                    getApplicationContext(),
+                    "${exception.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                callback(Triple("", "", ""))
+            }
+        // mHelpTitle
     }
 
 
@@ -293,4 +346,37 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
     }
 
+
+
+    private fun requestHelp(){
+        PushNotification(
+            NotificationData(
+                mHelpTitle,
+                mHelpDescription,
+                mChannelId,
+                mChannelId
+            ),
+            mChannelId
+        ).also { pushNotification ->
+            sendNotification(pushNotification)
+        }
+    }
+
+    private fun sendNotification(notification: PushNotification) =
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = RetrofitInstance.api.postNotification(notification)
+                if (response.isSuccessful) {
+
+                    requireActivity().runOnUiThread {
+                        alertNotification()
+                    }
+
+                } else {
+                    Log.e(ContentValues.TAG, response.errorBody().toString())
+                }
+            } catch (e: Exception) {
+                Log.e(ContentValues.TAG, e.toString())
+            }
+        }
 }

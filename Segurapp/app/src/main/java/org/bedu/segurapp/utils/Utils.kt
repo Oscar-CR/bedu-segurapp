@@ -43,3 +43,12 @@ fun getPhoneByUri(uri: Uri, contentResolver: ContentResolver): String? {
 
     return phone
 }
+
+
+class Constants {
+    companion object{
+        const val BASE_URL = "https://fcm.googleapis.com"
+        const val SERVER_KEY = "AAAAuiMnb7A:APA91bHsAyEsQo-ywac3jtjyHnwxWDvUMaivD0_S_vQHbsg20vG2DHUzY3exoHIln08wkovoDyf7SyxS3-KW4-99vWpITNI6_hIKlTLd26a9rtSsNDVM4BcSXV6Mv3jDqOWfIX11P9Wf"
+        const val CONTENT_TYPE = "application/json"
+    }
+}
