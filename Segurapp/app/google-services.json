@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "967140342281",
-    "project_id": "segurapp-e6ba2",
-    "storage_bucket": "segurapp-e6ba2.appspot.com"
+    "project_number": "799453704112",
+    "project_id": "segurapp-74073",
+    "storage_bucket": "segurapp-74073.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:967140342281:android:bc7557e937261edf0216d8",
+        "mobilesdk_app_id": "1:799453704112:android:898a0ef10b314080e7f075",
         "android_client_info": {
           "package_name": "org.bedu.segurapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "967140342281-qs7t81nv61ttcv2ne35dp6l7eq78lpmu.apps.googleusercontent.com",
+          "client_id": "799453704112-v2cfpe6a1fiavugeff0rub8m8844q2ab.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA8KVBckpthVaxXL-FLMKvYV5kjOIgCv0I"
+          "current_key": "AIzaSyB2SpXVy0ZSzyPKriRHBaUnmqpIs7TnE88"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "967140342281-qs7t81nv61ttcv2ne35dp6l7eq78lpmu.apps.googleusercontent.com",
+              "client_id": "799453704112-v2cfpe6a1fiavugeff0rub8m8844q2ab.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

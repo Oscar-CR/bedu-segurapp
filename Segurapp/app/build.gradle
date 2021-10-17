@@ -100,6 +100,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Firebase
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx:19.0.2'
     implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.3'
     implementation platform('com.google.firebase:firebase-bom:28.0.1')

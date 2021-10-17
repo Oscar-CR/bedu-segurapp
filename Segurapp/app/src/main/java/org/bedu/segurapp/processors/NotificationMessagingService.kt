@@ -28,7 +28,6 @@ private var CHANNEL_ID = "my_channel"
 
 class NotificationMessagingService : FirebaseMessagingService() {
     private val db = Firebase.firestore
-    private val usersCollection = db.collection("users")
     var preferences: SharedPreferences? = null
     var preferencesEditor: SharedPreferences.Editor? = null
     @SuppressLint("CommitPrefEdits")
