@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "799453704112",
+    "project_id": "segurapp-74073",
+    "storage_bucket": "segurapp-74073.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799453704112:android:898a0ef10b314080e7f075",
+        "android_client_info": {
+          "package_name": "org.bedu.segurapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799453704112-v2cfpe6a1fiavugeff0rub8m8844q2ab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2SpXVy0ZSzyPKriRHBaUnmqpIs7TnE88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799453704112-v2cfpe6a1fiavugeff0rub8m8844q2ab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

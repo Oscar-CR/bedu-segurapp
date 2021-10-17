@@ -20,6 +20,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Segurapp">
         <activity
+            android:name=".ui.TrackingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.request.RequestActivity"
+            android:exported="true" />
+
+        <service
+            android:name=".processors.NotificationMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
             android:name=".ui.home.AboutActivity"
             android:exported="true" />
         <activity

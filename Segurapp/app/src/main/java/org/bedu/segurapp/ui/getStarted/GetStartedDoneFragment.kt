@@ -11,8 +11,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.airbnb.lottie.LottieAnimationView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import org.bedu.segurapp.R
 import org.bedu.segurapp.helpers.alertDialogMaker
@@ -28,6 +31,8 @@ class GetStartedDoneFragment : Fragment() {
     private lateinit var preferences: SharedPreferences
     private lateinit var mainAnimation: LottieAnimationView
     private lateinit var btnAccept: Button
+    private val db = Firebase.firestore
+    private var userId: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +47,10 @@ class GetStartedDoneFragment : Fragment() {
     }
 
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        userId = requireActivity().intent.getStringExtra("userId")
+    }
     override fun onPause() {
         btnAccept.isEnabled = false
         super.onPause()
@@ -58,12 +67,14 @@ class GetStartedDoneFragment : Fragment() {
         val userString =
             preferences.getString(resources.getString(R.string.shared_preferences_current_user),
                 null)
+
+        val userMessage = preferences.getString(resources.getString(R.string.shared_preferences_user_message), null)
         val userObject = if (userString != null && userString != "") Gson().fromJson(userString,
             User::class.java) else null
 
         userObject?.email?.let { UserLogin.pref.saveName(it) }
 
-        return userObject != null && userObject.alertMessage != ""
+        return userObject != null && userMessage != ""
     }
 
     @SuppressLint("CommitPrefEdits")
@@ -77,6 +88,30 @@ class GetStartedDoneFragment : Fragment() {
                 safeContactsListString,
                 Array<Contacts>::class.java) else null
         return safeContactsList != null && safeContactsList.isNotEmpty()
+    }
+
+
+    private fun getUserInformation(userId: String, callback: (Pair<String, String>) -> Unit) {
+        db.collection("users")
+            .whereEqualTo("id", userId)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+                    val name = querySnapshot.documents[0].get("name").toString()
+                    val telephone = querySnapshot.documents[0].get("telephone").toString()
+                    callback(Pair(name, telephone))
+                }
+            }
+
+            .addOnFailureListener { exception ->
+                Toast.makeText(
+                    requireContext(),
+                    "${exception.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                callback(Pair("", ""))
+            }
     }
 
     private fun initComponents(view: View) {
@@ -100,7 +135,13 @@ class GetStartedDoneFragment : Fragment() {
     private fun btnAcceptClickListener() {
         btnAccept.setOnClickListener {
             if (validateSafeContactsList()) {
-                navigateToHome()
+                userId?.let { user ->
+                    getUserInformation(user) { response ->
+                        if (response.first != "") {
+                            navigateToHome()
+                        }
+                    }
+                }
             }
         }
     }

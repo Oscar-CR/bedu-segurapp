@@ -1,9 +1,26 @@
 <resources>
 
-    <!-- Shared Preferences !-->
+    <!--Shared Preferences !-->
+    <string name="shared_preferences_user_id">-1</string>
+    <string name="shared_preferences_user_telephone">0</string>
+    <string name="shared_preferences_firebase_id">shared_preferences_firebase_id</string>
     <string name="shared_preferences">MAIN_SHARED_PREFERENCES</string>
     <string name="shared_preferences_current_user">SHARED_PREFERENCES_CURRENT_USER</string>
+    <string name="shared_preferences_user_message">SHARED_PREFERENCES_CURRENT_USER_MESSAGE</string>
     <string name="shared_preferences_safe_contact_list">SHARED_PREFERENCES_SAFE_CONTACTS_LIST</string>
+
+    <!--Request Activity !-->
+    <string name="notification_request_title">%s</string>
+    <string name="notification_send_request_title">%s</string>
+    <string name="notification_request_description">Quiere que seas su contacto de confianza</string>
+    <string name="accept">Aceptar</string>
+    <string name="not_now">Ahora no</string>
+    <string name="deny_request_message">Solicitud rechazada</string>
+    <string name="accept_request_message">Recibirás alertas cuando %s esté en peligro</string>
+
+    <!--Notification Messages!-->
+    <string name="notification_help_title">%s TE NECESITA</string>
+
 
     <!-- Validation Hints !-->
     <string name="required_field_hint">¡Este campo es requerido!</string>
