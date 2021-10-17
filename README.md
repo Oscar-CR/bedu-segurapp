@@ -1,26 +1,33 @@
 # SegurApp
+
 <p align = "center" style="background-color:#FFFFFF;">
 <img width="20%" src="./img/segurapp.png">
 </p>
 
 ## ⭐ Integrantes ⭐
-- **Antonio Labra Guerrero**
-- **Oscar Chávez Rosales** 
-- **Astrid Guerrero Niño** 
-- **Regina Bernal Galicia** 
 
+- **Antonio Labra Guerrero**
+- **Oscar Chávez Rosales**
+- **Astrid Guerrero Niño**
+- **Regina Bernal Galicia**
 
 ## Forma de Trabajo
 
-El proyecto será manejado dentro de la carpeta  **Segurapp**, a lo largo del curso y según lo visto en cada sesión.
+El proyecto será manejado dentro de la carpeta **Segurapp**, a lo largo del curso y según lo visto en cada sesión.
 De igual forma se implementará en el archivo README.md una breve descripción de las actividades realizadas.
 
+## Cuenta probada en Firebase
+
+- Correo: krz.oficial@gmail.com
+- Password: Oscar123@
 
 ## Comunicación
+
 - [Grupo de Telegram](https://t.me/joinchat/ofA0XlzS44tjMzYx)
-- [Grupo en Slack](https://beduworkspace.slack.com/archives/C02BTP8SL1M) 
+- [Grupo en Slack](https://beduworkspace.slack.com/archives/C02BTP8SL1M)
 
 ## Documentación
+
 - [Proyecto Final de Kotlin Avanzado](https://docs.google.com/document/d/1SGPDS2SpD3aaOYSw_Aa9AMWqyJBg5N_6/edit?usp=sharing&ouid=107584529257334960745&rtpof=true&sd=true)
 
 ## Diseños
@@ -35,15 +42,11 @@ Desarrollar una aplicación móvil enfocada a la seguridad personal, la cual pro
 
 ## Descripción general del proyecto
 
-SegurApp es una aplicación de seguridad personal,  la cual incorpora servicios de rastreo, mensajería y acceso rápido a contactos para hacer llamadas y/o mensajes de forma eficiente a contactos de confianza.
-
+SegurApp es una aplicación movil enfocada a la seguridad personal, incorpora servicios de rastreo en tiempo real, acceso directo a servicios públicos, contactos de confianza y notificaciones.
 
 ## ¿Por qué surge SegurApp?
 
-En el marco histórico de nuestra nación, uno de los mayores problemas a los cuales nos enfrentamos es la inseguridad. Un problema social de gran impacto que provoca miedo, ansiedad y preocupación. 
-Algunos de estos delitos son desapariciones, secuestros, robos, asaltos, etc. De acuerdo con cifras oficiales proporcionadas por el INEGI, un 66.4% de la población de entre 18 años en adelante, considera que vivir en su ciudad es inseguro. 
-
-Por medio de una aplicación móvil, el proyecto busca auxiliar a las personas que deseen instalarla cuando sean víctimas de alguno de estos incidentes, permitiéndoles solicitar ayuda a sus contactos más cercanos para socorrerlos.
+En México, una problemática recurrente entre la sociedad es la inseguridad, siendo el robo a mano armada, extorción y secuestro las principales causas en el país. Los gobiernos locales y estatales han implementado estrategias para combatirlo, sin embargo, los tiempos de respuesta suelen ser deficientes. El proyecto pretende crear alternativas tecnológicas para garantizar la vida de las personas ante un incidente, mediante el uso de una aplicación móvil que permita el rastreo en tiempo real del usuario, envió de notificaciones automáticas, comunicación directa con servicios públicos y una lista de contactos de confianza.
 
 <!--
 ## Mockups SegurApp
@@ -52,7 +55,7 @@ Por medio de una aplicación móvil, el proyecto busca auxiliar a las personas q
 </p>
 
 
-## Descripción de las pantallas 
+## Descripción de las pantallas
 
 - La primera cuenta con un mapa que permite obtener nuestra ubicación en tiempo real, para activar dicha función se tiene un botón de pánico.
 - La segunda es una pantalla de contactos, donde se podrá acceder y agregar contactos de confianza, mismos que serán usados para recibir una notificación en caso de una emergencia.
@@ -88,9 +91,9 @@ Por medio de una aplicación móvil, el proyecto busca auxiliar a las personas q
 - Implementar Views al proyecto.
 - Crear un formulario.
 
-# Desarrollo 
+# Desarrollo
 
-## Se crearon los formularios principales de la aplicación: 
+## Se crearon los formularios principales de la aplicación:
 
 ## Login
 El primero es la pantalla login, en el se especifican campos como el correo y la contraseña, asi como un botón de ingresar y registrarse, estos envian a una Activity específica.
@@ -109,7 +112,7 @@ El segundo es la pantalla de registro, en el se especifican los datos necesarios
 # Implementaciones Posteriores
 
 ## Forgot Password
-Se implementaron los formularios restantes de la aplicación, en el caso de la opción de "olvidar contraseña" , se creo mediante un DialogFragment. 
+Se implementaron los formularios restantes de la aplicación, en el caso de la opción de "olvidar contraseña" , se creo mediante un DialogFragment.
 
 <p align = "center">
 <img width="50%" src="./img/S2_forgot_password.png">
@@ -141,13 +144,13 @@ Además, se creo una pantalla para agregar contatos, esta permite añadirlos dir
 - Crear un flujo entre Activities.
 - Diseñar los layouts de las Activities con ConstraintLayout.
 
-# Desarrollo 
+# Desarrollo
 
 ### Nombre de la Aplicación:
 
 > SegurApp V1
 
-## Introducción 
+## Introducción
 
 Los dispositivos móviles forman parte de nuestras vidas, podemos reservar boletos de avión, pedir comida, escuchar música, ver vídeos entretenidos, tomar fotografías y muchas otras cosas, hace unas cuantas décadas realizar todo esto con un solo dispositivo era imposible. En la actualidad, los celulares cuentan con múltiples funcionalidades, no obstante, hoy utilizamos el teléfono casi para todo menos para hablar y claro, existen los chats y las redes sociales pero si estuvieras en una situación de riesgo: ¿A quién acudirías?, ¿Contestaría rápido?, ¿Qué tan fácil sería poder hacerlo? Tan solo en México, _el 77.6% de la población dijo sentirse insegura en un cajero público y 63% en el banco durante junio de 2021_, sin dudas, el índice de delincuencia aumenta conforme pasan los años y la seguridad de nuestros seres queridos debe ser una prioridad. Es por esto que decidimos crear **SegurApp**, una aplicación que te pondrá en contacto con personas de tu confianza y/o realizar llamadas de emergencia, tan solo necesitas accionar un botón de auxilio y una alerta será enviada a todos tus contactos de confianza brindándoles tu ubicación actual.
 
@@ -155,7 +158,7 @@ Los dispositivos móviles forman parte de nuestras vidas, podemos reservar bolet
 
 Lo primero que debes hacer es crear una cuenta dentro de nuestro sistema utilizando un correo electrónico y una contraseña.
 Después, será necesario configurar tu cuenta. Aquí te pediremos que brindes tu nombre, tu número de teléfono y también que generes una lista de contactos de tu confianza, lo mejor es que puedes buscarlos directamente desde tu tarjeta de contactos (para ver esta lista de contactos en un futuro será necesario contar con tu autorización mediante un PIN que podrás configurar), finalmente, solicitaremos tu permiso para poder acceder a tu ubicación actual y tu red telefónica.
-Listo, ¡ahora estás a salvo!, si en algún momento necesitas ayuda podrás presionar un botón de emergencia dentro de nuestra aplicación, o bien, hacerlo directamente desde el área de notificaciones. (es necesario activar la notificación previamente)  
+Listo, ¡ahora estás a salvo!, si en algún momento necesitas ayuda podrás presionar un botón de emergencia dentro de nuestra aplicación, o bien, hacerlo directamente desde el área de notificaciones. (es necesario activar la notificación previamente)
 Al accionar el botón de ayuda podrás compartir tu ubicación con todos tus contactos de confianza, además que también podrás chatear con ellos.
 En caso que necesites contactar con un servicio de emergencia deberás presionar con larga duración el mismo botón y tu teléfono marcará directamente a emergencias donde un operador estará disponible para poder ayudarte.
 
@@ -196,7 +199,7 @@ Mediante el uso de Intents, se realizó la comunicación entre Activitys y Fragm
 
 # Desarrollo
 
-Para el desarrollo de este Postwork y Proyecto, se genero un RecyclerView en la vista de contactos, debido a que permite la integración de múltiples objetos dentro de cada elemento de la lista. 
+Para el desarrollo de este Postwork y Proyecto, se genero un RecyclerView en la vista de contactos, debido a que permite la integración de múltiples objetos dentro de cada elemento de la lista.
 
 ## Item Contact
 Se genero un Item para los contactos, mismo que va a ser el molde de la RecyclerView.
@@ -206,7 +209,7 @@ Se genero un Item para los contactos, mismo que va a ser el molde de la Recycler
 </p>
 
 ## Item Messages
-De la misma manera, se generó un Item para los mensajes, en el se indica una foto de perfil, un nombre, mensajes y hora del último mensaje.  
+De la misma manera, se generó un Item para los mensajes, en el se indica una foto de perfil, un nombre, mensajes y hora del último mensaje.
 
 <p align = "center">
 <img width="50%" src="./img/S4_item_message.png">
@@ -237,8 +240,8 @@ Al igual que el ejemplo anterior (Fragment Contact) se realizó un proceso simia
 - Modularizar el proyecto mediante Fragments.
 - Manejar un flujo entre fragments
 
-# Desarrollo 
-Se orientó el proyecto a fragments desde sesiones anteriors, debido a que ofrece algunos beneficios respecto a los Activitys, como lo es el rendimiento. Además de que al implementr un BottomNavigationMenu y dar click, debe permanecer en el mismo Activity, cambiando de Fragment solamente. 
+# Desarrollo
+Se orientó el proyecto a fragments desde sesiones anteriors, debido a que ofrece algunos beneficios respecto a los Activitys, como lo es el rendimiento. Además de que al implementr un BottomNavigationMenu y dar click, debe permanecer en el mismo Activity, cambiando de Fragment solamente.
 
 <table>
     <td>
@@ -274,7 +277,7 @@ Se definió una lista de colores, en la  siguiente imagen podemos observar el te
 
 - Blanco: Se definio este color debido a que es una app pensada en ser usada en exteriores, por lo que necesita contrastes sin perder la legibilidad.
 
-- Negro: Este color da contraste al color blanco, además de demostrar la seeriedad de la app. 
+- Negro: Este color da contraste al color blanco, además de demostrar la seeriedad de la app.
 
 - Rojo: Este color esta relacionado directamente como un color de emergencia, es usada en muchos ámbitos de la salud, por ellos su elección.
 
@@ -322,5 +325,3 @@ Configurar lo básico en gradle.
 Hacer pruebas con nuestra aplicación de debug.
 Lanzar una versión de Release de nuestra aplicación.
 -->
-
-
