@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/about_title"
-        android:text="@string/about_developers"
+        android:text="@string/privacy_title"
         style="@style/title_text"
         android:layout_margin="@dimen/size_16"/>
 
@@ -20,10 +20,14 @@
         android:src="@drawable/ic_back2"
         />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentList"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/about_title" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size_24"
+        android:layout_below="@id/about_title"
+        android:text="@string/privacy_text"
+        android:textSize="@dimen/text_16"
+        android:justificationMode="inter_word"
+        />
 
 </RelativeLayout>

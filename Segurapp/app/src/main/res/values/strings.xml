@@ -167,5 +167,15 @@
     <!-- My Info !-->
     <string name="update_profile">Actualizar perfil</string>
 
+    <!-- Logout !-->
+    <string name="logout_title">¿Desea cerrar sesión?</string>
+    <string name="btn_exit">SALIR</string>
+    <string name="btn_back">VOLVER AL INICIO</string>
+
+
+    <!-- Privacy !-->
+    <string name="privacy_title">Políticas de Privacidad</string>
+    <string name="privacy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+
 
 </resources>

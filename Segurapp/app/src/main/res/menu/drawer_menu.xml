@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/homeFragment"
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_contacts"
+            android:id="@+id/contactsFragment"
             android:icon="@drawable/ic_contacts"
             android:title="@string/menu_contacts" />
         <item
-            android:id="@+id/nav_messages"
+            android:id="@+id/socialSecurityFragment"
             android:icon="@drawable/ic_emergency"
             android:title="@string/menu_services" />
     </group>
     <item android:title="@string/drawer_account">
         <menu>
             <item
-                android:id="@+id/nav_myInfo"
+                android:id="@+id/myInfoActivity"
                 android:icon="@drawable/ic_account"
                 android:title="@string/drawer_account_info" />
         </menu>
@@ -26,16 +26,16 @@
     <item android:title="@string/drawer_extra">
         <menu>
             <item
-                android:id="@+id/nav_about"
+                android:id="@+id/aboutActivity"
                 android:icon="@drawable/ic_info"
                 android:title="@string/drawer_about" />
 
             <item
-                android:id="@+id/nav_privacy"
+                android:id="@+id/privacyActivity"
                 android:icon="@drawable/ic_privacy"
                 android:title="@string/drawer_privacy" />
             <item
-                android:id="@+id/nav_logout"
+                android:id="@+id/logoutActivity"
                 android:icon="@drawable/ic_logout"
                 android:title="@string/drawer_logout" />
         </menu>

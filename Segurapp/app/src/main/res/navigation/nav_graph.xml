@@ -20,5 +20,24 @@
         android:name="org.bedu.segurapp.ui.home.fragments.SocialSecurityFragment"
         android:label="Servicios Públicos"
         tools:layout="@layout/fragment_social_security" />
+    <activity
+        android:id="@+id/myInfoActivity"
+        android:name="org.bedu.segurapp.ui.home.MyInfoActivity"
+        android:label="activity_myinfo"
+        tools:layout="@layout/activity_myinfo" />
+    <activity
+        android:id="@+id/aboutActivity"
+        android:name="org.bedu.segurapp.ui.home.AboutActivity"
+        android:label="activity_about"
+        tools:layout="@layout/activity_about" />
+    <activity
+        android:id="@+id/privacyActivity"
+        android:name="org.bedu.segurapp.ui.home.PrivacyActivity"
+        android:label="PrivacyActivity" />
+    <activity
+        android:id="@+id/logoutActivity"
+        android:name="org.bedu.segurapp.ui.home.LogoutActivity"
+        android:label="activity_logout"
+        tools:layout="@layout/activity_logout" />
 
 </navigation>

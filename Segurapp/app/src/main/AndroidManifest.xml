@@ -20,6 +20,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Segurapp">
         <activity
+            android:name=".ui.home.LogoutActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.home.PrivacyActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.TrackingActivity"
             android:exported="true" />
         <activity
