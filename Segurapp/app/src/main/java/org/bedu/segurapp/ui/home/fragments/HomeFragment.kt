@@ -2,7 +2,9 @@ package org.bedu.segurapp.ui.home.fragments
 
 import android.Manifest
 import android.content.ContentValues
+import android.content.Context
 import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
@@ -11,9 +13,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -119,8 +123,9 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
         }
 
         floatingActionButton.setOnClickListener {
-            estatus=false
-            locationDialogFragmentShow()
+
+            checkGPS()
+
         }
     }
 
@@ -379,4 +384,15 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
                 Log.e(ContentValues.TAG, e.toString())
             }
         }
+
+    private fun checkGPS(){
+        val locationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            estatus=false
+            Toast.makeText(context, "Obteniendo  su ubicacion", Toast.LENGTH_SHORT).show()
+        }else{
+            locationDialogFragmentShow()
+        }
+    }
 }

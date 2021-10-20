@@ -46,7 +46,6 @@ class LocationDialogFragment : DialogFragment() {
 
     private fun buttomAccept(){
         btn_dialog_location.setOnClickListener {
-            Toast.makeText(context,"Obteniendo ubicación",Toast.LENGTH_LONG).show()
             dismiss()
         }
     }
