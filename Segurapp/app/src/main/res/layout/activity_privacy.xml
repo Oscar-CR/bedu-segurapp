@@ -24,10 +24,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/size_24"
+        android:layout_marginTop="100dp"
         android:layout_below="@id/about_title"
-        android:text="@string/privacy_text"
-        android:textSize="@dimen/text_16"
-        android:justificationMode="inter_word"
-        />
+        android:text="@string/privacyAllText"
+        android:textSize="@dimen/text_24"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:textAlignment="center" />
 
 </RelativeLayout>

@@ -24,7 +24,9 @@
             android:exported="true" />
         <activity
             android:name=".ui.home.PrivacyActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.TrackingActivity"
             android:exported="true" />
@@ -42,7 +44,9 @@
 
         <activity
             android:name=".ui.home.AboutActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.socialSecurity.SocialSecurityActivity"
             android:configChanges="orientation|keyboardHidden"

@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:columnCount="2"
         tools:ignore="MissingConstraints"
         android:orientation="horizontal">
 
@@ -81,8 +80,8 @@
                 app:srcCompat="@drawable/github"
                 android:layout_marginTop="8dp"
                 android:backgroundTint="@color/white"
-                android:layout_marginLeft="320dp"
-                android:background="@color/white"/>
+                android:layout_marginStart="320dp"
+                android:background="@color/white" />
 
             <ImageButton
                 android:id="@+id/imageBtnLinkd"
@@ -91,7 +90,7 @@
                 android:backgroundTint="@color/black"
                 app:srcCompat="@drawable/linkedin"
                 android:layout_marginTop="65dp"
-                android:layout_marginLeft="320dp"
+                android:layout_marginStart="320dp"
                 android:background="@color/white"/>
 
         </androidx.cardview.widget.CardView>
