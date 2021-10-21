@@ -1,17 +1,12 @@
 package org.bedu.segurapp.ui.home
 
 import android.animation.ValueAnimator
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.airbnb.lottie.LottieAnimationView
-import kotlinx.android.synthetic.main.item_contact.*
 import org.bedu.segurapp.R
-import org.bedu.segurapp.UserLogin
 import org.bedu.segurapp.UserLogin.Companion.pref
 
 class LogoutActivity : AppCompatActivity() {
@@ -45,6 +40,7 @@ class LogoutActivity : AppCompatActivity() {
     private fun buttonClick(){
         btnExit.setOnClickListener {
             alertExit()
+
         }
 
         btnHome.setOnClickListener {
@@ -80,7 +76,7 @@ class LogoutActivity : AppCompatActivity() {
     //Cerrar sesion en shared preferences
     private fun logout() {
         pref.wipe()
-        onBackPressed()
+        finishAffinity()
     }
 
 }
