@@ -2,14 +2,14 @@ package org.bedu.segurapp.contactList
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.bedu.segurapp.CoroutineTestRule
-import org.bedu.segurapp.models.AddContactViewModel
-import org.bedu.segurapp.models.local.Contact
-import org.bedu.segurapp.interfaces.IContactRepository
+//import org.bedu.segurapp.models.local.Contact
 import org.junit.Rule
 
 // Uncomment @Before and @Test blocks to make tests
 
 class ContactListViewModelTest {
+
+    /*
     private lateinit var contactRepository: IContactRepository
     private lateinit var viewModel: AddContactViewModel
 
@@ -18,6 +18,8 @@ class ContactListViewModelTest {
     private val astrid = Contact(2, "Astrid Guerrero", "5533225596")
     private val oscar = Contact(3, "Oscar Chávez", "5621805859")
     private val regina = Contact(4, "Regina Bernal", "5611240930")
+
+     */
 
     @get:Rule
     var instantExecutor = InstantTaskExecutorRule()

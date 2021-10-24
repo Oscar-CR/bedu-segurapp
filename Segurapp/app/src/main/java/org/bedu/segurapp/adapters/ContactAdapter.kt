@@ -1,63 +1,71 @@
 package org.bedu.segurapp.adapters
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.bedu.segurapp.databinding.ItemContactBinding
-import org.bedu.segurapp.models.ContactViewModel
-import org.bedu.segurapp.models.Messages
-import org.bedu.segurapp.models.local.Contact
+import kotlinx.android.synthetic.main.item_contact.view.*
+import org.bedu.segurapp.R
+import org.bedu.segurapp.models.Contacts
+import org.bedu.segurapp.ui.home.DetailContactActivity
 
-class ContactAdapter(
-    private val viewModel: ContactViewModel
+const val USER_NAME = "USER_NAME"
+const val USER_PHONE = "USER_PHONE"
 
+class ContactsAdapter(
+    private val mListener: (Contacts) -> Unit,
+    private var contacts: MutableList<Contacts>
 ) :
-    ListAdapter<Contact, ContactAdapter.ViewHolder>(ContactDiffCallback()) {
-    private lateinit var contact: MutableList<Contact>
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(viewGroup)
+    RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return ViewHolder(layoutInflater.inflate(R.layout.item_contact, parent, false))
     }
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val item = getItem(position)
-        viewHolder.bind(viewModel,item)
-    }
 
-    class ViewHolder private constructor(val binding: ItemContactBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun bind(viewModel: ContactViewModel, item: Contact) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-            binding.viewModel = viewModel
-            binding.contact = item
-            binding.executePendingBindings()
+        val item = contacts[position]
 
-        }
+        with(holder) {
+            view.tvNombre.text = item.name
+            view.tvPhone.text = item.phone
+            view.imgPorfile.setImageResource(item.photo)
+            view.btn_call.setOnClickListener {
+                item.let { it1 -> mListener.invoke(it1) }
+            }
 
-        companion object {
-            fun from(parent: ViewGroup): ViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemContactBinding.inflate(layoutInflater, parent, false)
+            view.setOnClickListener {
 
-                return ViewHolder(binding)
+                val bundle = Bundle()
+
+                bundle.putString(USER_NAME, item.name)
+                bundle.putString(USER_PHONE, item.phone)
+
+                val intent = Intent(view.context, DetailContactActivity::class.java).apply {
+                    putExtras(bundle)
+                }
+                view.context.startActivity(intent)
             }
         }
-
     }
-    fun filterListC(filteredListC: MutableList<Contact>) {
-        contact = filteredListC
+
+
+    override fun getItemCount(): Int {
+        return contacts.size
+    }
+
+
+    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {}
+
+
+    fun filterList(filteredList: MutableList<Contacts>) {
+        contacts = filteredList
         notifyDataSetChanged()
     }
 
 }
 
-class ContactDiffCallback : DiffUtil.ItemCallback<Contact>() {
-    override fun areItemsTheSame(oldItem: Contact, newItem: Contact): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: Contact, newItem: Contact): Boolean {
-        return oldItem == newItem
-    }
-}

@@ -3,7 +3,6 @@ package org.bedu.segurapp.data
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import org.bedu.segurapp.models.local.Contact
-import org.bedu.segurapp.interfaces.IContactRepository
 
 
 private var  observableContacts = MutableLiveData<List<Contact>>()

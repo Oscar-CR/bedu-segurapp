@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/add_container"
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/login_animation"
+        style="@style/loginUserAnimation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserAdd"
+        style="@style/loginTextView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="wrap_content"
+        android:text="@string/contact_name"
+        android:layout_marginHorizontal="@dimen/size_38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/size_32"
+        app:layout_constraintTop_toBottomOf="@+id/login_animation" />
+
+    <EditText
+        android:id="@+id/etUserAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size_32"
+        android:inputType="text"
+        android:hint="@string/contact_name_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserAdd"
+        android:layout_marginTop="@dimen/size_8"/>
+
+    <TextView
+        android:id="@+id/tvPhoneAdd"
+        style="@style/loginTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_phone"
+        android:layout_marginHorizontal="@dimen/size_38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUserAdd"
+        android:layout_marginTop="@dimen/size_32"/>
+
+    <EditText
+        android:id="@+id/etPhoneAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size_32"
+        android:inputType="phone"
+        android:maxLength="10"
+        android:digits="1234567890"
+        android:imeOptions="actionDone"
+        android:hint="@string/contact_phone_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhoneAdd"
+        android:layout_marginTop="@dimen/size_8"
+        tools:ignore="TextFields" />
+
+    <Button
+        android:id="@+id/btn_save_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_rounded"
+        android:textColor="@color/segurapp_white_variant"
+        android:text="@string/btn_save_contact_hint"
+        app:layout_constraintTop_toBottomOf="@+id/etPhoneAdd"
+        android:layout_marginTop="@dimen/size_32"
+        android:layout_marginHorizontal="@dimen/size_32"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
