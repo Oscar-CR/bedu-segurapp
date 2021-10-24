@@ -7,9 +7,12 @@
 
     <TextView
         android:id="@+id/about_title"
-        android:text="@string/privacy_title"
         style="@style/title_text"
-        android:layout_margin="@dimen/size_16"/>
+        android:layout_marginStart="@dimen/size_16"
+        android:layout_marginTop="@dimen/size_16"
+        android:layout_marginEnd="@dimen/size_16"
+        android:layout_marginBottom="@dimen/size_16"
+        android:text="@string/privacy_title" />
 
     <ImageView
         android:id="@+id/btn_back"
@@ -23,13 +26,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/about_title"
         android:layout_marginHorizontal="@dimen/size_24"
         android:layout_marginTop="100dp"
-        android:layout_below="@id/about_title"
         android:text="@string/privacyAllText"
-        android:textSize="@dimen/text_24"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textStyle="italic"
-        android:textAlignment="center" />
+        android:textSize="@dimen/text_24"
+        android:textStyle="italic" />
 
 </RelativeLayout>

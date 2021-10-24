@@ -1,12 +1,15 @@
 package org.bedu.segurapp.ui.home.fragments
 
 import android.Manifest
+import android.app.PendingIntent
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
 import android.os.Looper
+import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -333,6 +336,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
                 .setContentTitle(getString(R.string.notification_title)) //seteamos el título de la notificación
                 .setContentText(getString(R.string.notification_text)) //seteamos el cuerpo de la notificación
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT) //Ponemos una prioridad por defecto
+                .setAutoCancel(true)
                 .build()
         }
 
@@ -385,13 +389,14 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
             }
         }
 
-    private fun checkGPS(){
-        val locationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    private fun checkGPS() {
+        val locationManager =
+            requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-            estatus=false
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            estatus = false
             Toast.makeText(context, "Obteniendo  su ubicacion", Toast.LENGTH_SHORT).show()
-        }else{
+        } else {
             locationDialogFragmentShow()
         }
     }

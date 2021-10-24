@@ -90,7 +90,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1328125" />
         <entry key="app/src/main/res/layout/activity_privacy.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.20652173913043478" />
-        <entry key="app/src/main/res/layout/activity_request.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/layout/activity_request.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_social_security.xml" value="0.22" />
         <entry key="app/src/main/res/layout/bottom_sheet_forgot_password.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.19322916666666667" />
@@ -101,6 +101,7 @@
         <entry key="app/src/main/res/layout/fragment_get_started_screen_slide_page.xml" value="0.20018115942028986" />
         <entry key="app/src/main/res/layout/fragment_get_started_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_location_dialog.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_messages.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/item_contact.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/item_emergency_service.xml" value="0.25" />

@@ -12,7 +12,7 @@
     <!--Request Activity !-->
     <string name="notification_request_title">%s</string>
     <string name="notification_send_request_title">%s</string>
-    <string name="notification_request_description">Quiere que seas su contacto de confianza</string>
+    <string name="notification_request_description">Quiere que sea su contacto de confianza</string>
     <string name="accept">Aceptar</string>
     <string name="not_now">Ahora no</string>
     <string name="deny_request_message">Solicitud rechazada</string>
@@ -117,7 +117,7 @@
     <!-- Get Started Splash Fragment !-->
     <string name="welcome_message_title">¡Hola!</string>
     <string name="welcome_message_description">Para continuar vamos a configurar tu perfil</string>
-    <string name="btn_continue_title">Continuar</string>
+    <string name="btn_continue_title">Activar</string>
 
     <!-- Get Started Profile Configuration Fragment !-->
     <string name="hint_phone_number">Ingrese su número telefónico</string>
@@ -149,7 +149,7 @@
     <string name="location_description">Es necesario activar su ubicación GPS para que los servicios de localización funcionen correctamente.</string>
 
     <!-- Channel Help -->
-    <string name="channel_help">ayuda</string>
+    <string name="channel_help">Ayuda</string>
     <string name="courses_description">Notificación de ayuda</string>
 
     <!-- Notification -->
@@ -178,6 +178,5 @@
     <string name="privacy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
     <string name="privacyAllText">SegurApp es un proyecto desarrollado y
         presentado para el curso Desarrollo Móvil impartido por BEDU en colaboracion con Santander.</string>
-
 
 </resources>
