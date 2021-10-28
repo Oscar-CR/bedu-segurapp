@@ -370,7 +370,7 @@ class GetStartedSafeContactsFragment : Fragment() {
                                 .update("channel", mChannel)
                                 .addOnCompleteListener { callback(it.isSuccessful) }
                         }
-                    }
+                    }else callback(true)
                 }
             }
 
