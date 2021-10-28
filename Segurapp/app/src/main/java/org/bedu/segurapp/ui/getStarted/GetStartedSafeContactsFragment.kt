@@ -204,14 +204,14 @@ class GetStartedSafeContactsFragment : Fragment() {
     private fun sendRequest(contactName: String, contactNumber: String,  mName: String, mNumber: String) {
         val newSafeContact = SafeContact(contactName, contactNumber)
 
-        db.collection("users")
+     usersCollection
             .whereEqualTo("telephone", contactNumber)
             .get()
             .addOnSuccessListener {
                 if (it.documents.isNotEmpty()) {
 
                     val recipientToken =
-                        it.documents[0].getString("pushNotificationKey")
+                        it.documents.first().getString("pushNotificationKey")
 
                     if (recipientToken != null) {
                         PushNotification(
@@ -293,8 +293,8 @@ class GetStartedSafeContactsFragment : Fragment() {
                 if (response.isSuccessful) {
 
                     requireActivity().runOnUiThread {
-                        saveContacts(newSafeContact) {
-                            if (it) Toast.makeText(
+                        saveContacts(newSafeContact) { saveContactResponse ->
+                            if (saveContactResponse) Toast.makeText(
                                 requireContext(),
                                 "${newSafeContact.name} será invitado a tus contactos de confianza",
                                 Toast.LENGTH_SHORT
@@ -322,22 +322,23 @@ class GetStartedSafeContactsFragment : Fragment() {
         callback: ((Boolean) -> Unit)
     ) {
         if (listOf(mMessage).contains("")) callback(false)
-        userId?.let { it ->
+
+        userId?.let { userIdentifier ->
             usersCollection
-                .document(it)
+                .document(userIdentifier)
                 .update("message", mMessage)
-                .addOnCompleteListener { callback(it.isSuccessful) }
+                .addOnCompleteListener {  response -> callback(response.isSuccessful) }
         }
     }
 
     private fun getUserInfo(){
-        db.collection("users")
+        usersCollection
             .whereEqualTo("id", userId)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 if (querySnapshot.documents.isNotEmpty()) {
-                   mNumber = querySnapshot.documents[0].get("telephone").toString()
-                    mName = querySnapshot.documents[0].get("name").toString()
+                   mNumber = querySnapshot.documents.first().get("telephone").toString()
+                    mName = querySnapshot.documents.first().get("name").toString()
                 }
             }
 
@@ -350,7 +351,7 @@ class GetStartedSafeContactsFragment : Fragment() {
     ) {
 
 
-        db.collection("users")
+        usersCollection
             .whereEqualTo("id", userId)
             .get()
             .addOnSuccessListener { querySnapshot ->
@@ -359,14 +360,17 @@ class GetStartedSafeContactsFragment : Fragment() {
                     val data = querySnapshot.documents[0].get("channel")
 
                     mChannel = Gson().fromJson(data.toString(), Channel::class.java)
-                    mChannel.members.add(newSafeContact)
-                    userId?.let { documentResponse ->
-                        usersCollection
-                            .document(documentResponse)
-                            .update("channel", mChannel)
-                            .addOnCompleteListener { callback(it.isSuccessful) }
-                    }
+                    val userMatchList = mChannel.members.filter { it.telephone == newSafeContact.telephone }
 
+                    if(userMatchList.isEmpty()){
+                        mChannel.members.add(newSafeContact)
+                        userId?.let { documentResponse ->
+                            usersCollection
+                                .document(documentResponse)
+                                .update("channel", mChannel)
+                                .addOnCompleteListener { callback(it.isSuccessful) }
+                        }
+                    }
                 }
             }
 

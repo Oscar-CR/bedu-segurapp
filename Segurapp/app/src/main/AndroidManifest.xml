@@ -29,7 +29,15 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.TrackingActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".ui.request.RequestActivity"
             android:exported="true" />
@@ -76,11 +84,7 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/splash_theme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

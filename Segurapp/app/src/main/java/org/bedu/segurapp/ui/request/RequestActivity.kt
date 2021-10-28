@@ -69,15 +69,14 @@ class RequestActivity : AppCompatActivity() {
         callback: (Boolean) -> Unit
     ) {
 
-        db.collection("users")
+       usersCollection
             .whereEqualTo("channel.id", channel)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 if (querySnapshot.documents.isNotEmpty()) {
 
-                    val data = querySnapshot.documents[0].get("channel") as HashMap<*, *>
-                    val userId = querySnapshot.documents[0].get("id") as String
-
+                    val data = querySnapshot.documents.first().get("channel") as HashMap<*, *>
+                    val userId = querySnapshot.documents.first().get("id") as String
                     val mChannel = Gson().fromJson(JSONObject(data).toString(), Channel::class.java)
                     for (item in mChannel.members) {
                         if (item.telephone == telephone) {
@@ -125,7 +124,7 @@ class RequestActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { querySnapshot ->
                 if (querySnapshot.documents.isNotEmpty()) {
-                    val subscribedData = querySnapshot.documents[0].get("subscribedToList")
+                    val subscribedData = querySnapshot.documents.first().get("subscribedToList")
                     val mSubscribedToList = Gson().fromJson(
                         subscribedData.toString(),
                         Array<SubscribedTo>::class.java
@@ -152,12 +151,12 @@ class RequestActivity : AppCompatActivity() {
         telephone: String,
         callback: (Boolean) -> Unit
     ) {
-        db.collection("users")
+       usersCollection
             .whereEqualTo("telephone", telephone)
             .get()
             .addOnSuccessListener { querySnapshot ->
                 if (querySnapshot.documents.isNotEmpty()) {
-                    val idUser = querySnapshot.documents[0].get("id").toString()
+                    val idUser = querySnapshot.documents.first().get("id").toString()
 
                     updateSubscribedToList(subscribedToList, idUser){
                         callback(it)
@@ -174,7 +173,7 @@ class RequestActivity : AppCompatActivity() {
         idUser: String,
         callback: (Boolean) -> Unit
     ) {
-        db.collection("users")
+        usersCollection
             .document(idUser)
             .update("subscribedToList", subscribedToList)
             .addOnCompleteListener {

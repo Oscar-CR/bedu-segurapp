@@ -29,7 +29,8 @@
 
         <Button
             android:id="@+id/btn_continue_title"
-            style="@style/getStartedSplashButton" />
+            style="@style/getStartedSplashButton"
+           />
 
     </LinearLayout>
 

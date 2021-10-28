@@ -80,32 +80,33 @@
         <entry key="app/src/main/res/drawable/divider.xml" value="0.26927083333333335" />
         <entry key="app/src/main/res/drawable/et_rounded.xml" value="0.21851851851851853" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.21851851851851853" />
-        <entry key="app/src/main/res/drawable/ic_privacy.xml" value="0.209375" />
-        <entry key="app/src/main/res/layout/activity_about.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_add_contact.xml" value="0.11666666666666667" />
+        <entry key="app/src/main/res/layout/activity_detail_contact.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_get_started.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1328125" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_login2.xml" value="0.1328125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1328125" />
-        <entry key="app/src/main/res/layout/activity_privacy.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_myinfo.xml" value="0.40402969247083775" />
+        <entry key="app/src/main/res/layout/activity_privacy.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.20652173913043478" />
-        <entry key="app/src/main/res/layout/activity_request.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_request.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_social_security.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_tracking.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/bottom_sheet_forgot_password.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_about.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/fragment_about.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/fragment_add_contact.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_contact.xml" value="0.11354166666666667" />
         <entry key="app/src/main/res/layout/fragment_get_started_done.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/fragment_get_started_profile_configuration.xml" value="0.1328125" />
+        <entry key="app/src/main/res/layout/fragment_get_started_profile_configuration.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_get_started_safe_contacts.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_get_started_screen_slide_page.xml" value="0.20018115942028986" />
         <entry key="app/src/main/res/layout/fragment_get_started_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_location_dialog.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_messages.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/item_contact.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/item_emergency_service.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/item_person.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/item_person.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/skeleton_view.xml" value="0.11666666666666667" />
       </map>
     </option>

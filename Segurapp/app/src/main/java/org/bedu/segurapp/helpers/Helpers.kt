@@ -1,10 +1,13 @@
 package org.bedu.segurapp.helpers
 
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.SharedPreferences
 import android.text.InputType.*
 import android.widget.EditText
+import androidx.core.content.ContextCompat
 import org.bedu.segurapp.R
 import org.bedu.segurapp.models.EmptyFieldResponse
 
@@ -115,3 +118,7 @@ fun makeFormValidations(fields: Array<EditText>, resources: Context): Boolean {
     return true
 }
 
+fun Context.copyToClipboard(text: CharSequence){
+    val clipboard = ContextCompat.getSystemService(this, ClipboardManager::class.java)
+    clipboard?.setPrimaryClip(ClipData.newPlainText("",text))
+}
