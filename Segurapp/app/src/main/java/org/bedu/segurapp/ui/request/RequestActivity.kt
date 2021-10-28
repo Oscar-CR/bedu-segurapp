@@ -130,7 +130,9 @@ class RequestActivity : AppCompatActivity() {
                         Array<SubscribedTo>::class.java
                     ).toMutableList()
 
-                    mSubscribedToList.add(SubscribedTo(channel))
+                    val resultList = mSubscribedToList.filter { it.channelId == channel }
+
+                    if(resultList.isEmpty()) mSubscribedToList.add(SubscribedTo(channel))
 
                     getUserId(mSubscribedToList, telephone) {
                         callback(it)
