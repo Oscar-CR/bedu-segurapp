@@ -1,33 +1,30 @@
 package org.bedu.segurapp.ui.home.fragments
 
 import android.Manifest
-import android.app.PendingIntent
 import android.content.ContentValues
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
 import android.os.Looper
-import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.firestore.GeoPoint
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import com.mapbox.android.core.location.*
 import com.mapbox.android.core.permissions.PermissionsListener
 import com.mapbox.android.core.permissions.PermissionsManager
@@ -45,21 +42,23 @@ import com.mapbox.mapboxsdk.maps.Style
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.bedu.segurapp.R
-import org.bedu.segurapp.models.NotificationData
-import org.bedu.segurapp.models.PushNotification
+import org.bedu.segurapp.models.*
 import org.bedu.segurapp.networking.RetrofitInstance
 import org.bedu.segurapp.ui.home.HomeActivity
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
     companion object {
-        const val DEFAULT_INTERVAL_IN_MILLISECONDS = 1000L
-        const val DEFAULT_MAX_WAIT_TIME = DEFAULT_INTERVAL_IN_MILLISECONDS * 2
+        const val DEFAULT_INTERVAL_IN_MILLISECONDS = 10_000L
+        const val DEFAULT_MAX_WAIT_TIME = DEFAULT_INTERVAL_IN_MILLISECONDS * 3
     }
 
-    private  lateinit var mapView: MapView
+    private lateinit var mapView: MapView
     private lateinit var map: MapboxMap
     private lateinit var permissionsManager: PermissionsManager
     private lateinit var locationEngine: LocationEngine
@@ -70,12 +69,13 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
     private lateinit var location: DialogFragment
     private val db = Firebase.firestore
     private val mAuth = Firebase.auth
+    private val locationsCollection = db.collection("locations")
     private lateinit var mHelpTitle: String
     private lateinit var mHelpDescription: String
     private lateinit var mChannelId: String
     private var userId: String? = null
 
-    private var estatus=false
+    private var estatus = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -88,8 +88,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
         userId = mAuth.currentUser?.uid
 
-        findInfoFromDB(userId.toString()){ user ->
-            if(user.first != ""){
+        findInfoFromDB(userId.toString()) { user ->
+            if (user.first != "") {
                 mHelpTitle = getString(R.string.notification_help_title, user.first)
                 mHelpDescription = user.second
                 mChannelId = user.third
@@ -104,25 +104,40 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
         return view
     }
 
-    private fun initConponents(view: View){
+    private fun initConponents(view: View) {
         mapView = view.findViewById(R.id.mapView)
         button = view.findViewById(R.id.button)
         buttonStop = view.findViewById(R.id.buttonStop)
         floatingActionButton = view.findViewById(R.id.buttomSearchLocation)
     }
 
-    private fun buttonsListeners(){
+    private fun buttonsListeners() {
         buttonStop.setOnClickListener {
+
+            estatus = false
             buttonStop.visibility = View.GONE
             button.visibility = View.VISIBLE
-            estatus=false
+
+            stopHelpService { response ->
+                if (response) {
+                    runBlocking {
+                        buttonStop.visibility = View.GONE
+                        button.visibility = View.VISIBLE
+                    }
+                }
+            }
         }
 
         button.setOnClickListener {
             button.visibility = View.GONE
             buttonStop.visibility = View.VISIBLE
-            estatus=true
-            requestHelp()
+            estatus = true
+
+            runBlocking {
+                createReport { savedSuccessfully ->
+                    if (savedSuccessfully) requestHelp()
+                }
+            }
         }
 
         floatingActionButton.setOnClickListener {
@@ -142,7 +157,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
     }
 
-    private fun findInfoFromDB(userId: String, callback: (Triple<String, String, String>) -> Unit){
+    private fun findInfoFromDB(userId: String, callback: (Triple<String, String, String>) -> Unit) {
         db.collection("users")
             .whereEqualTo("id", userId)
             .get()
@@ -171,12 +186,16 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
     private fun enableLocationComponent(loadedMapStyle: Style) {
         if (PermissionsManager.areLocationPermissionsGranted(getApplicationContext())) {
             val locationComponentActivationOptions = LocationComponentActivationOptions.builder(
-                getApplicationContext(), loadedMapStyle)
+                getApplicationContext(), loadedMapStyle
+            )
                 .useDefaultLocationEngine(false)
                 .build()
             map.locationComponent.apply {
                 activateLocationComponent(locationComponentActivationOptions)
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                if (ActivityCompat.checkSelfPermission(
+                        getApplicationContext(),
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                    ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                         getApplicationContext(),
                         Manifest.permission.ACCESS_COARSE_LOCATION
                     ) != PackageManager.PERMISSION_GRANTED
@@ -184,15 +203,18 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
                     return
                 }
-                isLocationComponentEnabled = true                       // Enable to make component visible
-                cameraMode = CameraMode.TRACKING                        // Set the component's camera mode
-                renderMode = RenderMode.COMPASS                         // Set the component's render mode
+                isLocationComponentEnabled =
+                    true                       // Enable to make component visible
+                cameraMode =
+                    CameraMode.TRACKING                        // Set the component's camera mode
+                renderMode =
+                    RenderMode.COMPASS                         // Set the component's render mode
             }
             initLocationEngine()
         } else {
             initLocationEngine()
             permissionsManager = PermissionsManager(this)
-            permissionsManager.requestLocationPermissions(activity )
+            permissionsManager.requestLocationPermissions(activity)
         }
     }
 
@@ -205,7 +227,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
             .setPriority(LocationEngineRequest.PRIORITY_BALANCED_POWER_ACCURACY)
             .setMaxWaitTime(DEFAULT_MAX_WAIT_TIME)
             .build()
-        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+        if (ActivityCompat.checkSelfPermission(
+                getApplicationContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 getApplicationContext(),
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
@@ -218,17 +243,21 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
     }
 
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         permissionsManager.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     private inner class LocationChangeListeningCallback :
         LocationEngineCallback<LocationEngineResult> {
 
-        override fun onSuccess(result: LocationEngineResult?)  {
+        override fun onSuccess(result: LocationEngineResult?) {
             result?.lastLocation ?: return
-            if (estatus){
-                if (result.lastLocation != null){
+            if (estatus) {
+                if (result.lastLocation != null) {
                     val lat = result.lastLocation?.latitude!!
                     val lng = result.lastLocation?.longitude!!
 
@@ -243,12 +272,21 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
                             .tilt(12.0)
                             .build()
                         map.animateCamera(CameraUpdateFactory.newCameraPosition(position))
-                        Toast.makeText(getApplicationContext(), "Latitud: $lat Longitud: $lng ", Toast.LENGTH_SHORT).show()
 
+                        populateReportCoordinates(LatLng(lat, lng)) { response ->
+                            if (response) {
+                                Toast.makeText(
+                                    getApplicationContext(),
+                                    "Latitud: $lat Longitud: $lng ",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
                     }
                 }
-            }else{
-                if (result.lastLocation != null){
+            } else {
+
+                if (result.lastLocation != null) {
                     val lat = result.lastLocation?.latitude!!
                     val lng = result.lastLocation?.longitude!!
 
@@ -269,7 +307,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
         }
 
         override fun onFailure(exception: Exception) {
-            estatus=false
+            estatus = false
         }
     }
 
@@ -350,25 +388,182 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
     }
 
     private fun locationDialogFragmentShow() {
-        location= LocationDialogFragment()
-        location.show(childFragmentManager,"s")
+        location = LocationDialogFragment()
+        location.show(childFragmentManager, "s")
 
     }
 
+    private fun createReport(callback: (Boolean) -> Unit) {
+
+        userId?.let { idUser ->
+
+            locationsCollection
+                .whereEqualTo("userId", idUser)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    if (querySnapshot.documents.isNotEmpty()) {
+                        var mCoordinatesInfoList = ArrayList<CoordinatesInfo>()
+
+                        val coordinatesInfoData = querySnapshot.documents.first()
+                            .get("coordinatesInfo") as ArrayList<HashMap<String, Any>>
 
 
-    private fun requestHelp(){
-        PushNotification(
-            NotificationData(
-                mHelpTitle,
-                mHelpDescription,
-                mChannelId,
-                mChannelId
-            ),
-            mChannelId
-        ).also { pushNotification ->
-            sendNotification(pushNotification)
+                        if (coordinatesInfoData.isNotEmpty()) {
+
+                            val mJson = Gson().toJson(coordinatesInfoData)
+
+                            mCoordinatesInfoList =
+                                ArrayList(
+                                    Gson().fromJson(
+                                        mJson,
+                                        Array<CoordinatesInfo>::class.java
+                                    ).toList()
+                                )
+
+                        }
+
+                        val mLocationHistory = ArrayList<LocationHistory>()
+                        val mCoordinatesInfo = CoordinatesInfo(
+                            UUID.randomUUID().toString(),
+                            true,
+                            Timestamp.now(),
+                            mLocationHistory
+                        )
+
+                        mCoordinatesInfoList.add(mCoordinatesInfo)
+
+
+                        locationsCollection.document(idUser)
+                            .update("coordinatesInfo", mCoordinatesInfoList)
+                            .addOnCompleteListener {
+                                callback(it.isSuccessful)
+                            }
+                    }
+                }
         }
+    }
+
+    private fun populateReportCoordinates(coordinates: LatLng, callback: (Boolean) -> Unit) {
+
+        userId?.let { idUser ->
+
+            locationsCollection
+                .whereEqualTo("userId", idUser)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    if (querySnapshot.documents.isNotEmpty()) {
+
+                        val coordinatesInfoData =
+                            querySnapshot.documents.first()
+                                .get("coordinatesInfo") as ArrayList<HashMap<String, Any>>
+
+                        if (coordinatesInfoData.isNotEmpty()) {
+
+                            val mJson = Gson().toJson(coordinatesInfoData)
+
+                            val mCoordinatesInfoList =
+                                ArrayList(
+                                    Gson().fromJson(
+                                        mJson,
+                                        Array<CoordinatesInfo>::class.java
+                                    ).toList()
+                                )
+
+
+                            val coordinatesInfo = mCoordinatesInfoList.filter { it.active }
+
+                            if (coordinatesInfo.isEmpty()) callback(false)
+
+                            coordinatesInfo
+                                .first()
+                                .locationHistory
+                                .add(
+                                    LocationHistory(
+                                        GeoPoint(coordinates.latitude, coordinates.longitude)
+                                    )
+                                )
+
+                            mCoordinatesInfoList.find { it.active }?.locationHistory =
+                                coordinatesInfo.first().locationHistory
+
+
+                            locationsCollection.document(idUser)
+                                .update("coordinatesInfo", mCoordinatesInfoList)
+                                .addOnCompleteListener {
+                                    callback(it.isSuccessful)
+                                }
+                        }
+                    }
+                }
+        }
+    }
+
+    private fun stopHelpService(callback: (Boolean) -> Unit) {
+
+        userId?.let { idUser ->
+            locationsCollection
+                .whereEqualTo("userId", idUser)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    if (querySnapshot.documents.isNotEmpty()) {
+
+
+                        val coordinatesInfoData = querySnapshot.documents.first()
+                            .get("coordinatesInfo") as ArrayList<HashMap<String, Any>>
+
+
+                        if (coordinatesInfoData.isNotEmpty()) {
+
+                            val mJson = Gson().toJson(coordinatesInfoData)
+
+
+                            val mCoordinatesInfoList =
+                                ArrayList(
+                                    Gson().fromJson(
+                                        mJson,
+                                        Array<CoordinatesInfo>::class.java
+                                    ).toList()
+                                )
+
+
+                            val coordinatesInfo = mCoordinatesInfoList.filter { it.active }
+
+                            if (coordinatesInfo.isNotEmpty()) {
+
+                                mCoordinatesInfoList.find { it.active }?.active = false
+
+                                locationsCollection.document(idUser)
+                                    .update("coordinatesInfo", mCoordinatesInfoList)
+                                    .addOnCompleteListener {
+                                        callback(it.isSuccessful)
+                                    }
+                            } else callback(true)
+
+                        } else callback(true)
+
+                    } else callback(true)
+                }
+        }
+    }
+
+    private fun requestHelp() {
+
+        userId?.let {
+            idUser ->
+
+            PushNotification(
+                NotificationData(
+                    mHelpTitle,
+                    mHelpDescription,
+                    idUser,
+                    mChannelId
+                ),
+                mChannelId
+            ).also { pushNotification ->
+                sendNotification(pushNotification)
+            }
+        }
+
     }
 
     private fun sendNotification(notification: PushNotification) =

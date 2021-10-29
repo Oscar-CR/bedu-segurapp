@@ -14,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import com.mapbox.android.core.location.*
 import com.mapbox.android.core.permissions.PermissionsListener
 import com.mapbox.android.core.permissions.PermissionsManager
@@ -33,6 +34,7 @@ import org.bedu.segurapp.databinding.ActivityTrackingBinding
 import org.bedu.segurapp.helpers.alertDialogMaker
 import org.bedu.segurapp.helpers.copyToClipboard
 import org.bedu.segurapp.helpers.snackBarMaker
+import org.bedu.segurapp.models.LocationHistory
 
 
 class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListener {
@@ -50,15 +52,24 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsLis
         super.onCreate(savedInstanceState)
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token) )
 
-        userRegisterId = intent.getStringExtra("userRegisterId") ?: "YSqwm33WyCQbTiCSu8jp5Gr28oM2" // this will be changed!
+        userRegisterId = intent.getStringExtra("userRegisterId") ?: ""
 
-
-        with(binding){
-            setContentView(binding.root)
-            mapView.onCreate(savedInstanceState)
-            mapView.getMapAsync(this@TrackingActivity)
-            sendHelp()
+        if(userRegisterId != ""){
+            with(binding){
+                setContentView(binding.root)
+                mapView.onCreate(savedInstanceState)
+                mapView.getMapAsync(this@TrackingActivity)
+                sendHelp()
+            }
+        }else{
+            alertDialogMaker(this, R.string.tracking_alert_title, R.string.tracking_alert_description, false)
+                .setPositiveButton(getString(R.string.accept)) { _: DialogInterface, _: Int ->
+                   finish()
+                }
+                .show()
         }
+
+
     }
 
 
@@ -167,12 +178,19 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsLis
                                 return
                             }
 
-                            val coordinatesList = (coordinatesInfo.first()["locationHistory"] as ArrayList<GeoPoint>).last()
-                            val userLocation = LatLng(coordinatesList.latitude, coordinatesList.longitude)
+                            val mJson = Gson().toJson(coordinatesInfo.first()["locationHistory"])
+
+
+                            val coordinatesList = ArrayList(Gson().fromJson(
+                                mJson,
+                                Array<LocationHistory>::class.java).toList())
+
+                            val mCoordinate = coordinatesList.last()
+                            val userLocation = LatLng(mCoordinate.geoPoint.latitude, mCoordinate.geoPoint.longitude)
 
                             val position = CameraPosition.Builder()
                                 .target(userLocation)
-                                .zoom(12.0)
+                                .zoom(18.0)
                                 .tilt(12.0)
                                 .build()
 
