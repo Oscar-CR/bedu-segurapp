@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.airbnb.lottie.LottieAnimationView
 import org.bedu.segurapp.R
@@ -42,6 +43,7 @@ class AddContactFragment : Fragment() {
         binding.btnSaveContact.setOnClickListener{
             Toast.makeText(context ,"Contacto agregado correctamente", Toast.LENGTH_LONG).show()
             viewModel.newContact()
+            Navigation.findNavController(it).navigate(R.id.navigateToContactsFragment)
         }
 
         setAnimation()

@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import org.bedu.segurapp.R
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import org.bedu.segurapp.adapters.ContactAdapter
 import org.bedu.segurapp.databinding.FragmentContactBinding
@@ -37,12 +38,7 @@ class ContactsFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_contact,
-            container,
-            false
-        )
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_contact, container, false)
 
         viewModel = ContactViewModel(
             (requireContext().applicationContext as UserLogin).contactRepository
@@ -53,12 +49,14 @@ class ContactsFragment : Fragment(){
 
 
 
-        binding.btnContactsAdd.setOnClickListener {
+        /*binding.btnContactsAdd.setOnClickListener {
 
             val intent=Intent(context, AddContactActivity::class.java)
             startActivity(intent)
 
-        }
+        }*/
+
+        binding.btnContactsAdd.setOnClickListener { Navigation.findNavController(it).navigate(R.id.navigateToAddContactFragment) }
 
         setupContactList()
 

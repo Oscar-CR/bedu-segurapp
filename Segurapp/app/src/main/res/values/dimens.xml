@@ -12,11 +12,13 @@
     <dimen name="size_16">16dp</dimen>
     <dimen name="size_24">24dp</dimen>
     <dimen name="size_32">32dp</dimen>
+    <dimen name="size_40">40dp</dimen>
     <dimen name="size_38">38dp</dimen>
     <dimen name="size_48">48dp</dimen>
     <dimen name="size_64">64dp</dimen>
     <dimen name="size_72">72dp</dimen>
     <dimen name="size_96">96dp</dimen>
     <dimen name="size_120">120dp</dimen>
+    <dimen name="size_248">248dp</dimen>
     <dimen name="size_256">256dp</dimen>
 </resources>

@@ -46,7 +46,7 @@
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/segurapp_red_variant" />
-    
+
 </RelativeLayout>
 
 </layout>

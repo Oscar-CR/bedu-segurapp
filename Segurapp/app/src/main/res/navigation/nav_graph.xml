@@ -13,7 +13,13 @@
     <fragment
         android:id="@+id/contactsFragment"
         android:name="org.bedu.segurapp.ui.home.fragments.ContactsFragment"
-        android:label="Contactos" />
+        android:label="Contactos" >
+        <action
+            android:id="@+id/navigateToAddContactFragment"
+            app:destination="@id/addContactFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
 
     <fragment
         android:id="@+id/socialSecurityFragment"
@@ -39,5 +45,15 @@
         android:name="org.bedu.segurapp.ui.home.LogoutActivity"
         android:label="activity_logout"
         tools:layout="@layout/activity_logout" />
+    <fragment
+        android:id="@+id/addContactFragment"
+        android:name="org.bedu.segurapp.ui.home.fragments.AddContactFragment"
+        android:label="AddContactFragment" >
+        <action
+            android:id="@+id/navigateToContactsFragment"
+            app:destination="@id/contactsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
 
 </navigation>

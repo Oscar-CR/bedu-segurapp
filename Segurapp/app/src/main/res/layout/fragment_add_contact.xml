@@ -9,11 +9,13 @@
             type="org.bedu.segurapp.models.AddContactViewModel"
             />
     </data>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="wrap_content">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/login_animation"
@@ -46,7 +48,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvUserAdd"
-        android:layout_marginTop="@dimen/size_8"/>
+        android:layout_marginTop="@dimen/size_8"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/tvPhoneAdd"
@@ -76,7 +79,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPhoneAdd"
         android:layout_marginTop="@dimen/size_8"
-        tools:ignore="TextFields" />
+        tools:ignore="TextFields"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btn_save_contact"
@@ -89,7 +93,7 @@
         android:layout_marginTop="@dimen/size_32"
         android:layout_marginHorizontal="@dimen/size_32"/>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 
 </layout>

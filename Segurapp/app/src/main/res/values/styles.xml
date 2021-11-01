@@ -106,7 +106,7 @@
     <style name="getStartedSplashTextViewTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">@dimen/size_16</item>
+        <item name="android:layout_marginBottom">@dimen/size_8</item>
         <item name="android:textSize">@dimen/text_24</item>
         <item name="android:textColor">@color/segurapp_black</item>
         <item name="android:textAlignment">center</item>
@@ -116,10 +116,21 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/size_16</item>
-        <item name="android:layout_marginBottom">@dimen/size_24</item>
+        <item name="android:layout_marginBottom">@dimen/size_16</item>
         <item name="android:textSize">@dimen/text_16</item>
         <item name="android:textColor">@color/segurapp_black_variant</item>
         <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="textHelp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/segurapp_black_variant</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
     </style>
 
     <style name="getStartedSplashButton">
@@ -164,16 +175,16 @@
     <!-- Get Started Activity !-->
     <style name="get_started_edit_text">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/size_72</item>
+        <item name="android:layout_height">@dimen/size_64</item>
         <item name="android:drawableTint">@color/segurapp_black</item>
         <item name="android:drawableEnd">@drawable/ic_edit</item>
         <item name="android:drawablePadding">@dimen/size_16</item>
-        <item name="android:layout_marginBottom">@dimen/size_32</item>
+        <item name="android:layout_marginBottom">@dimen/size_40</item>
     </style>
 
     <style name="loginUserAnimation">
-        <item name="android:layout_width">@dimen/size_256</item>
-        <item name="android:layout_height">@dimen/size_256</item>
+        <item name="android:layout_width">@dimen/size_248</item>
+        <item name="android:layout_height">@dimen/size_248</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginTop">@dimen/size_32</item>
     </style>

@@ -14,7 +14,7 @@
     <string name="notification_send_request_title">%s</string>
     <string name="notification_request_description">Quiere que sea su contacto de confianza</string>
     <string name="accept">Aceptar</string>
-    <string name="not_now">Ahora no</string>
+    <string name="refuse">Rechazar</string>
     <string name="deny_request_message">Solicitud rechazada</string>
     <string name="accept_request_message">Recibirás alertas cuando %s esté en peligro</string>
 
@@ -127,7 +127,8 @@
     <!-- Get Started Profile Safe Contacts Fragment !-->
     <string name="almost_ready_message_title">Casi listo</string>
     <string name="almost_ready_message_description">Para continuar necesitamos que guardes tus contactos de confianza</string>
-    <string name="another_option_message">O si prefieres</string>
+    <string name="another_option_message">O si prefieres, Registralo directamente: </string>
+    <string name="tip_register_contact">Para registrar tu(s) contacto(s), presiona la tecla Enter de tu Teclado </string>
     <string name="search_safe_contact">Buscar contactos de confianza</string>
     <string name="hint_contact_phone_number">Número telefónico de contacto</string>
     <string name="hint_contact_name">Alias de contacto</string>
