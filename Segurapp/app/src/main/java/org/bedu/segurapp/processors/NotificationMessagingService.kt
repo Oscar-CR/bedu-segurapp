@@ -69,6 +69,7 @@ class NotificationMessagingService : FirebaseMessagingService() {
                         }else{
                             // Request for help
                             intent = Intent(this@NotificationMessagingService, TrackingActivity::class.java)
+                            intent.putExtra("userRegisterId", remoteMessage.data["url"].toString())
                             CHANNEL_ID = remoteMessage.data["channelId"].toString()
                         }
 

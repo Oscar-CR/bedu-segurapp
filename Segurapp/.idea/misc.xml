@@ -107,7 +107,7 @@
         <entry key="app/src/main/res/layout/fragment_get_started_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_location_dialog.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_messages.xml" value="0.11666666666666667" />
+        <entry key="app/src/main/res/layout/fragment_messages.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_social_security.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/item_contact.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/item_emergency_service.xml" value="0.25" />

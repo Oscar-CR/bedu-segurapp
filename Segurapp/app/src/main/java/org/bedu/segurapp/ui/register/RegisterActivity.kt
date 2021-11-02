@@ -157,14 +157,25 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun saveInDB(origin: String): Boolean {
         if (origin == "login") return true
+
+
+
         val safeContactList: MutableList<SafeContact> = ArrayList()
         val mEmail = binding.etRegisterEmail.text.toString()
         val mPassword = binding.etRegisterPassword.text.toString()
         mTelephone = binding.etRegisterTelephone.text.toString()
         val form = listOf(mEmail, mPassword, mTelephone)
 
+
+
+
         return if (!form.contains("")) {
+
+            val mCoordinatesInfo = ArrayList<CoordinatesInfo>()
+            val mLocationContact = LocationContact(mAuth.currentUser?.uid.toString(), mCoordinatesInfo)
+
             mChannel = Channel(UUID.randomUUID().toString(), safeContactList)
+
             val newUser = NewUser(
                 mAuth.currentUser?.uid.toString(),
                 pushNotificationToken.toString(),
@@ -173,8 +184,12 @@ class RegisterActivity : AppCompatActivity() {
                 "",
                 mChannel
             )
+
             db.collection("users").document(mAuth.currentUser?.uid.toString()).set(newUser)
+            db.collection("locations").document(mAuth.currentUser?.uid.toString()).set(mLocationContact)
+
             true
+
         } else false
     }
 

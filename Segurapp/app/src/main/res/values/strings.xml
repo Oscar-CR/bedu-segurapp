@@ -15,6 +15,7 @@
     <string name="notification_request_description">Quiere que sea su contacto de confianza</string>
     <string name="accept">Aceptar</string>
     <string name="refuse">Rechazar</string>
+
     <string name="deny_request_message">Solicitud rechazada</string>
     <string name="accept_request_message">Recibirás alertas cuando %s esté en peligro</string>
 
@@ -67,6 +68,12 @@
     <string name="register_btn_primary">Registrarse</string>
     <string name="home_btn_help">¡Ayuda!</string>
     <string name="home_btn_stop">¡Detener!</string>
+
+    <!-- Tracking Activity !-->
+    <string name="tracking_btn_help">Enviar Ayuda</string>
+    <string name="tracking_alert_title">La Alerta ha finalizado</string>
+    <string name="tracking_alert_description">¿Deseas conservar la ruta?</string>
+    <string name="tracking_snack_bar_clipboard">Para copiar al portapapeles presione aceptar</string>
 
     <!-- DetailContact Activity !-->
     <string name="hello_message">Hola %s</string>
