@@ -3,6 +3,7 @@ package org.bedu.segurapp.ui.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -53,12 +54,17 @@ class LoginActivity : AppCompatActivity() {
 
     private fun accessToDetail(){
 
+
         if(makeFormValidations(arrayOf(binding.etLoginEmail,binding.etLoginPassword), this)){
+
+            binding.scrollView.visibility = View.VISIBLE
 
             mAuth.signInWithEmailAndPassword(binding.etLoginEmail.text.toString(), binding.etLoginPassword.text.toString()).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     validateUser("login")
                 } else {
+                    binding.scrollView.visibility = View.INVISIBLE
+
                     Toast.makeText(baseContext, "Credenciales incorrectas", Toast.LENGTH_SHORT)
                         .show()
                 }

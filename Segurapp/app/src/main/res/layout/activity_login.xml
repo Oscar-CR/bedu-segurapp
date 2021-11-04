@@ -1,82 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-    <LinearLayout
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         tools:context=".ui.login.LoginActivity">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_border"
+            android:layout_width="@dimen/size_120"
+            android:layout_height="@dimen/size_120"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/login_decoration" />
 
-            <ImageView
-                android:id="@+id/img_border"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                app:srcCompat="@drawable/login_decoration" />
 
-            <ImageView
-                android:id="@+id/img_logo"
-                style="@style/login_img"
-                app:srcCompat="@drawable/segurapp" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/tvMail"
-            style="@style/loginTextView"
-            android:layout_marginVertical="@dimen/size_16"
-            android:text="@string/email_address" />
-
-        <EditText
-            android:id="@+id/etLoginEmail"
-            style="@style/loginEdiText"
-            android:hint="@string/email_address_hint"
-            android:imeOptions="actionNext"
-            android:inputType="textEmailAddress" />
-
-        <TextView
-            android:id="@+id/tvPassword"
-            style="@style/loginTextView"
-            android:text="@string/login_password"
-            android:layout_marginVertical="@dimen/size_16"/>
-
-        <EditText
-            android:id="@+id/etLoginPassword"
-            style="@style/loginEdiText"
-            android:hint="@string/login_password_hint"
-            android:inputType="textPassword"
-            android:imeOptions="actionDone"/>
-
-        <Button
-            android:id="@+id/btSubmit"
-            style="@style/buttomPrimary"
-            android:layout_marginTop="@dimen/size_32"
-            android:text="@string/login_btn_primary" />
+        <ImageView
+            android:id="@+id/img_logo"
+            style="@style/login_img"
+            android:layout_marginTop="@dimen/size_40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/segurapp" />
 
         <Button
             android:id="@+id/btCreate"
             style="@style/buttonSecondary"
             android:foreground="@drawable/bt_border"
-            android:text="@string/login_btn_secondary" />
+            android:text="@string/login_btn_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btSubmit" />
+
+        <TextView
+            android:id="@+id/tvMail"
+            style="@style/loginTextView"
+            android:layout_marginVertical="@dimen/size_16"
+            android:text="@string/email_address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLoginEmail" />
+
+        <EditText
+            android:id="@+id/etLoginEmail"
+            style="@style/loginEdiText"
+            android:layout_marginTop="@dimen/size_16"
+            android:hint="@string/email_address_hint"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
+
+        <TextView
+            android:id="@+id/tvPassword"
+            style="@style/loginTextView"
+            android:layout_marginVertical="@dimen/size_16"
+            android:text="@string/login_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_logo" />
+
+        <EditText
+            android:id="@+id/etLoginPassword"
+            style="@style/loginEdiText"
+            android:layout_marginTop="16dp"
+            android:hint="@string/login_password_hint"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMail" />
+
+
+        <Button
+            android:id="@+id/btSubmit"
+            style="@style/buttomPrimary"
+            android:layout_marginTop="@dimen/size_24"
+            android:text="@string/login_btn_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLoginPassword" />
+
+        <ProgressBar
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ProgressBarStyle"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLoginPassword" />
 
         <TextView
             android:id="@+id/tvForgotPassword"
             style="@style/loginTextView"
             android:gravity="center"
-            android:text="@string/login_forgot_pass" />
-
+            android:text="@string/login_forgot_pass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btCreate" />
 
         <TextView
             android:id="@+id/tvUknownUser"
             style="@style/loginTextView"
+            android:gravity="center"
             android:text="@string/login_unknow_user"
-            android:gravity="center"/>
-    </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/size_24"
+            app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>
