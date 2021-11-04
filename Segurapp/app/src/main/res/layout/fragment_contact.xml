@@ -30,10 +30,10 @@
         android:name="org.bedu.segurapp.ui.home.fragments.ContactFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/etSearchContact"
         app:layoutManager="LinearLayoutManager"
         tools:context=".ui.home.fragments.ContactsFragment"
-        tools:listitem="@layout/item_contact"
-        android:layout_below="@id/etSearchContact"/>
+        tools:listitem="@layout/item_contact" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_contacts_add"

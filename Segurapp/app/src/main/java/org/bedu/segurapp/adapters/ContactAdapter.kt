@@ -1,7 +1,12 @@
 package org.bedu.segurapp.adapters
 
+import android.app.Application
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -33,6 +38,16 @@ class ContactAdapter(
             binding.contact = item
             binding.executePendingBindings()
 
+            binding.btnCall.setOnClickListener{
+
+                var phone = item.phone
+
+                if (phone != null) {
+                    startActivity(binding.root.context,Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:${phone.trim()}")),null)
+                }
+                
+            }
+
         }
 
         companion object {
@@ -61,3 +76,4 @@ class ContactDiffCallback : DiffUtil.ItemCallback<Contact>() {
         return oldItem == newItem
     }
 }
+
