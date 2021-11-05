@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
@@ -12,15 +13,27 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_myinfo.*
+import kotlinx.android.synthetic.main.activity_register.*
 import org.bedu.segurapp.R
 
 class MyInfoActivity : AppCompatActivity() {
 
+    private val db = Firebase.firestore
+    private val mAuth = Firebase.auth
+    //private val db = FirebaseFirestore.getInstance()
+    private val users = db.collection("users")
+
     lateinit var miName: EditText
     lateinit var miLastName: EditText
-    lateinit var miEmail: EditText
-    lateinit var miContact: EditText
-    lateinit var btnBack:ImageView
+    lateinit var miMessage: EditText
+    lateinit var btnBack: ImageView
+    lateinit var btnGetInfo: Button
+    lateinit var btnUpdate: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,16 +41,20 @@ class MyInfoActivity : AppCompatActivity() {
         viewInitializations()
 
         backButtom()
+        getInfo()
     }
+
+
 
 
     private fun viewInitializations() {
 
         miName = findViewById(R.id.mi_first_name)
-        miLastName = findViewById(R.id.mi_last_name)
-        miEmail  = findViewById(R.id.mi_email)
-        miContact = findViewById(R.id.mi_contact)
+        //miLastName = findViewById(R.id.mi_last_name)
+        miMessage = findViewById(R.id.mi_message)
         btnBack = findViewById(R.id.btn_back)
+        btnGetInfo = findViewById(R.id.btn_Get_Info)
+        btnUpdate = findViewById(R.id.btn_Update)
 
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -49,48 +66,52 @@ class MyInfoActivity : AppCompatActivity() {
             miName.error = "Por favor escribe tu nombre"
             return false
         }
-        if (miLastName.text.toString() == "") {
+
+        /*if (miLastName.text.toString() == "") {
             miLastName.error = "Por favor escribe tu apellido"
             return false
-        }
-        if (miEmail.text.toString() == "") {
-            miEmail.error = "Por favor escribe tu email"
-            return false
-        }
+        }*/
 
-        if (miContact.text.toString() == "") {
-            miContact.error = "Por favor escribe tu número"
-            return false
-        }
-
-
-        if (!isEmailValid(miEmail.text.toString())) {
-            miEmail.error = "Escribe un email válido"
+        if (miMessage.text.toString() == "") {
+            miMessage.error = "Por favor escribe tu mensaje de ayuda"
             return false
         }
 
         return true
     }
 
-    private fun isEmailValid(email: String): Boolean {
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
+
+    fun performEditProfile(view: View) {
+        btnUpdate.setOnClickListener {
+
+            if (validateInput()) {
+                miName.text.toString()
+                //miLastName.text.toString()
+                miMessage.text.toString()
+
+                val users = db.collection("users")
+                val updateData = hashMapOf(
+                    "name" to mi_first_name.text.toString(),
+                    //"last" to "",
+                    "message" to mi_message.text.toString()
+                )
+                users.document(mAuth.currentUser?.uid.toString()).update("message", mi_message.text.toString()).addOnCompleteListener{
+                        response ->
+                    if (response.isSuccessful) {
+                        Toast.makeText(this, "Has actualizado tu perfil", Toast.LENGTH_SHORT).show()
+                        val bundle = Bundle()
+                        val returnhome = Intent(this, HomeActivity::class.java).apply { putExtras(bundle) }
+                        startActivity(returnhome)
+                    }
+                }
 
 
-    fun performEditProfile (view: View) {
-        if (validateInput()) {
 
-            miName.text.toString()
-            miLastName.text.toString()
-            miEmail.text.toString()
-            miContact.text.toString()
-
-            Toast.makeText(this,"Has actualizado tu perfil", Toast.LENGTH_SHORT).show()
-
+            }
         }
     }
 
-    private fun backButtom(){
+    private fun backButtom() {
         btnBack.setOnClickListener {
             val i = Intent(this, HomeActivity::class.java)
             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -99,4 +120,39 @@ class MyInfoActivity : AppCompatActivity() {
     }
 
 
+    private fun getInfo() {
+        btnGetInfo.setOnClickListener {
+            db.collection("users").document(mAuth.currentUser?.uid.toString()).get().addOnSuccessListener {
+                mi_first_name.setText(it.get("name") as String?)
+                mi_message.setText(it.get("message") as String?)
+            }
+        }
+    }
+
+
+
+    /*
+
+    private fun updateInfo() {
+        btnUpdate.setOnClickListener{
+            val users = db.collection("users")
+
+            val updateData = hashMapOf(
+                "name" to mi_first_name.text.toString(),
+                //"last" to "",
+                "message" to mi_message.text.toString()
+            )
+            users.document("").set(updateData)
+        }
+
+    }
+*/
+
+
+    //private fun showInfo(name: String, message: String){
+    //users.whereEqualTo("users.name", users).get()
+
+    //}
 }
+
+
