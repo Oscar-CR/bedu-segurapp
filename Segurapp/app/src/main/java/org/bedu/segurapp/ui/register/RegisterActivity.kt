@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -41,6 +42,8 @@ class RegisterActivity : AppCompatActivity() {
            val email = binding.etRegisterEmail.text.toString()
            val password = binding.etRegisterPassword.text.toString()
 
+           binding.progressBarRegister.visibility = View.VISIBLE
+
             if (makeFormValidations(arrayOf(binding.etRegisterUser, binding.etRegisterTelephone, binding.etRegisterEmail, binding.etRegisterPassword),
                     applicationContext)
             ) {
@@ -49,8 +52,13 @@ class RegisterActivity : AppCompatActivity() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             validateUser("signIn")
+                            binding.progressBarRegister.visibility = View.INVISIBLE
+
                         }
                     }
+
+            }else{
+                binding.progressBarRegister.visibility = View.INVISIBLE
             }
         }
     }
