@@ -201,5 +201,8 @@
         <item name="fontFamily">Roboto</item>
     </style>
 
-
+    <style name="button_get_info">
+        <item name="fontFamily">Roboto</item>
+        <item name="backgroundTint">@color/segurapp_black</item>
+    </style>
 </resources>

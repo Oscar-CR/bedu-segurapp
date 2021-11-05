@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-3dp">
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:focusable="true"
             android:focusableInTouchMode="true">
 
@@ -54,7 +54,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    android:src="@drawable/dog_profile" />
+                    android:src="@drawable/default_user" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -78,7 +78,6 @@
                     android:gravity="left"
                     android:hint="Nombre"
                     android:padding="30dp"
-                    android:text="Astrid"
                     android:textColor="#000000"
                     android:textColorHint="#808080"
                     android:textSize="15sp" />
@@ -86,7 +85,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_last_name"
+                android:id="@+id/layout_message"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
@@ -95,82 +94,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_first_name"
                 app:layout_constraintWidth_percent="0.7"
-
-                app:endIconMode="custom"
-                app:endIconDrawable="@drawable/ic_edit"
-                app:endIconContentDescription="@string/fab_transformation_scrim_behavior"
-                >
-
-                <EditText
-                    android:id="@+id/mi_last_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="#00000000"
-                    android:gravity="left"
-                    android:hint="Apellido"
-                    android:padding="30dp"
-                    android:text="Guerrero"
-                    android:textColor="#000000"
-                    android:textColorHint="#808080"
-                    android:textSize="15sp"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_email"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:textColorHint="#808080"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_last_name"
-                app:layout_constraintWidth_percent="0.7"
                 app:endIconMode="custom"
                 app:endIconDrawable="@drawable/ic_edit">
 
                 <EditText
-                    android:id="@+id/mi_email"
+                    android:id="@+id/mi_message"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="#00000000"
                     android:gravity="left"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
+                    android:hint="Mensaje de ayuda"
+                    android:inputType="text"
                     android:padding="30dp"
-                    android:text="correo@email.com"
-                    android:textColor="#000000"
-                    android:textColorHint="#808080"
-                    android:textSize="15sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_contact_no"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:textColorHint="#808080"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_email"
-                app:layout_constraintWidth_percent="0.7"
-                app:endIconMode="custom"
-                app:endIconDrawable="@drawable/ic_edit">
-
-                <EditText
-                    android:id="@+id/mi_contact"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="#00000000"
-                    android:gravity="left"
-                    android:hint="Teléfono"
-                    android:inputType="phone"
-                    android:maxLength="10"
-                    android:padding="30dp"
-                    android:text="5512903768"
                     android:textColor="#000000"
                     android:textColorHint="#808080"
                     android:textSize="15sp" />
@@ -178,25 +113,44 @@
 
 
             <Button
-                android:id="@+id/bt_register"
+                android:id="@+id/btn_Update"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/et_rounded"
-                android:textColor="@color/segurapp_white_variant"
                 android:elevation="2dp"
                 android:onClick="performEditProfile"
                 android:text="@string/update_profile"
+                android:textColor="@color/segurapp_white_variant"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_contact_no"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintTop_toBottomOf="@+id/layout_message"
+                app:layout_constraintVertical_bias="0.0"
                 app:layout_constraintWidth_percent="0.7" />
+
+            <Button
+                android:id="@+id/btn_Get_Info"
+                style="@style/button_get_info"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/et_rounded"
+                android:elevation="2dp"
+                android:onClick="performEditProfile"
+                android:text="Recuperar información"
+                android:textColor="@color/segurapp_white_variant"
+                android:textSize="15sp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_Update"
+                app:layout_constraintWidth_percent="0.7" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
