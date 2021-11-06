@@ -43,7 +43,7 @@
             android:id="@+id/tvMail"
             style="@style/loginTextView"
             android:layout_marginVertical="@dimen/size_16"
-            android:text="@string/email_address"
+            android:text="@string/login_password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etLoginEmail" />
@@ -63,7 +63,7 @@
             android:id="@+id/tvPassword"
             style="@style/loginTextView"
             android:layout_marginVertical="@dimen/size_16"
-            android:text="@string/login_password"
+            android:text="@string/email_address"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_logo" />
