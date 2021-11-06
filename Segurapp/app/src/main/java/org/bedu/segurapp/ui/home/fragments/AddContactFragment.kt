@@ -133,6 +133,9 @@ class AddContactFragment : Fragment() {
 
     private fun sendRequest(contactName: String, contactNumber: String,  mName: String, mNumber: String) {
         val newSafeContact = SafeContact(contactName, contactNumber)
+        val pbLoading = binding.pbLoading
+
+        pbLoading.visibility = View.VISIBLE
 
         usersCollection
             .whereEqualTo("telephone", contactNumber)
@@ -167,6 +170,9 @@ class AddContactFragment : Fragment() {
                     )
                         .show()
                 }
+
+                pbLoading.visibility = View.GONE
+
             }
 
             .addOnFailureListener { exception ->
@@ -176,6 +182,9 @@ class AddContactFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 )
                     .show()
+
+
+                pbLoading.visibility = View.GONE
             }
     }
 
