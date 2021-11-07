@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
@@ -25,6 +26,9 @@ import com.mapbox.mapboxsdk.Mapbox
 import org.bedu.segurapp.R
 import org.bedu.segurapp.databinding.ActivityHomeBinding
 import org.bedu.segurapp.models.AirplaneReceiver
+import android.view.View
+import org.bedu.segurapp.models.Preferences
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -49,10 +53,19 @@ class HomeActivity : AppCompatActivity() {
             binding.drawerLayout
         )
 
+        setHeader()
         sdkValidator()
         airplaneMode()
         navigationOptions()
 
+    }
+
+    private fun setHeader(){
+        val header: View = binding.navView.getHeaderView(0)
+        val txtMessage: TextView = header.findViewById(R.id.tvWelcomeMessage)
+        val txtEmail: TextView = header.findViewById(R.id.tvUserEmail)
+        txtMessage.text = "Bienvenido"
+        txtEmail.text = Preferences(applicationContext).getName()
     }
 
     private fun sdkValidator(){

@@ -89,7 +89,7 @@
     <string name="menu_services">Servicios Públicos</string>
 
     <!-- App Bar !-->
-    <string name="drawer_user">Usuario</string>
+    <string name="drawer_welcome">Bienvenido</string>
     <string name="drawer_email">correo@mail.com</string>
     <string name="drawer_home">Home</string>
     <string name="drawer_account">Mi cuenta</string>
