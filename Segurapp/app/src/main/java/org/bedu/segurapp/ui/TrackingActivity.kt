@@ -33,6 +33,7 @@ import org.bedu.segurapp.R
 import org.bedu.segurapp.databinding.ActivityTrackingBinding
 import org.bedu.segurapp.helpers.alertDialogMaker
 import org.bedu.segurapp.helpers.copyToClipboard
+import org.bedu.segurapp.helpers.getCurrentHour
 import org.bedu.segurapp.helpers.snackBarMaker
 import org.bedu.segurapp.models.LocationHistory
 
@@ -198,7 +199,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsLis
                             map.addMarker(
                                 MarkerOptions()
                                     .position(userLocation)
-                                    .title("Última ubicación ${userLocation.latitude} ; ${userLocation.longitude}")
+                                    .title("Hora: ${getCurrentHour()} ${userLocation.latitude} ; ${userLocation.longitude}")
                             )
                         }
                     }catch (ex: Exception){

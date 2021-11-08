@@ -1,5 +1,6 @@
 package org.bedu.segurapp.helpers
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -10,6 +11,9 @@ import android.widget.EditText
 import androidx.core.content.ContextCompat
 import org.bedu.segurapp.R
 import org.bedu.segurapp.models.EmptyFieldResponse
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 private fun validateDataType(fields: Array<EditText>): List<EmptyFieldResponse> {
@@ -116,6 +120,12 @@ fun makeFormValidations(fields: Array<EditText>, resources: Context): Boolean {
     }
 
     return true
+}
+
+@SuppressLint("SimpleDateFormat")
+fun getCurrentHour(): String {
+    val dateFormat = SimpleDateFormat("hh:mm:ss a")
+    return dateFormat.format(Date()).toString()
 }
 
 fun Context.copyToClipboard(text: CharSequence){

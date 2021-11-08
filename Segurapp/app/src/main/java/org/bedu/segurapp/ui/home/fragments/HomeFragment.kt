@@ -44,6 +44,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.bedu.segurapp.R
+import org.bedu.segurapp.helpers.getCurrentHour
 import org.bedu.segurapp.models.*
 import org.bedu.segurapp.networking.RetrofitInstance
 import org.bedu.segurapp.ui.home.HomeActivity
@@ -590,7 +591,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             estatus = false
-            Toast.makeText(context, "Obteniendo  su ubicacion", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(context, "Obteniendo su ubicacion ${getCurrentHour()}", Toast.LENGTH_SHORT).show()
         } else {
             locationDialogFragmentShow()
         }
