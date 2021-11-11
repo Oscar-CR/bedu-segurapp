@@ -38,7 +38,7 @@ De igual forma se implementará en el archivo README.md una breve descripción d
 
 ## Objetivo principal
 
-Desarrollar una aplicación móvil enfocada a la seguridad personal, la cual proporciona servicios de rastreo, mensajería instantánea y notificaciones a contactos seleccionados para auxiliar la vida del usuario ante una situación de emergencia que se le presente.
+Desarrollar una aplicación móvil enfocada a la seguridad personal, la cual proporciona servicios de rastreo y notificaciones a contactos seleccionados para auxiliar al usuario ante una situación de emergencia que se le presente.
 
 ## Descripción general del proyecto
 
