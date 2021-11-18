@@ -11,15 +11,28 @@
 - **Astrid Guerrero Niño**
 - **Regina Bernal Galicia**
 
+<img src="./img/S1_mockups.png">
+
+## Objetivo principal
+
+Desarrollar una aplicación móvil enfocada a la seguridad personal, la cual proporcione servicios de rastreo y notificaciones a contactos seleccionados para auxiliar al usuario ante una situación de emergencia que se le presente.
+
+## Descripción general del proyecto
+
+SegurApp es una aplicación movil enfocada a la seguridad personal, incorpora servicios de rastreo en tiempo real, acceso directo a servicios públicos, contactos de confianza y notificaciones.
+
+## ¿Por qué surge SegurApp?
+
+En México, una problemática recurrente entre la sociedad es la inseguridad, siendo el robo a mano armada, extorción y secuestro las principales causas en el país. Los gobiernos locales y estatales han implementado estrategias para combatirlo, sin embargo, los tiempos de respuesta suelen ser deficientes. El proyecto pretende crear alternativas tecnológicas para garantizar la vida de las personas ante un incidente, mediante el uso de una aplicación móvil que permita el rastreo en tiempo real del usuario, envió de notificaciones automáticas, comunicación directa con servicios públicos y una lista de contactos de confianza.
+
 ## Forma de Trabajo
 
-El proyecto será manejado dentro de la carpeta **Segurapp**, a lo largo del curso y según lo visto en cada sesión.
-De igual forma se implementará en el archivo README.md una breve descripción de las actividades realizadas.
+El proyecto fue manejado dentro de la carpeta **Segurapp**, a lo largo del curso y según lo visto en cada sesión.
+De igual forma se implementó en el archivo README.md una breve descripción de las actividades realizadas.
 
-## Cuenta probada en Firebase
+## APK del proyecto
 
-- Correo: krz.oficial@gmail.com
-- Password: Oscar123@
+- [Pruebe nuestra app haciendo click aquí](https://drive.google.com/drive/folders/16xQMyhrHSyQZ_qrsyquPbpgn3gsWmDgr?usp=sharing)
 
 ## Comunicación
 
@@ -33,20 +46,6 @@ De igual forma se implementará en el archivo README.md una breve descripción d
 ## Diseños
 
 - [Wireframes y Mockups](https://www.figma.com/file/xiA0LvmRgZl1jkEX6cJdto/Segurapp)
-
-# Desarrollo: Proyecto SegurApp (Fase 3)
-
-## Objetivo principal
-
-Desarrollar una aplicación móvil enfocada a la seguridad personal, la cual proporciona servicios de rastreo y notificaciones a contactos seleccionados para auxiliar al usuario ante una situación de emergencia que se le presente.
-
-## Descripción general del proyecto
-
-SegurApp es una aplicación movil enfocada a la seguridad personal, incorpora servicios de rastreo en tiempo real, acceso directo a servicios públicos, contactos de confianza y notificaciones.
-
-## ¿Por qué surge SegurApp?
-
-En México, una problemática recurrente entre la sociedad es la inseguridad, siendo el robo a mano armada, extorción y secuestro las principales causas en el país. Los gobiernos locales y estatales han implementado estrategias para combatirlo, sin embargo, los tiempos de respuesta suelen ser deficientes. El proyecto pretende crear alternativas tecnológicas para garantizar la vida de las personas ante un incidente, mediante el uso de una aplicación móvil que permita el rastreo en tiempo real del usuario, envió de notificaciones automáticas, comunicación directa con servicios públicos y una lista de contactos de confianza.
 
 <!--
 ## Mockups SegurApp
