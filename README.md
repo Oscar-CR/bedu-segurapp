@@ -6,10 +6,10 @@
 
 ## ⭐ Integrantes ⭐
 
-- **Antonio Labra Guerrero**
-- **Oscar Chávez Rosales**
-- **Astrid Guerrero Niño**
-- **Regina Bernal Galicia**
+- **Antonio**
+- **Oscar**
+- **Astrid**
+- **Regina**
 
 <img src="./img/S1_mockups.png">
 
