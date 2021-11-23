@@ -35,8 +35,6 @@ De igual forma se implementó en el archivo README.md una breve descripción de 
 - [Pruebe nuestra app haciendo click aquí](https://drive.google.com/drive/folders/16xQMyhrHSyQZ_qrsyquPbpgn3gsWmDgr?usp=sharing)
 
 ## Comunicación
-
-- [Grupo de Telegram](https://t.me/joinchat/ofA0XlzS44tjMzYx)
 - [Grupo en Slack](https://beduworkspace.slack.com/archives/C02BTP8SL1M)
 
 ## Documentación
