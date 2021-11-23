@@ -12,7 +12,6 @@ class Person(
     var career: String,
     var linkedinLink: String,
     var githubLink: String,
-    var idPhoto: Int
 
 ): Parcelable {
     constructor(parcel: Parcel) : this(
@@ -21,7 +20,6 @@ class Person(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readInt()
     ){
 
 
@@ -33,7 +31,6 @@ class Person(
         parcel.writeString(career)
         parcel.writeString(linkedinLink)
         parcel.writeString(githubLink)
-        parcel.writeInt(idPhoto)
     }
 
     override fun describeContents(): Int {

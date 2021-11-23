@@ -114,7 +114,7 @@
         <entry key="app/src/main/res/layout/item_contact.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/item_emergency_service.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_message.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/layout/item_person.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/item_person.xml" value="0.33" />
         <entry key="app/src/main/res/layout/skeleton_view.xml" value="0.11666666666666667" />
       </map>
     </option>

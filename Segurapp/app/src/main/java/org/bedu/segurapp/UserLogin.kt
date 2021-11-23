@@ -14,6 +14,4 @@ class UserLogin : Application() {
         super.onCreate()
         pref = Preferences(applicationContext)
     }
-
-
 }

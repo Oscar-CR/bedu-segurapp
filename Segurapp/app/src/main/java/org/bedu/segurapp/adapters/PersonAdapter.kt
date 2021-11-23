@@ -43,7 +43,6 @@ class PersonAdapter(
 
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        private val photo = view.findViewById<ImageView>(R.id.imgPerson)
         private val nombre = view.findViewById<TextView>(R.id.tvName)
         private val ciudad = view.findViewById<TextView>(R.id.tvCity)
         private val carrera = view.findViewById<TextView>(R.id.tvCareer)
@@ -53,7 +52,6 @@ class PersonAdapter(
             nombre.text = person.name
             ciudad.text = person.city
             carrera.text = person.career
-            photo.setImageResource(person.idPhoto)
 
         }
     }

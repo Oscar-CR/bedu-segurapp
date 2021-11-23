@@ -28,15 +28,6 @@
                 android:orientation="horizontal"
                 android:layout_margin="16dp">
 
-                <ImageView
-                    android:id="@+id/imgPerson"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/default_user"
-                    android:scaleType="fitCenter"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -63,12 +54,11 @@
 
                     <TextView
                         android:id="@+id/tvCareer"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Career"
-                        android:lines="2"
                         android:textColor="@color/white"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        tools:text="Career" />
 
                 </LinearLayout>
             </LinearLayout>

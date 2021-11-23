@@ -29,10 +29,10 @@ class AboutFragment : Fragment() {
     private fun getPeople(): MutableList<Person>{
         val persons:MutableList<Person> = ArrayList()
 
-        persons.add(Person("Antonio Labra Guerrero", "León, GTO", "Ing. Software y Sistemas Computacionales", "https://www.linkedin.com/in/antonio-labra-0ab639119/", "https://github.com/its7ony", R.drawable.antonio))
-        persons.add(Person("Astrid Guerrero Niño", "CDMX, Mexico", "Ing. Computación","https://www.linkedin.com/in/astrid-g-bb14171bb/", "https://github.com/asguen3", R.drawable.astrid))
-        persons.add(Person("Oscar Chávez Rosales", "CDMX", "Ing. Tecnologías de la Información y Comunicaciones", "https://www.linkedin.com/in/oscar-ch%C3%A1vez-rosales-b131b31b1/", "https://github.com/Oscar-CR", R.drawable.oscar))
-        persons.add(Person("Regina Bernal Galicia", "CDMX, Mexico", "Lic. Diseño y Comunicación Visual", "https://www.linkedin.com/in/regina-bernal-182187222", "https://github.com/Reginaowo", R.drawable.regina))
+        persons.add(Person("Antonio", "GTO", "Ing. Software y Sistemas Computacionales", "https://www.linkedin.com/in/antonio-labra-0ab639119/", "https://github.com/its7ony"))
+        persons.add(Person("Astrid", "CDMX", "Ing. Computación","https://www.linkedin.com/in/astrid-g-bb14171bb/", "https://github.com/asguen3"))
+        persons.add(Person("Oscar", "CDMX", "Ing. TI y Comunicaciones", "https://www.linkedin.com/in/oscar-ch%C3%A1vez-rosales-b131b31b1/", "https://github.com/Oscar-CR"))
+        persons.add(Person("Regina", "CDMX", "Lic. Diseño y Comunicación Visual", "https://www.linkedin.com/in/regina-bernal-182187222", "https://github.com/Reginaowo"))
 
         return persons
     }
